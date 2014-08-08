@@ -4,6 +4,9 @@ Book, Article, Magazine Reading Tracking App
 
 #Technologies Used
 
+* Google Books
+* iOS 7
+ * Core Data
 * TODO
 
 #Design
@@ -17,7 +20,7 @@ Book, Article, Magazine Reading Tracking App
 * Reading logs can be deleted from the table view after confirming an alert of some kind (swipe left to delete only)
 * The table view should be searchable (search bar above table view)
  * Reading logs should be searchable against title, author, tags, notes and any details contained within the actual reading item associated with the log
-* New logs can be entered via a "+" button in the right bar button. This will segue modally to the Log Edit View.
+* New logs can be entered via a "+" button in the right bar button or a "<start>" button in the [left|right] bar button. The "+" button will segue modally to the Log Creation View, and the "<start>" button will segue modally to the Log Start View.
 * The navigation bar will display "Reading Log" as the title.
 * Existing logs can be selected by tapping on the row. This will push segue to the Log Detail View.
 * The table view of reading logs can be sorted in many different ways, all asc/desc toggleable: date (default), length of log, by reading item title, by reading item author, page count of log, type of log (book, article, e-book, magazine, etc.)
@@ -26,13 +29,35 @@ Book, Article, Magazine Reading Tracking App
 * Stretch features:
  * There should be a way to get from a reading log item cell to the reading item itself (info disclosure or a swipe left item besides delete?)
 
-###Log Edit View
-*
+###Reading Log
+* Many-to-One relationship with ReadingCollection Items (books, ebooks, magazines, newspapers, articles from websites, etc)
+* Date and Time of Start
+* Date and Time of End
+
+###Reading Collection Item
+* Types:
+ * Book
+ * EBook
+ * Newspaper
+ * Magazine
+ * Periodical
+ * Website
+ * Article from [Newspaper|Magazine|Periodical|Website] 
+* One-to-Many relationship with reading log
+
+###Log Creation View
+* The log creation view will allow the user to enter the various details to create the complete reading log manually.
+* 
 
 ###Log Detail View
-*
+* The log detail view will display the various attributes of each reading log.
+* 
 
-###Collection View
-*
+###Reading Collection View
+*Table of reading collection items (books, ebooks, articles, magazines)
 
-###Collection Detail View
+###Reading Collection Detail View
+
+
+Recommended reading based on your reading habits
+Reading stats in chart form
