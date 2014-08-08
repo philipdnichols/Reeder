@@ -1,10 +1,10 @@
 #Reeder
 
-Book, Article, Magazine Reading Tracking App
+Book, Article, Magazine, etc. Reading Tracking App
 
 #Technologies Used
 
-* Google Books
+* Google Books API
 * iOS 7
  * Core Data
 * TODO
@@ -26,6 +26,7 @@ Book, Article, Magazine Reading Tracking App
 * The table view of reading logs can be sorted in many different ways, all asc/desc toggleable: date (default), length of log, by reading item title, by reading item author, page count of log, type of log (book, article, e-book, magazine, etc.)
 * Table view sections should be created based on the table sorting currently applied. For example, if you are sorting by reading item title, each section should be the title of the reading item of the logs.
 * The reading log that is currently active will always appear at the top of the table.
+* There should be a log quickstart button of some kind that will modally display a list of the most recent logs for the user to choose from that will then use that log as a baseline to start the log. Possibly just asking the user for a starting page, or something like that.
 * Stretch features:
  * There should be a way to get from a reading log item cell to the reading item itself (info disclosure or a swipe left item besides delete?)
 
@@ -33,6 +34,15 @@ Book, Article, Magazine Reading Tracking App
 * Many-to-One relationship with ReadingCollection Items (books, ebooks, magazines, newspapers, articles from websites, etc)
 * Date and Time of Start
 * Date and Time of End
+* Length of Log (derived from start and end)
+* Notes
+* Page Start (or % for Ebooks?)
+* Page End
+* Number of pages (% of item) (derived from page start and end)
+* Chapters Read
+* Chapters Partially Read
+* Tags
+* Rating (1-5 stars)
 
 ###Reading Collection Item
 * Types:
@@ -43,21 +53,47 @@ Book, Article, Magazine Reading Tracking App
  * Periodical
  * Website
  * Article from [Newspaper|Magazine|Periodical|Website] 
-* One-to-Many relationship with reading log
+* One-to-Many relationship with reading logs
+* Title
+* Website (if applicable)
+* Published Date (suited to the type)
+* Publisher
+* Photo (if applicable, and suited to the type) (if entered from a web url, should store the url and /maybe/ cache.)
+* Photo Thumbnail (definitely save/cache this)
+* Page count (if applicable, and suited to the type)
+* Tags
+* Notes
+* Date Added to Collection
+* Rating (1-5 stars)
+* Have a Subscription? (if applicable)
 
 ###Log Creation View
 * The log creation view will allow the user to enter the various details to create the complete reading log manually.
-* 
+ * Start Date and Time
+ * End Date and Time
+ * Ability to choose a Collection Item or Create a New one (will modally display the Reading Collection Item Creation View - see below)
+ * Notes
+ * Tags
+ * Page Start
+ * Page End
+
+##Log Start View
+* The log start view will allow the user to enter a limited amount of info to just get the log started, so the user can start reading and come back later to finish the log.
 
 ###Log Detail View
-* The log detail view will display the various attributes of each reading log.
-* 
+* The log detail view will display all the various attributes of each reading log.
+* The user will be able to edit every detail.
 
 ###Reading Collection View
 *Table of reading collection items (books, ebooks, articles, magazines)
 
-###Reading Collection Detail View
+###Reading Collection Item Creation View
+* The reading collection item
 
+###Reading Collection Item Detail View
+* The reading collection item
 
-Recommended reading based on your reading habits
-Reading stats in chart form
+###Additional Views and Features (Stretch Goals?)
+* Recommended reading based on your reading habits
+* Reading stats in chart form
+* Goals Setting and Tracking
