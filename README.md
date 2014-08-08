@@ -79,7 +79,7 @@ Book, Article, Magazine, etc. Reading Tracking App
  * Page Start
  * Page End
 
-##Log Start View
+###Log Start View
 * The log start view will allow the user to enter a limited amount of info to just get the log started, so the user can start reading and come back later to finish the log.
  * Reading Collection item to log on and the page start number. That should really be it.
 
