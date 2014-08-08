@@ -27,6 +27,8 @@ Book, Article, Magazine, etc. Reading Tracking App
 * Table view sections should be created based on the table sorting currently applied. For example, if you are sorting by reading item title, each section should be the title of the reading item of the logs.
 * The reading log that is currently active will always appear at the top of the table.
 * There should be a log quickstart button of some kind that will modally display a list of the most recent logs for the user to choose from that will then use that log as a baseline to start the log. Possibly just asking the user for a starting page, or something like that.
+* There should be a quick way to mark the current log as /COMPLETED/
+* The log quickstart/<start> button should be disabled if a log is already outstanding.
 * Stretch features:
  * There should be a way to get from a reading log item cell to the reading item itself (info disclosure or a swipe left item besides delete?)
 
@@ -79,21 +81,29 @@ Book, Article, Magazine, etc. Reading Tracking App
 
 ##Log Start View
 * The log start view will allow the user to enter a limited amount of info to just get the log started, so the user can start reading and come back later to finish the log.
+ * Reading Collection item to log on and the page start number. That should really be it.
 
 ###Log Detail View
 * The log detail view will display all the various attributes of each reading log.
 * The user will be able to edit every detail.
 
 ###Reading Collection View
-*Table of reading collection items (books, ebooks, articles, magazines)
+* Table of reading collection items (books, ebooks, articles, magazines)
+* Many features present on the reading log table will carry over to this table view.
+* Deleting a collection item will have ramifications on deleting all the associated log entries as well. The user should be informed of the number to be deleted, and the user should have to confirm twice the delete.
 
 ###Reading Collection Item Creation View
-* The reading collection item
+* The reading collection item creation view will allow the user to enter the varfious details to create the collection item manually.
 
 ###Reading Collection Item Detail View
-* The reading collection item
+* The reading collection item detail view will display all the various attributes of each collection item.
+* The user will be able to edit every detail.
 
 ###Additional Views and Features (Stretch Goals?)
+* Collection Item detail generation via scan (stretch) of isbn bar code, or entering it manually (good start), or searching via text/keywords/tags, etc.
+ * Will use combination of Google Books, OpenLibrary and possibly other web APIs to search for info and images.
 * Recommended reading based on your reading habits
 * Reading stats in chart form
 * Goals Setting and Tracking
+* Friends/Friend Feed and Global Tracking and Stats (way stretch :) )
+* Ability to read/create reviews/discussions for Collection Items.
