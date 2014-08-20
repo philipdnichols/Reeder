@@ -15,4 +15,7 @@
     #import <Foundation/Foundation.h>
 
     #import <CocoaLumberjack/CocoaLumberjack.h>
+
+    #define MR_LOGGING_ENABLED 1
+    #import "MagicalRecord/CoreData+MagicalRecord.h"
 #endif
