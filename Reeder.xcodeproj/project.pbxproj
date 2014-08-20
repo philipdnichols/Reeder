@@ -6,7 +6,47 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		B19B652719A52F2400EDEFFA /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B19B652819A52F2400EDEFFA /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				B19B652B19A52F3000EDEFFA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		514280F4A77A468BB22C95A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65955AF44FFD48B0A51F2D58 /* libPods.a */; };
+		B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */; };
+		B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */; };
+		B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */; };
+		B19B653A19A52F5E00EDEFFA /* _ReadingLogTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B653119A52F5E00EDEFFA /* _ReadingLogTag.m */; };
+		B19B653B19A52F5E00EDEFFA /* ReadingCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B653319A52F5E00EDEFFA /* ReadingCollectionItem.m */; };
+		B19B653C19A52F5E00EDEFFA /* ReadingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B653519A52F5E00EDEFFA /* ReadingLog.m */; };
+		B19B653D19A52F5E00EDEFFA /* ReadingLogTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B653719A52F5E00EDEFFA /* ReadingLogTag.m */; };
+		B19B654419A530BE00EDEFFA /* _ReadingCollectionItemTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654119A530BE00EDEFFA /* _ReadingCollectionItemTag.m */; };
+		B19B654519A530BE00EDEFFA /* ReadingCollectionItemTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654319A530BE00EDEFFA /* ReadingCollectionItemTag.m */; };
+		B19B655419A535AA00EDEFFA /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654719A535AA00EDEFFA /* Author.m */; };
+		B19B655519A535AA00EDEFFA /* AuthorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654919A535AA00EDEFFA /* AuthorTag.m */; };
+		B19B655619A535AA00EDEFFA /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654B19A535AA00EDEFFA /* Book.m */; };
+		B19B655719A535AA00EDEFFA /* BookLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654D19A535AA00EDEFFA /* BookLog.m */; };
+		B19B655819A535AA00EDEFFA /* EBook.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B654F19A535AA00EDEFFA /* EBook.m */; };
+		B19B655919A535AA00EDEFFA /* EBookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B655119A535AA00EDEFFA /* EBookChapter.m */; };
+		B19B655A19A535AA00EDEFFA /* EBookLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B655319A535AA00EDEFFA /* EBookLog.m */; };
+		B19B656919A535B700EDEFFA /* _Author.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B655C19A535B700EDEFFA /* _Author.m */; };
+		B19B656A19A535B700EDEFFA /* _AuthorTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B655E19A535B700EDEFFA /* _AuthorTag.m */; };
+		B19B656B19A535B700EDEFFA /* _Book.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656019A535B700EDEFFA /* _Book.m */; };
+		B19B656C19A535B700EDEFFA /* _BookLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656219A535B700EDEFFA /* _BookLog.m */; };
+		B19B656D19A535B700EDEFFA /* _EBook.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656419A535B700EDEFFA /* _EBook.m */; };
+		B19B656E19A535B700EDEFFA /* _EBookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656619A535B700EDEFFA /* _EBookChapter.m */; };
+		B19B656F19A535B700EDEFFA /* _EBookLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656819A535B700EDEFFA /* _EBookLog.m */; };
+		B19B657219A5368D00EDEFFA /* ReadingLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657119A5368D00EDEFFA /* ReadingLogTableViewController.m */; };
+		B19B657719A538D500EDEFFA /* CollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657619A538D500EDEFFA /* CollectionTableViewController.m */; };
 		B1ED5BB319941EFA001FF3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB219941EFA001FF3E4 /* Foundation.framework */; };
 		B1ED5BB519941EFA001FF3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */; };
 		B1ED5BB719941EFA001FF3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB619941EFA001FF3E4 /* UIKit.framework */; };
@@ -15,7 +55,6 @@
 		B1ED5BC319941EFA001FF3E4 /* ReederAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ED5BC219941EFA001FF3E4 /* ReederAppDelegate.m */; };
 		B1ED5BC619941EFA001FF3E4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1ED5BC419941EFA001FF3E4 /* Main_iPhone.storyboard */; };
 		B1ED5BC919941EFA001FF3E4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1ED5BC719941EFA001FF3E4 /* Main_iPad.storyboard */; };
-		B1ED5BCC19941EFA001FF3E4 /* ReederViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ED5BCB19941EFA001FF3E4 /* ReederViewController.m */; };
 		B1ED5BCE19941EFA001FF3E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1ED5BCD19941EFA001FF3E4 /* Images.xcassets */; };
 		B1ED5BD519941EFA001FF3E4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BD419941EFA001FF3E4 /* XCTest.framework */; };
 		B1ED5BD619941EFA001FF3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB219941EFA001FF3E4 /* Foundation.framework */; };
@@ -35,6 +74,57 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052CE53FE93E4B6C96C43EC2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		65955AF44FFD48B0A51F2D58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reeder.xcdatamodel; sourceTree = "<group>"; };
+		B19B652C19A52F5E00EDEFFA /* _ReadingCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingCollectionItem.h; sourceTree = "<group>"; };
+		B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingCollectionItem.m; sourceTree = "<group>"; };
+		B19B652E19A52F5E00EDEFFA /* _ReadingLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingLog.h; sourceTree = "<group>"; };
+		B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingLog.m; sourceTree = "<group>"; };
+		B19B653019A52F5E00EDEFFA /* _ReadingLogTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingLogTag.h; sourceTree = "<group>"; };
+		B19B653119A52F5E00EDEFFA /* _ReadingLogTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingLogTag.m; sourceTree = "<group>"; };
+		B19B653219A52F5E00EDEFFA /* ReadingCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItem.h; sourceTree = "<group>"; };
+		B19B653319A52F5E00EDEFFA /* ReadingCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItem.m; sourceTree = "<group>"; };
+		B19B653419A52F5E00EDEFFA /* ReadingLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingLog.h; sourceTree = "<group>"; };
+		B19B653519A52F5E00EDEFFA /* ReadingLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingLog.m; sourceTree = "<group>"; };
+		B19B653619A52F5E00EDEFFA /* ReadingLogTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingLogTag.h; sourceTree = "<group>"; };
+		B19B653719A52F5E00EDEFFA /* ReadingLogTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingLogTag.m; sourceTree = "<group>"; };
+		B19B654019A530BE00EDEFFA /* _ReadingCollectionItemTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingCollectionItemTag.h; sourceTree = "<group>"; };
+		B19B654119A530BE00EDEFFA /* _ReadingCollectionItemTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingCollectionItemTag.m; sourceTree = "<group>"; };
+		B19B654219A530BE00EDEFFA /* ReadingCollectionItemTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemTag.h; sourceTree = "<group>"; };
+		B19B654319A530BE00EDEFFA /* ReadingCollectionItemTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemTag.m; sourceTree = "<group>"; };
+		B19B654619A535AA00EDEFFA /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
+		B19B654719A535AA00EDEFFA /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		B19B654819A535AA00EDEFFA /* AuthorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorTag.h; sourceTree = "<group>"; };
+		B19B654919A535AA00EDEFFA /* AuthorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorTag.m; sourceTree = "<group>"; };
+		B19B654A19A535AA00EDEFFA /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		B19B654B19A535AA00EDEFFA /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		B19B654C19A535AA00EDEFFA /* BookLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookLog.h; sourceTree = "<group>"; };
+		B19B654D19A535AA00EDEFFA /* BookLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookLog.m; sourceTree = "<group>"; };
+		B19B654E19A535AA00EDEFFA /* EBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBook.h; sourceTree = "<group>"; };
+		B19B654F19A535AA00EDEFFA /* EBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBook.m; sourceTree = "<group>"; };
+		B19B655019A535AA00EDEFFA /* EBookChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBookChapter.h; sourceTree = "<group>"; };
+		B19B655119A535AA00EDEFFA /* EBookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBookChapter.m; sourceTree = "<group>"; };
+		B19B655219A535AA00EDEFFA /* EBookLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBookLog.h; sourceTree = "<group>"; };
+		B19B655319A535AA00EDEFFA /* EBookLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBookLog.m; sourceTree = "<group>"; };
+		B19B655B19A535B700EDEFFA /* _Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Author.h; sourceTree = "<group>"; };
+		B19B655C19A535B700EDEFFA /* _Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Author.m; sourceTree = "<group>"; };
+		B19B655D19A535B700EDEFFA /* _AuthorTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _AuthorTag.h; sourceTree = "<group>"; };
+		B19B655E19A535B700EDEFFA /* _AuthorTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _AuthorTag.m; sourceTree = "<group>"; };
+		B19B655F19A535B700EDEFFA /* _Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Book.h; sourceTree = "<group>"; };
+		B19B656019A535B700EDEFFA /* _Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Book.m; sourceTree = "<group>"; };
+		B19B656119A535B700EDEFFA /* _BookLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _BookLog.h; sourceTree = "<group>"; };
+		B19B656219A535B700EDEFFA /* _BookLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _BookLog.m; sourceTree = "<group>"; };
+		B19B656319A535B700EDEFFA /* _EBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EBook.h; sourceTree = "<group>"; };
+		B19B656419A535B700EDEFFA /* _EBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EBook.m; sourceTree = "<group>"; };
+		B19B656519A535B700EDEFFA /* _EBookChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EBookChapter.h; sourceTree = "<group>"; };
+		B19B656619A535B700EDEFFA /* _EBookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EBookChapter.m; sourceTree = "<group>"; };
+		B19B656719A535B700EDEFFA /* _EBookLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EBookLog.h; sourceTree = "<group>"; };
+		B19B656819A535B700EDEFFA /* _EBookLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EBookLog.m; sourceTree = "<group>"; };
+		B19B657019A5368D00EDEFFA /* ReadingLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingLogTableViewController.h; sourceTree = "<group>"; };
+		B19B657119A5368D00EDEFFA /* ReadingLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingLogTableViewController.m; sourceTree = "<group>"; };
+		B19B657519A538D500EDEFFA /* CollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewController.h; sourceTree = "<group>"; };
+		B19B657619A538D500EDEFFA /* CollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewController.m; sourceTree = "<group>"; };
 		B1ED5BAF19941EFA001FF3E4 /* Reeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1ED5BB219941EFA001FF3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,8 +137,6 @@
 		B1ED5BC219941EFA001FF3E4 /* ReederAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReederAppDelegate.m; sourceTree = "<group>"; };
 		B1ED5BC519941EFA001FF3E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B1ED5BC819941EFA001FF3E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B1ED5BCA19941EFA001FF3E4 /* ReederViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReederViewController.h; sourceTree = "<group>"; };
-		B1ED5BCB19941EFA001FF3E4 /* ReederViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReederViewController.m; sourceTree = "<group>"; };
 		B1ED5BCD19941EFA001FF3E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B1ED5BD319941EFA001FF3E4 /* ReederTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReederTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1ED5BD419941EFA001FF3E4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,6 +153,7 @@
 				B1ED5BB519941EFA001FF3E4 /* CoreGraphics.framework in Frameworks */,
 				B1ED5BB719941EFA001FF3E4 /* UIKit.framework in Frameworks */,
 				B1ED5BB319941EFA001FF3E4 /* Foundation.framework in Frameworks */,
+				514280F4A77A468BB22C95A9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +170,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B19B651F19A52D8000EDEFFA /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B19B653E19A52F6400EDEFFA /* Model */,
+				B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		B19B653E19A52F6400EDEFFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B19B653F19A52F7000EDEFFA /* Generated */,
+				B19B654619A535AA00EDEFFA /* Author.h */,
+				B19B654719A535AA00EDEFFA /* Author.m */,
+				B19B654819A535AA00EDEFFA /* AuthorTag.h */,
+				B19B654919A535AA00EDEFFA /* AuthorTag.m */,
+				B19B654A19A535AA00EDEFFA /* Book.h */,
+				B19B654B19A535AA00EDEFFA /* Book.m */,
+				B19B654C19A535AA00EDEFFA /* BookLog.h */,
+				B19B654D19A535AA00EDEFFA /* BookLog.m */,
+				B19B654E19A535AA00EDEFFA /* EBook.h */,
+				B19B654F19A535AA00EDEFFA /* EBook.m */,
+				B19B655019A535AA00EDEFFA /* EBookChapter.h */,
+				B19B655119A535AA00EDEFFA /* EBookChapter.m */,
+				B19B655219A535AA00EDEFFA /* EBookLog.h */,
+				B19B655319A535AA00EDEFFA /* EBookLog.m */,
+				B19B653219A52F5E00EDEFFA /* ReadingCollectionItem.h */,
+				B19B653319A52F5E00EDEFFA /* ReadingCollectionItem.m */,
+				B19B653419A52F5E00EDEFFA /* ReadingLog.h */,
+				B19B653519A52F5E00EDEFFA /* ReadingLog.m */,
+				B19B653619A52F5E00EDEFFA /* ReadingLogTag.h */,
+				B19B653719A52F5E00EDEFFA /* ReadingLogTag.m */,
+				B19B654219A530BE00EDEFFA /* ReadingCollectionItemTag.h */,
+				B19B654319A530BE00EDEFFA /* ReadingCollectionItemTag.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B19B653F19A52F7000EDEFFA /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				B19B655B19A535B700EDEFFA /* _Author.h */,
+				B19B655C19A535B700EDEFFA /* _Author.m */,
+				B19B655D19A535B700EDEFFA /* _AuthorTag.h */,
+				B19B655E19A535B700EDEFFA /* _AuthorTag.m */,
+				B19B655F19A535B700EDEFFA /* _Book.h */,
+				B19B656019A535B700EDEFFA /* _Book.m */,
+				B19B656119A535B700EDEFFA /* _BookLog.h */,
+				B19B656219A535B700EDEFFA /* _BookLog.m */,
+				B19B656319A535B700EDEFFA /* _EBook.h */,
+				B19B656419A535B700EDEFFA /* _EBook.m */,
+				B19B656519A535B700EDEFFA /* _EBookChapter.h */,
+				B19B656619A535B700EDEFFA /* _EBookChapter.m */,
+				B19B656719A535B700EDEFFA /* _EBookLog.h */,
+				B19B656819A535B700EDEFFA /* _EBookLog.m */,
+				B19B654019A530BE00EDEFFA /* _ReadingCollectionItemTag.h */,
+				B19B654119A530BE00EDEFFA /* _ReadingCollectionItemTag.m */,
+				B19B652C19A52F5E00EDEFFA /* _ReadingCollectionItem.h */,
+				B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */,
+				B19B652E19A52F5E00EDEFFA /* _ReadingLog.h */,
+				B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */,
+				B19B653019A52F5E00EDEFFA /* _ReadingLogTag.h */,
+				B19B653119A52F5E00EDEFFA /* _ReadingLogTag.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		B19B657319A538B900EDEFFA /* Reading Log */ = {
+			isa = PBXGroup;
+			children = (
+				B19B657019A5368D00EDEFFA /* ReadingLogTableViewController.h */,
+				B19B657119A5368D00EDEFFA /* ReadingLogTableViewController.m */,
+			);
+			name = "Reading Log";
+			sourceTree = "<group>";
+		};
+		B19B657419A538C300EDEFFA /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				B19B657519A538D500EDEFFA /* CollectionTableViewController.h */,
+				B19B657619A538D500EDEFFA /* CollectionTableViewController.m */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
 		B1ED5BA619941EFA001FF3E4 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +263,7 @@
 				B1ED5BDA19941EFA001FF3E4 /* ReederTests */,
 				B1ED5BB119941EFA001FF3E4 /* Frameworks */,
 				B1ED5BB019941EFA001FF3E4 /* Products */,
+				052CE53FE93E4B6C96C43EC2 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +283,7 @@
 				B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */,
 				B1ED5BB619941EFA001FF3E4 /* UIKit.framework */,
 				B1ED5BD419941EFA001FF3E4 /* XCTest.framework */,
+				65955AF44FFD48B0A51F2D58 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +293,7 @@
 			children = (
 				B1ED5BC119941EFA001FF3E4 /* ReederAppDelegate.h */,
 				B1ED5BC219941EFA001FF3E4 /* ReederAppDelegate.m */,
+				B19B651F19A52D8000EDEFFA /* Core Data */,
 				B1ED5BEA19941F05001FF3E4 /* View */,
 				B1ED5BEB19941F0D001FF3E4 /* Controller */,
 				B1ED5BCD19941EFA001FF3E4 /* Images.xcassets */,
@@ -165,8 +343,8 @@
 		B1ED5BEB19941F0D001FF3E4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B1ED5BCA19941EFA001FF3E4 /* ReederViewController.h */,
-				B1ED5BCB19941EFA001FF3E4 /* ReederViewController.m */,
+				B19B657319A538B900EDEFFA /* Reading Log */,
+				B19B657419A538C300EDEFFA /* Collection */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -178,9 +356,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1ED5BE419941EFA001FF3E4 /* Build configuration list for PBXNativeTarget "Reeder" */;
 			buildPhases = (
+				0469B15CD20042E0805D5AC9 /* Check Pods Manifest.lock */,
 				B1ED5BAB19941EFA001FF3E4 /* Sources */,
 				B1ED5BAC19941EFA001FF3E4 /* Frameworks */,
 				B1ED5BAD19941EFA001FF3E4 /* Resources */,
+				02100E242E094DA382964B75 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +419,7 @@
 			targets = (
 				B1ED5BAE19941EFA001FF3E4 /* Reeder */,
 				B1ED5BD219941EFA001FF3E4 /* ReederTests */,
+				B19B652719A52F2400EDEFFA /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -265,14 +446,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02100E242E094DA382964B75 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0469B15CD20042E0805D5AC9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B19B652B19A52F3000EDEFFA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]; then\necho \"Running Mogenerator\"\nmogenerator -m Reeder/Reeder.xcdatamodeld/Reeder.xcdatamodel -O Reeder --template-var arc=true\necho \"Finished Mogenerator\"\nelse\necho \"Skipping Mogenerator\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1ED5BAB19941EFA001FF3E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19B653B19A52F5E00EDEFFA /* ReadingCollectionItem.m in Sources */,
+				B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */,
+				B19B655819A535AA00EDEFFA /* EBook.m in Sources */,
+				B19B655419A535AA00EDEFFA /* Author.m in Sources */,
+				B19B654519A530BE00EDEFFA /* ReadingCollectionItemTag.m in Sources */,
+				B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */,
+				B19B656B19A535B700EDEFFA /* _Book.m in Sources */,
+				B19B657219A5368D00EDEFFA /* ReadingLogTableViewController.m in Sources */,
+				B19B656C19A535B700EDEFFA /* _BookLog.m in Sources */,
+				B19B653C19A52F5E00EDEFFA /* ReadingLog.m in Sources */,
+				B19B654419A530BE00EDEFFA /* _ReadingCollectionItemTag.m in Sources */,
+				B19B653A19A52F5E00EDEFFA /* _ReadingLogTag.m in Sources */,
+				B19B656A19A535B700EDEFFA /* _AuthorTag.m in Sources */,
+				B19B655519A535AA00EDEFFA /* AuthorTag.m in Sources */,
+				B19B655919A535AA00EDEFFA /* EBookChapter.m in Sources */,
+				B19B655719A535AA00EDEFFA /* BookLog.m in Sources */,
 				B1ED5BBF19941EFA001FF3E4 /* main.m in Sources */,
-				B1ED5BCC19941EFA001FF3E4 /* ReederViewController.m in Sources */,
+				B19B656E19A535B700EDEFFA /* _EBookChapter.m in Sources */,
 				B1ED5BC319941EFA001FF3E4 /* ReederAppDelegate.m in Sources */,
+				B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */,
+				B19B655A19A535AA00EDEFFA /* EBookLog.m in Sources */,
+				B19B657719A538D500EDEFFA /* CollectionTableViewController.m in Sources */,
+				B19B655619A535AA00EDEFFA /* Book.m in Sources */,
+				B19B656D19A535B700EDEFFA /* _EBook.m in Sources */,
+				B19B656F19A535B700EDEFFA /* _EBookLog.m in Sources */,
+				B19B653D19A52F5E00EDEFFA /* ReadingLogTag.m in Sources */,
+				B19B656919A535B700EDEFFA /* _Author.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +581,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B19B652919A52F2400EDEFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B19B652A19A52F2400EDEFFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		B1ED5BE219941EFA001FF3E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -404,6 +669,7 @@
 		};
 		B1ED5BE519941EFA001FF3E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052CE53FE93E4B6C96C43EC2 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -411,12 +677,14 @@
 				GCC_PREFIX_HEADER = "Reeder/Reeder-Prefix.pch";
 				INFOPLIST_FILE = "Reeder/Reeder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		B1ED5BE619941EFA001FF3E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 052CE53FE93E4B6C96C43EC2 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -424,6 +692,7 @@
 				GCC_PREFIX_HEADER = "Reeder/Reeder-Prefix.pch";
 				INFOPLIST_FILE = "Reeder/Reeder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -471,6 +740,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B19B652819A52F2400EDEFFA /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B19B652919A52F2400EDEFFA /* Debug */,
+				B19B652A19A52F2400EDEFFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B1ED5BAA19941EFA001FF3E4 /* Build configuration list for PBXProject "Reeder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -487,6 +764,7 @@
 				B1ED5BE619941EFA001FF3E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1ED5BE719941EFA001FF3E4 /* Build configuration list for PBXNativeTarget "ReederTests" */ = {
 			isa = XCConfigurationList;
@@ -495,8 +773,22 @@
 				B1ED5BE919941EFA001FF3E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */,
+			);
+			currentVersion = B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */;
+			path = Reeder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B1ED5BA719941EFA001FF3E4 /* Project object */;
 }
