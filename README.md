@@ -107,3 +107,7 @@ Book, Article, Magazine, etc. Reading Tracking App
 * Goals Setting and Tracking
 * Friends/Friend Feed and Global Tracking and Stats (way stretch :) )
 * Ability to read/create reviews/discussions for Collection Items.
+
+#TODO
+
+1. Credit http://icons8.com/
