@@ -76,6 +76,7 @@
 		B19B65D419A53B9100EDEFFA /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65D119A53B9100EDEFFA /* ArrayDataSource.m */; };
 		B19B65D519A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65D319A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m */; };
 		B19B65D819A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65D719A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m */; };
+		B19B65DD19A563B500EDEFFA /* UIImage+IO.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65DC19A563B500EDEFFA /* UIImage+IO.m */; };
 		B1ED5BB319941EFA001FF3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB219941EFA001FF3E4 /* Foundation.framework */; };
 		B1ED5BB519941EFA001FF3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */; };
 		B1ED5BB719941EFA001FF3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB619941EFA001FF3E4 /* UIKit.framework */; };
@@ -216,6 +217,8 @@
 		B19B65D319A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsControllerDataSource.m; sourceTree = "<group>"; };
 		B19B65D619A53B9F00EDEFFA /* NSFetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFetchedResultsTableViewController.h; sourceTree = "<group>"; };
 		B19B65D719A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsTableViewController.m; sourceTree = "<group>"; };
+		B19B65DB19A563B500EDEFFA /* UIImage+IO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IO.h"; sourceTree = "<group>"; };
+		B19B65DC19A563B500EDEFFA /* UIImage+IO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IO.m"; sourceTree = "<group>"; };
 		B1ED5BAF19941EFA001FF3E4 /* Reeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1ED5BB219941EFA001FF3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -470,6 +473,15 @@
 			name = "Data Sources";
 			sourceTree = "<group>";
 		};
+		B19B65DE19A563BA00EDEFFA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B19B65DB19A563B500EDEFFA /* UIImage+IO.h */,
+				B19B65DC19A563B500EDEFFA /* UIImage+IO.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		B1ED5BA619941EFA001FF3E4 = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +519,7 @@
 			children = (
 				B1ED5BC119941EFA001FF3E4 /* ReederAppDelegate.h */,
 				B1ED5BC219941EFA001FF3E4 /* ReederAppDelegate.m */,
+				B19B65DE19A563BA00EDEFFA /* Categories */,
 				B19B651F19A52D8000EDEFFA /* Core Data */,
 				B1ED5BEA19941F05001FF3E4 /* View */,
 				B1ED5BEB19941F0D001FF3E4 /* Controller */,
@@ -757,6 +770,7 @@
 				B19B65C819A53B0C00EDEFFA /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				B19B65B819A53B0C00EDEFFA /* NSEntityDescription+MagicalDataImport.m in Sources */,
 				B19B657719A538D500EDEFFA /* CollectionTableViewController.m in Sources */,
+				B19B65DD19A563B500EDEFFA /* UIImage+IO.m in Sources */,
 				B19B655619A535AA00EDEFFA /* Book.m in Sources */,
 				B19B65BC19A53B0C00EDEFFA /* NSString+MagicalDataImport.m in Sources */,
 				B19B656D19A535B700EDEFFA /* _EBook.m in Sources */,

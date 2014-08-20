@@ -15,7 +15,14 @@
     #import <Foundation/Foundation.h>
 
     #import <CocoaLumberjack/CocoaLumberjack.h>
+    #import <TSMessages/TSMessage.h>
 
     #define MR_LOGGING_ENABLED 1
     #import "MagicalRecord/CoreData+MagicalRecord.h"
+#endif
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+#else
+static const int ddLogLevel = LOG_LEVEL_ERROR;
 #endif

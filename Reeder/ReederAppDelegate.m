@@ -17,15 +17,18 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
-    //    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor]
-    //                                     backgroundColor:nil
-    //                                              forFlag:LOG_FLAG_INFO];
+//    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor]
+//                                     backgroundColor:nil
+//                                              forFlag:LOG_FLAG_INFO];
     
     DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
     [fileLogger setMaximumFileSize:(1024 * 1024)];
     [fileLogger setRollingFrequency:(3600.0 * 24.0)];
     [[fileLogger logFileManager] setMaximumNumberOfLogFiles:7];
     [DDLog addLogger:fileLogger];
+    
+    // Core Data Stack:
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Reeder"];
     
     // Global Appearance:
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;

@@ -1,15 +1,28 @@
 #import "ReadingCollectionItem.h"
-
+#import "UIImage+IO.h"
 
 @interface ReadingCollectionItem ()
 
-// Private interface goes here.
-
 @end
-
 
 @implementation ReadingCollectionItem
 
-// Custom logic goes here.
+- (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure
+{
+    [self MR_deleteEntity];
+    
+    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.thumbnailImageFileURL]];
+    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.imageFileURL]];
+    
+    // TODO unlink things and delete logs and tags, etc associated with this collection item
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL succ, NSError *error) {
+        if (!error) {
+            success();
+        } else {
+            failure(error);
+        }
+    }];
+}
 
 @end

@@ -19,6 +19,8 @@
 
 #pragma mark - Properties
 
+// TODO add in some NO asserts to ensure that the correct things are overriden
+
 - (void)setFetchedRequest:(NSFetchRequest *)fetchedRequest
 {
     _fetchedRequest = fetchedRequest;
