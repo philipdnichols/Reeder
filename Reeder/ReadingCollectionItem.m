@@ -11,8 +11,8 @@
 {
     [self MR_deleteEntity];
     
-    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.thumbnailImageFileURL]];
-    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.imageFileURL]];
+//    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.thumbnailImageFileURL]];
+//    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.imageFileURL]];
     
     // TODO unlink things and delete logs and tags, etc associated with this collection item
     

@@ -68,7 +68,7 @@
 - (NSString *)cellIdentifier
 {
     // TODO hardcode this
-    return @"CollectionItemCell";
+    return @"ReadingCollectionItemCell";
 }
 
 - (FetchedResultsCellConfigureBlock)fetchedResultsConfigureBlock
@@ -113,6 +113,17 @@
         };
     }
     return _collectionItemCellDeleteBlock;
+}
+
+#pragma mark - IBActions
+
+- (IBAction)addButtonTapped {
+    ReadingCollectionItem *item = [ReadingCollectionItem MR_createEntity];
+    
+    item.title = @"Testing";
+    item.detail = @"Testing Detail";
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
 }
 
 @end

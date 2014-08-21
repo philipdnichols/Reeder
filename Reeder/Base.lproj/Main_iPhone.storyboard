@@ -91,7 +91,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Collection" id="po0-Sp-nOp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Sgd-y1-faK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Sgd-y1-faK">
+                            <connections>
+                                <action selector="addButtonTapped" destination="aw7-Hc-VhY" id="GJM-Gh-JHX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2r-rd-4e2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -123,7 +127,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="juC-kV-KxK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="xtx-Rg-Doq">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
