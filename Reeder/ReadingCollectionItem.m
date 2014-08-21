@@ -7,6 +7,17 @@
 
 @implementation ReadingCollectionItem
 
+- (void)saveWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure
+{
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL succ, NSError *error) {
+        if (!error) {
+            success();
+        } else {
+            failure(error);
+        }
+    }];
+}
+
 - (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure
 {
     [self MR_deleteEntity];

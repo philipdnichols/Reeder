@@ -6,12 +6,14 @@
 //  Copyright (c) 2014 Phil Nichols. All rights reserved.
 //
 
-#import "CollectionTableViewController.h"
+#import "ReadingCollectionItemsTableViewController.h"
 #import "ReadingCollectionItem.h"
 #import "Book.h"
 #import "EBook.h"
+#import "ReadingCollectionItemTypesTableViewController.h"
+#import "AddReadingCollectionItemFormViewController.h"
 
-@interface CollectionTableViewController ()
+@interface ReadingCollectionItemsTableViewController ()
 
 @property (strong, nonatomic) NSFetchRequest *request;
 @property (strong, nonatomic) NSString *groupKeyPath;
@@ -22,7 +24,7 @@
 
 @end
 
-@implementation CollectionTableViewController
+@implementation ReadingCollectionItemsTableViewController
 
 #pragma mark - Properties
 
@@ -154,20 +156,24 @@
 #pragma mark - IBActions
 
 - (IBAction)addButtonTapped {
-    SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:@"Add to Collection"];
+    // TODO: Actionsheet buttons don't have good visual responses
+    SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:nil];
     [actionSheet addButtonWithTitle:@"Add"
                                type:SIActionSheetButtonTypeDefault
                             handler:^(SIActionSheet *actionSheet) {
-                                Book *book = [Book MR_createEntity];
-                                
-                                book.title = @"Book Test";
-                                book.detail = @"Book Test";
-                                
-                                EBook *ebook = [EBook MR_createEntity];
-                                ebook.title = @"EBook Test";
-                                ebook.detail = @"EBook Test";
-                                
-                                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
+                                [self performSegueWithIdentifier:SelectReadingCollectionItemTypeSegueIdentifier sender:self];
+                            }];
+    
+    [actionSheet addButtonWithTitle:@"Search"
+                               type:SIActionSheetButtonTypeDefault
+                            handler:^(SIActionSheet *actionSheet) {
+                                // TODO:
+                            }];
+    
+    [actionSheet addButtonWithTitle:@"Scan Barcode"
+                               type:SIActionSheetButtonTypeDefault
+                            handler:^(SIActionSheet *actionSheet) {
+                                // TODO:
                             }];
      
      [actionSheet addButtonWithTitle:@"Cancel"
@@ -175,6 +181,66 @@
                              handler:nil];
     
     [actionSheet show];
+}
+
+#pragma mark - Navigation
+
+static NSString * const SelectReadingCollectionItemTypeSegueIdentifier = @"Select Reading Collection Item Type";
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self prepareViewController:segue.destinationViewController
+                       forSegue:segue.identifier
+                     fromSender:sender];
+}
+
+- (void)prepareViewController:(id)viewController forSegue:(NSString *)segueIdentifier fromSender:(id)sender
+{
+    NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *uiNavigationController = (UINavigationController *)viewController;
+        UIViewController *firstVC = [uiNavigationController.viewControllers firstObject];
+        if ([firstVC isKindOfClass:[ReadingCollectionItemTypesTableViewController class]]) {
+            if (![segueIdentifier length] || [segueIdentifier isEqualToString:SelectReadingCollectionItemTypeSegueIdentifier]) {
+                [self prepareReadingCollectionItemTypesTableViewController:(ReadingCollectionItemTypesTableViewController *)firstVC];
+            }
+        }
+    }
+}
+
+- (void)prepareReadingCollectionItemTypesTableViewController:(ReadingCollectionItemTypesTableViewController *)viewController
+{
+    viewController.readingCollectionItemTypes = @[@"Book", @"E-Book"];
+}
+
+#pragma mark - Unwinding
+
+- (IBAction)addedReadingCollectionItem:(UIStoryboardSegue *)segue
+{
+    if ([segue.identifier isEqualToString:ReadingCollectionItemAddedSegueIdentifier]) {
+        if ([segue.sourceViewController isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
+            [self unwindAddReadingCollectionItemFormViewController:segue.sourceViewController];
+        }
+    }
+}
+
+- (void)unwindAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController
+{
+    ReadingCollectionItem *addedReadingCollectionItem = viewController.addedReadingCollectionItem;
+    [addedReadingCollectionItem saveWithSuccess:^{
+        // All is well.
+    } failure:^(NSError *error) {
+        [TSMessage showNotificationInViewController:self
+                                              title:@"Error"
+                                           subtitle:[error localizedDescription]
+                                               type:TSMessageNotificationTypeError];
+        
+        DDLogError(@"There was an error adding a new Reading Collection Item: %@", [error localizedDescription]);
+    }];
 }
 
 @end

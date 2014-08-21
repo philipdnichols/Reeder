@@ -5,3 +5,4 @@ inhibit_all_warnings!
 pod "CocoaLumberjack"
 pod "TSMessages"
 pod "SIAlertView"
+pod "FXForms"

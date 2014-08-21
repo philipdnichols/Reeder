@@ -46,7 +46,7 @@
 		B19B656E19A535B700EDEFFA /* _EBookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656619A535B700EDEFFA /* _EBookChapter.m */; };
 		B19B656F19A535B700EDEFFA /* _EBookLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B656819A535B700EDEFFA /* _EBookLog.m */; };
 		B19B657219A5368D00EDEFFA /* ReadingLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657119A5368D00EDEFFA /* ReadingLogTableViewController.m */; };
-		B19B657719A538D500EDEFFA /* CollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657619A538D500EDEFFA /* CollectionTableViewController.m */; };
+		B19B657719A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657619A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m */; };
 		B19B65B619A53B0C00EDEFFA /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657C19A53B0C00EDEFFA /* MagicalImportFunctions.m */; };
 		B19B65B719A53B0C00EDEFFA /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B657E19A53B0C00EDEFFA /* NSAttributeDescription+MagicalDataImport.m */; };
 		B19B65B819A53B0C00EDEFFA /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B658019A53B0C00EDEFFA /* NSEntityDescription+MagicalDataImport.m */; };
@@ -81,6 +81,8 @@
 		B19B65E819A5866300EDEFFA /* SIActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65E219A5866300EDEFFA /* SIActionSheet.m */; };
 		B19B65E919A5866300EDEFFA /* SIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65E419A5866300EDEFFA /* SIPopoverBackgroundView.m */; };
 		B19B65EA19A5866300EDEFFA /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65E619A5866300EDEFFA /* UIWindow+SIUtils.m */; };
+		B19B65ED19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */; };
+		B19B65F019A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65EF19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m */; };
 		B1ED5BB319941EFA001FF3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB219941EFA001FF3E4 /* Foundation.framework */; };
 		B1ED5BB519941EFA001FF3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */; };
 		B1ED5BB719941EFA001FF3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB619941EFA001FF3E4 /* UIKit.framework */; };
@@ -157,8 +159,8 @@
 		B19B656819A535B700EDEFFA /* _EBookLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EBookLog.m; sourceTree = "<group>"; };
 		B19B657019A5368D00EDEFFA /* ReadingLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingLogTableViewController.h; sourceTree = "<group>"; };
 		B19B657119A5368D00EDEFFA /* ReadingLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingLogTableViewController.m; sourceTree = "<group>"; };
-		B19B657519A538D500EDEFFA /* CollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewController.h; sourceTree = "<group>"; };
-		B19B657619A538D500EDEFFA /* CollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewController.m; sourceTree = "<group>"; };
+		B19B657519A538D500EDEFFA /* ReadingCollectionItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemsTableViewController.h; sourceTree = "<group>"; };
+		B19B657619A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemsTableViewController.m; sourceTree = "<group>"; };
 		B19B657B19A53B0C00EDEFFA /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		B19B657C19A53B0C00EDEFFA /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		B19B657D19A53B0C00EDEFFA /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -230,6 +232,10 @@
 		B19B65E419A5866300EDEFFA /* SIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPopoverBackgroundView.m; sourceTree = "<group>"; };
 		B19B65E519A5866300EDEFFA /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
 		B19B65E619A5866300EDEFFA /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
+		B19B65EB19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemTypesTableViewController.h; sourceTree = "<group>"; };
+		B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemTypesTableViewController.m; sourceTree = "<group>"; };
+		B19B65EE19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReadingCollectionItemFormViewController.h; sourceTree = "<group>"; };
+		B19B65EF19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReadingCollectionItemFormViewController.m; sourceTree = "<group>"; };
 		B1ED5BAF19941EFA001FF3E4 /* Reeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1ED5BB219941EFA001FF3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -352,13 +358,16 @@
 			name = "Reading Log";
 			sourceTree = "<group>";
 		};
-		B19B657419A538C300EDEFFA /* Collection */ = {
+		B19B657419A538C300EDEFFA /* Reading Collection */ = {
 			isa = PBXGroup;
 			children = (
-				B19B657519A538D500EDEFFA /* CollectionTableViewController.h */,
-				B19B657619A538D500EDEFFA /* CollectionTableViewController.m */,
+				B19B65F119A59BCB00EDEFFA /* Forms */,
+				B19B657519A538D500EDEFFA /* ReadingCollectionItemsTableViewController.h */,
+				B19B657619A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m */,
+				B19B65EB19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.h */,
+				B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */,
 			);
-			name = Collection;
+			name = "Reading Collection";
 			sourceTree = "<group>";
 		};
 		B19B657819A53B0C00EDEFFA /* MagicalRecord */ = {
@@ -507,6 +516,15 @@
 			path = SIActionSheet;
 			sourceTree = "<group>";
 		};
+		B19B65F119A59BCB00EDEFFA /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				B19B65EE19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.h */,
+				B19B65EF19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
 		B1ED5BA619941EFA001FF3E4 = {
 			isa = PBXGroup;
 			children = (
@@ -600,7 +618,7 @@
 				B19B65D919A53BA800EDEFFA /* Abstract */,
 				B19B65DA19A53BAE00EDEFFA /* Data Sources */,
 				B19B657319A538B900EDEFFA /* Reading Log */,
-				B19B657419A538C300EDEFFA /* Collection */,
+				B19B657419A538C300EDEFFA /* Reading Collection */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -765,6 +783,7 @@
 				B19B65B919A53B0C00EDEFFA /* NSNumber+MagicalDataImport.m in Sources */,
 				B19B654519A530BE00EDEFFA /* ReadingCollectionItemTag.m in Sources */,
 				B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */,
+				B19B65ED19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m in Sources */,
 				B19B65C719A53B0C00EDEFFA /* NSPersistentStore+MagicalRecord.m in Sources */,
 				B19B656B19A535B700EDEFFA /* _Book.m in Sources */,
 				B19B657219A5368D00EDEFFA /* ReadingLogTableViewController.m in Sources */,
@@ -798,7 +817,7 @@
 				B19B65CB19A53B0C00EDEFFA /* MagicalRecord+iCloud.m in Sources */,
 				B19B65C819A53B0C00EDEFFA /* NSPersistentStoreCoordinator+MagicalRecord.m in Sources */,
 				B19B65B819A53B0C00EDEFFA /* NSEntityDescription+MagicalDataImport.m in Sources */,
-				B19B657719A538D500EDEFFA /* CollectionTableViewController.m in Sources */,
+				B19B657719A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m in Sources */,
 				B19B65DD19A563B500EDEFFA /* UIImage+IO.m in Sources */,
 				B19B655619A535AA00EDEFFA /* Book.m in Sources */,
 				B19B65BC19A53B0C00EDEFFA /* NSString+MagicalDataImport.m in Sources */,
@@ -807,6 +826,7 @@
 				B19B656F19A535B700EDEFFA /* _EBookLog.m in Sources */,
 				B19B65B619A53B0C00EDEFFA /* MagicalImportFunctions.m in Sources */,
 				B19B65BA19A53B0C00EDEFFA /* NSObject+MagicalDataImport.m in Sources */,
+				B19B65F019A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m in Sources */,
 				B19B65BE19A53B0C00EDEFFA /* NSManagedObject+MagicalDataImport.m in Sources */,
 				B19B65C619A53B0C00EDEFFA /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				B19B653D19A52F5E00EDEFFA /* ReadingLogTag.m in Sources */,

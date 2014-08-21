@@ -8,6 +8,6 @@
 
 #import "NSFetchedResultsTableViewController.h"
 
-@interface CollectionTableViewController : NSFetchedResultsTableViewController
+@interface ReadingCollectionItemsTableViewController : NSFetchedResultsTableViewController
 
 @end
