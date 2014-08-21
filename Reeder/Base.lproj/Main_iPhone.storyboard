@@ -117,65 +117,17 @@
                     <navigationItem key="navigationItem" title="Collection" id="po0-Sp-nOp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Sgd-y1-faK">
                             <connections>
-                                <action selector="addButtonTapped" destination="aw7-Hc-VhY" id="GJM-Gh-JHX"/>
+                                <action selector="addButtonTapped:" destination="aw7-Hc-VhY" id="XBg-Bm-dlp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="dSt-Id-Dqf" kind="modal" identifier="Select Reading Collection Item Type" id="buu-5B-zOu"/>
+                        <segue destination="dSt-Id-Dqf" kind="modal" identifier="Add Reading Collection Item" id="buu-5B-zOu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2r-rd-4e2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1638" y="761"/>
-        </scene>
-        <!--Reading Collection Item Types Table View Controller - Type-->
-        <scene sceneID="0ny-2R-Nhh">
-            <objects>
-                <tableViewController id="AZ5-DE-1n9" customClass="ReadingCollectionItemTypesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mwl-j8-B1f">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReadingCollectionItemTypeCell" textLabel="gRM-fH-MdY" style="IBUITableViewCellStyleDefault" id="Ed7-K1-JzO">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ed7-K1-JzO" id="4Pm-lX-P2d">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gRM-fH-MdY">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Neh-gc-zrj" kind="push" identifier="Add Reading Collection Item" id="uPE-Ea-103"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="AZ5-DE-1n9" id="Wwo-LM-QsV"/>
-                            <outlet property="delegate" destination="AZ5-DE-1n9" id="VpQ-9O-9Ti"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Type" id="ErH-w3-qZ1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="YDS-Z0-9cw">
-                            <connections>
-                                <action selector="cancelButtonTapped" destination="AZ5-DE-1n9" id="ug1-cO-wU9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D4Y-KG-wea" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2617" y="1308"/>
         </scene>
         <!--Navigation Controller - Reading Log-->
         <scene sceneID="2M3-wB-4gr">
@@ -249,7 +201,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="AZ5-DE-1n9" kind="relationship" relationship="rootViewController" id="ya0-1K-Rsi"/>
+                        <segue destination="Neh-gc-zrj" kind="relationship" relationship="rootViewController" id="YcU-ID-xVl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDj-RK-Bz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,7 +238,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3k-Ms-vP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dN4-27-XJW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3075" y="1308"/>
+            <point key="canvasLocation" x="2590" y="1308"/>
         </scene>
     </scenes>
     <resources>

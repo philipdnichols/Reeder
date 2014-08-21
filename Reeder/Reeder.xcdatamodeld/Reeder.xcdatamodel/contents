@@ -48,7 +48,7 @@
     </entity>
     <entity name="ReadingCollectionItem" representedClassName="ReadingCollectionItem" isAbstract="YES" syncable="YES">
         <attribute name="dateAddedToCollection" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageFileURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publishedDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -76,17 +76,17 @@
         <relationship name="logs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReadingLog" inverseName="tags" inverseEntity="ReadingLog" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ReadingLog" positionX="-189" positionY="-106" width="128" height="133"/>
-        <element name="ReadingCollectionItem" positionX="153" positionY="-277" width="128" height="208"/>
-        <element name="ReadingLogTag" positionX="34" positionY="62" width="128" height="73"/>
-        <element name="ReadingCollectionItemTag" positionX="378" positionY="-252" width="128" height="73"/>
-        <element name="BookLog" positionX="-270" positionY="-225" width="128" height="103"/>
-        <element name="Book" positionX="-65" positionY="-351" width="128" height="88"/>
         <element name="Author" positionX="45" positionY="-72" width="128" height="88"/>
         <element name="AuthorTag" positionX="-9" positionY="-126" width="128" height="73"/>
-        <element name="EBook" positionX="0" positionY="-117" width="128" height="73"/>
-        <element name="EBookLog" positionX="9" positionY="-108" width="128" height="133"/>
+        <element name="Book" positionX="-65" positionY="-351" width="128" height="88"/>
         <element name="BookChapter" positionX="18" positionY="-99" width="128" height="118"/>
+        <element name="BookLog" positionX="-270" positionY="-225" width="128" height="103"/>
+        <element name="EBook" positionX="0" positionY="-117" width="128" height="73"/>
         <element name="EBookChapter" positionX="27" positionY="-90" width="128" height="118"/>
+        <element name="EBookLog" positionX="9" positionY="-108" width="128" height="133"/>
+        <element name="ReadingCollectionItem" positionX="153" positionY="-277" width="128" height="208"/>
+        <element name="ReadingCollectionItemTag" positionX="378" positionY="-252" width="128" height="73"/>
+        <element name="ReadingLog" positionX="-189" positionY="-106" width="128" height="133"/>
+        <element name="ReadingLogTag" positionX="34" positionY="62" width="128" height="73"/>
     </elements>
 </model>

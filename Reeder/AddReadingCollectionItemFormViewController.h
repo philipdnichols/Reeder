@@ -12,7 +12,7 @@
 
 static NSString * const ReadingCollectionItemAddedSegueIdentifier = @"Reading Collection Item Added";
 
-@interface AddReadingCollectionItemFormViewController : UITableViewController <FXFormControllerDelegate>
+@interface AddReadingCollectionItemFormViewController : UITableViewController
 
 // In
 @property (strong, nonatomic) NSString *type;

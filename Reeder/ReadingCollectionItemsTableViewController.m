@@ -10,8 +10,8 @@
 #import "ReadingCollectionItem.h"
 #import "Book.h"
 #import "EBook.h"
-#import "ReadingCollectionItemTypesTableViewController.h"
 #import "AddReadingCollectionItemFormViewController.h"
+#import "ReadingCollectionItemTypesTableViewController.h"
 
 @interface ReadingCollectionItemsTableViewController ()
 
@@ -108,7 +108,7 @@
             // TODO: Custom cell and category
             // TODO: Different types of items
             collectionItemCell.textLabel.text = collectionItem.title;
-            collectionItemCell.detailTextLabel.text = collectionItem.detail;
+            collectionItemCell.detailTextLabel.text = collectionItem.details;
             collectionItemCell.imageView.image = [UIImage imageWithContentsOfFile:collectionItem.thumbnailImageFileURL];
         };
     }
@@ -155,37 +155,106 @@
 
 #pragma mark - IBActions
 
-- (IBAction)addButtonTapped {
-    // TODO: Actionsheet buttons don't have good visual responses
+- (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
+//    SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:nil];
+//    [actionSheet addButtonWithTitle:@"Add"
+//                               type:SIActionSheetButtonTypeDefault
+//                            handler:^(SIActionSheet *actionSheet) {
+//                                [self performSegueWithIdentifier:SelectReadingCollectionItemTypeSegueIdentifier sender:self];
+//                            }];
+//    
+//    [actionSheet addButtonWithTitle:@"Search"
+//                               type:SIActionSheetButtonTypeDefault
+//                            handler:^(SIActionSheet *actionSheet) {
+//                                // TODO:
+//                            }];
+//    
+//    [actionSheet addButtonWithTitle:@"Scan Barcode"
+//                               type:SIActionSheetButtonTypeDefault
+//                            handler:^(SIActionSheet *actionSheet) {
+//                                // TODO:
+//                            }];
+//     
+//     [actionSheet addButtonWithTitle:@"Cancel"
+//                                type:SIActionSheetButtonTypeCancel
+//                             handler:nil];
+//    
+//    [actionSheet show];
+    
     SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:nil];
-    [actionSheet addButtonWithTitle:@"Add"
+    [actionSheet addButtonWithTitle:@"Book"
                                type:SIActionSheetButtonTypeDefault
                             handler:^(SIActionSheet *actionSheet) {
-                                [self performSegueWithIdentifier:SelectReadingCollectionItemTypeSegueIdentifier sender:self];
+                                // TODO: Make this reusable
+                                SIActionSheet *bookActionSheet = [[SIActionSheet alloc] initWithTitle:nil];
+                                [bookActionSheet addButtonWithTitle:@"Add"
+                                                               type:SIActionSheetButtonTypeDefault
+                                                            handler:^(SIActionSheet *actionSheet) {
+                                                                // TODO: no hardcoded
+                                                                [self performSegueWithIdentifier:AddReadingCollectionItemSegueIdentifier sender:@"Book"];
+                                                            }];
+                                
+                                [bookActionSheet addButtonWithTitle:@"Search"
+                                                               type:SIActionSheetButtonTypeDefault
+                                                            handler:^(SIActionSheet *actionSheet) {
+                                                                // TODO:
+                                                            }];
+                                
+                                [bookActionSheet addButtonWithTitle:@"Scan Barcode"
+                                                               type:SIActionSheetButtonTypeDefault
+                                                            handler:^(SIActionSheet *actionSheet) {
+                                                                // TODO:
+                                                            }];
+                                
+                                [bookActionSheet addButtonWithTitle:@"Cancel"
+                                                               type:SIActionSheetButtonTypeCancel
+                                                            handler:nil];
+                                
+                                [bookActionSheet show];
                             }];
     
-    [actionSheet addButtonWithTitle:@"Search"
+    [actionSheet addButtonWithTitle:@"E-Book"
                                type:SIActionSheetButtonTypeDefault
                             handler:^(SIActionSheet *actionSheet) {
-                                // TODO:
+                                SIActionSheet *bookActionSheet = [[SIActionSheet alloc] initWithTitle:nil];
+                                [bookActionSheet addButtonWithTitle:@"Add"
+                                                               type:SIActionSheetButtonTypeDefault
+                                                            handler:^(SIActionSheet *actionSheet) {
+                                                                // TODO: no hardcoded
+                                                                [self performSegueWithIdentifier:AddReadingCollectionItemSegueIdentifier sender:@"E-Book"];
+                                                            }];
+                                
+                                [bookActionSheet addButtonWithTitle:@"Search"
+                                                               type:SIActionSheetButtonTypeDefault
+                                                            handler:^(SIActionSheet *actionSheet) {
+                                                                // TODO:
+                                                            }];
+                                
+                                [bookActionSheet addButtonWithTitle:@"Scan Barcode"
+                                                               type:SIActionSheetButtonTypeDefault
+                                                            handler:^(SIActionSheet *actionSheet) {
+                                                                // TODO:
+                                                            }];
+                                
+                                [bookActionSheet addButtonWithTitle:@"Cancel"
+                                                               type:SIActionSheetButtonTypeCancel
+                                                            handler:nil];
+                                
+                                [bookActionSheet show];
                             }];
     
-    [actionSheet addButtonWithTitle:@"Scan Barcode"
-                               type:SIActionSheetButtonTypeDefault
-                            handler:^(SIActionSheet *actionSheet) {
-                                // TODO:
-                            }];
-     
-     [actionSheet addButtonWithTitle:@"Cancel"
-                                type:SIActionSheetButtonTypeCancel
-                             handler:nil];
+    [actionSheet addButtonWithTitle:@"Cancel"
+                               type:SIActionSheetButtonTypeCancel
+                            handler:nil];
     
     [actionSheet show];
+
 }
 
 #pragma mark - Navigation
 
 static NSString * const SelectReadingCollectionItemTypeSegueIdentifier = @"Select Reading Collection Item Type";
+static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading Collection Item";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -204,9 +273,12 @@ static NSString * const SelectReadingCollectionItemTypeSegueIdentifier = @"Selec
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *uiNavigationController = (UINavigationController *)viewController;
         UIViewController *firstVC = [uiNavigationController.viewControllers firstObject];
-        if ([firstVC isKindOfClass:[ReadingCollectionItemTypesTableViewController class]]) {
-            if (![segueIdentifier length] || [segueIdentifier isEqualToString:SelectReadingCollectionItemTypeSegueIdentifier]) {
-                [self prepareReadingCollectionItemTypesTableViewController:(ReadingCollectionItemTypesTableViewController *)firstVC];
+        if ([firstVC isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
+            if (![segueIdentifier length] || [segueIdentifier isEqualToString:AddReadingCollectionItemSegueIdentifier]) {
+                if ([sender isKindOfClass:[NSString class]]) {
+                    NSString *type = (NSString *)sender;
+                    [self prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)firstVC withType:type];
+                }
             }
         }
     }
@@ -215,6 +287,11 @@ static NSString * const SelectReadingCollectionItemTypeSegueIdentifier = @"Selec
 - (void)prepareReadingCollectionItemTypesTableViewController:(ReadingCollectionItemTypesTableViewController *)viewController
 {
     viewController.readingCollectionItemTypes = @[@"Book", @"E-Book"];
+}
+
+- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(NSString *)type
+{
+    viewController.type = type;
 }
 
 #pragma mark - Unwinding

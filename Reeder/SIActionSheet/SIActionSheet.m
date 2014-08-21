@@ -421,6 +421,7 @@ NSString *const SIActionSheetDismissNotificationUserInfoButtonIndexKey = @"SIAct
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	self.tableView.contentInset = UIEdgeInsetsMake(VERTICAL_INSET, 0, VERTICAL_INSET, 0);
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.delaysContentTouches = NO;
 	
 	[self setupTitleLabel];
 }
@@ -456,6 +457,9 @@ NSString *const SIActionSheetDismissNotificationUserInfoButtonIndexKey = @"SIAct
 
 - (CGFloat)heightForTitleLabel
 {
+    CGSize size;
+    
+#ifdef __IPHONE_7_0
     CGRect sizeRect = [self.title boundingRectWithSize:CGSizeMake(self.bounds.size.width - HORIZONTAL_PADDING * 2,
                                                                   self.titleFont.lineHeight * TITLE_LINES_MAX)
                                                options:NSStringDrawingUsesLineFragmentOrigin
@@ -463,7 +467,12 @@ NSString *const SIActionSheetDismissNotificationUserInfoButtonIndexKey = @"SIAct
                                                          NSFontAttributeName : self.titleFont
                                                          }
                                                context:nil];
-    return sizeRect.size.height;
+    size = sizeRect.size;
+#else
+    size = [self.title sizeWithFont:self.titleFont constrainedToSize:CGSizeMake(self.bounds.size.width - HORIZONTAL_PADDING * 2, self.titleFont.lineHeight * TITLE_LINES_MAX)];
+#endif
+    
+    return size.height;
 }
 
 #pragma mark - Table view data source
@@ -480,6 +489,16 @@ NSString *const SIActionSheetDismissNotificationUserInfoButtonIndexKey = @"SIAct
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+#ifdef __IPHONE_7_0
+        // This will prevent delays in touching UIButtons inside UITableViewCells in iOS7
+        for (UIView *currentView in cell.subviews) {
+            if ([currentView isKindOfClass:[UIScrollView class]]) {
+                ((UIScrollView *)currentView).delaysContentTouches = NO;
+                break;
+            }
+        }
+#endif
 	}
 	
 	while (cell.contentView.subviews.count) {

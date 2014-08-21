@@ -5,7 +5,7 @@
 
 const struct ReadingCollectionItemAttributes ReadingCollectionItemAttributes = {
 	.dateAddedToCollection = @"dateAddedToCollection",
-	.detail = @"detail",
+	.details = @"details",
 	.imageFileURL = @"imageFileURL",
 	.notes = @"notes",
 	.publishedDate = @"publishedDate",
@@ -68,7 +68,7 @@ const struct ReadingCollectionItemFetchedProperties ReadingCollectionItemFetched
 
 
 
-@dynamic detail;
+@dynamic details;
 
 
 

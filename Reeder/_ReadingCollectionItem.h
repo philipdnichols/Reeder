@@ -6,7 +6,7 @@
 
 extern const struct ReadingCollectionItemAttributes {
 	__unsafe_unretained NSString *dateAddedToCollection;
-	__unsafe_unretained NSString *detail;
+	__unsafe_unretained NSString *details;
 	__unsafe_unretained NSString *imageFileURL;
 	__unsafe_unretained NSString *notes;
 	__unsafe_unretained NSString *publishedDate;
@@ -60,11 +60,11 @@ extern const struct ReadingCollectionItemFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* detail;
+@property (nonatomic, strong) NSString* details;
 
 
 
-//- (BOOL)validateDetail:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateDetails:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -186,8 +186,8 @@ extern const struct ReadingCollectionItemFetchedProperties {
 
 
 
-- (NSString*)primitiveDetail;
-- (void)setPrimitiveDetail:(NSString*)value;
+- (NSString*)primitiveDetails;
+- (void)setPrimitiveDetails:(NSString*)value;
 
 
 

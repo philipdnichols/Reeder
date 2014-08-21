@@ -8,22 +8,28 @@ PODS:
   - CocoaLumberjack/Core (2.0.0-beta)
   - CocoaLumberjack/Extensions (2.0.0-beta):
     - CocoaLumberjack/Core
-  - FXForms (1.1.6)
   - HexColors (2.2.1)
+  - REFormattedNumberField (1.1.4)
+  - RETableViewManager (1.5.11):
+    - REFormattedNumberField (~> 1.1.2)
+    - REValidation (~> 0.1.4)
+  - REValidation (0.1.4)
   - SIAlertView (1.3)
   - TSMessages (0.9.9):
     - HexColors
 
 DEPENDENCIES:
   - CocoaLumberjack
-  - FXForms
+  - RETableViewManager
   - SIAlertView
   - TSMessages
 
 SPEC CHECKSUMS:
   CocoaLumberjack: aadc76d7bd6c839ca84b38ed50cbf89d7cf8c693
-  FXForms: 9387c60ee6f3e1c75e0f8998012acc1ce0ad8d0a
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
+  REFormattedNumberField: 73fc04771520498a30889a975ec9c1b293059b0e
+  RETableViewManager: 10bd6eaddd36ac587e037983619273192a1500e1
+  REValidation: a0033a582415848854e875dfcbe69c107de19f81
   SIAlertView: d00609a1faa9d82f17b9f0b4eede64e84a577b10
   TSMessages: 2999ef55e532378692e9d14d32da2bb60e285129
 
