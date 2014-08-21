@@ -118,16 +118,34 @@
     if (!_readingCollectionItemCellDeleteBlock) {
         __weak typeof(self) weakSelf = self;
         _readingCollectionItemCellDeleteBlock = ^(ReadingCollectionItem *collectionItem) {
-            [collectionItem deleteWithSuccess:^{
-                // All is well.
-            } failure:^(NSError *error) {
-                [TSMessage showNotificationInViewController:weakSelf
-                                                      title:@"Error"
-                                                   subtitle:[error localizedDescription]
-                                                       type:TSMessageNotificationTypeError];
-                
-                DDLogError(@"There was an error deleting the item: %@", [error localizedDescription]);
-            }];
+            SIAlertView *alert = [[SIAlertView alloc] initWithTitle:@"Delete"
+                                                         andMessage:@"Are you sure?"];
+            [alert addButtonWithTitle:@"Cancel"
+                                 type:SIAlertViewButtonTypeCancel
+                              handler:^(SIAlertView *alertView) {
+                                  [weakSelf.tableView setEditing:NO animated:YES];
+                              }];
+            
+            [alert addButtonWithTitle:@"Yes"
+                                 type:SIAlertViewButtonTypeDestructive
+                              handler:^(SIAlertView *alertView) {
+                                  [collectionItem deleteWithSuccess:^{
+                                      // All is well.
+                                  } failure:^(NSError *error) {
+                                      [TSMessage showNotificationInViewController:weakSelf
+                                                                            title:@"Error"
+                                                                         subtitle:[error localizedDescription]
+                                                                             type:TSMessageNotificationTypeError];
+                                      
+                                      DDLogError(@"There was an error deleting the item: %@", [error localizedDescription]);
+                                  }];
+                              }];
+            
+            alert.transitionStyle = SIAlertViewTransitionStyleFade;
+            alert.buttonsListStyle = SIAlertViewButtonsListStyleNormal;
+            alert.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+            
+            [alert show];
         };
     }
     return _readingCollectionItemCellDeleteBlock;
@@ -136,16 +154,27 @@
 #pragma mark - IBActions
 
 - (IBAction)addButtonTapped {
-    Book *book = [Book MR_createEntity];
+    SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:@"Add to Collection"];
+    [actionSheet addButtonWithTitle:@"Add"
+                               type:SIActionSheetButtonTypeDefault
+                            handler:^(SIActionSheet *actionSheet) {
+                                Book *book = [Book MR_createEntity];
+                                
+                                book.title = @"Book Test";
+                                book.detail = @"Book Test";
+                                
+                                EBook *ebook = [EBook MR_createEntity];
+                                ebook.title = @"EBook Test";
+                                ebook.detail = @"EBook Test";
+                                
+                                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
+                            }];
+     
+     [actionSheet addButtonWithTitle:@"Cancel"
+                                type:SIActionSheetButtonTypeCancel
+                             handler:nil];
     
-    book.title = @"Book Test";
-    book.detail = @"Book Test";
-    
-    EBook *ebook = [EBook MR_createEntity];
-    ebook.title = @"EBook Test";
-    ebook.detail = @"EBook Test";
-    
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
+    [actionSheet show];
 }
 
 @end

@@ -16,9 +16,12 @@
 
     #import <CocoaLumberjack/CocoaLumberjack.h>
     #import <TSMessages/TSMessage.h>
+    #import <SIAlertView/SIAlertView.h>
 
     #define MR_LOGGING_ENABLED 1
     #import "MagicalRecord/CoreData+MagicalRecord.h"
+
+    #import "SIActionSheet/SIActionSheet.h"
 #endif
 
 #ifdef DEBUG

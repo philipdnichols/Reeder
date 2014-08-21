@@ -77,6 +77,10 @@
 		B19B65D519A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65D319A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m */; };
 		B19B65D819A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65D719A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m */; };
 		B19B65DD19A563B500EDEFFA /* UIImage+IO.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65DC19A563B500EDEFFA /* UIImage+IO.m */; };
+		B19B65E719A5866300EDEFFA /* SIActionSheet.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B19B65E019A5866300EDEFFA /* SIActionSheet.bundle */; };
+		B19B65E819A5866300EDEFFA /* SIActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65E219A5866300EDEFFA /* SIActionSheet.m */; };
+		B19B65E919A5866300EDEFFA /* SIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65E419A5866300EDEFFA /* SIPopoverBackgroundView.m */; };
+		B19B65EA19A5866300EDEFFA /* UIWindow+SIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65E619A5866300EDEFFA /* UIWindow+SIUtils.m */; };
 		B1ED5BB319941EFA001FF3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB219941EFA001FF3E4 /* Foundation.framework */; };
 		B1ED5BB519941EFA001FF3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */; };
 		B1ED5BB719941EFA001FF3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB619941EFA001FF3E4 /* UIKit.framework */; };
@@ -219,6 +223,13 @@
 		B19B65D719A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsTableViewController.m; sourceTree = "<group>"; };
 		B19B65DB19A563B500EDEFFA /* UIImage+IO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IO.h"; sourceTree = "<group>"; };
 		B19B65DC19A563B500EDEFFA /* UIImage+IO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IO.m"; sourceTree = "<group>"; };
+		B19B65E019A5866300EDEFFA /* SIActionSheet.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SIActionSheet.bundle; sourceTree = "<group>"; };
+		B19B65E119A5866300EDEFFA /* SIActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIActionSheet.h; sourceTree = "<group>"; };
+		B19B65E219A5866300EDEFFA /* SIActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIActionSheet.m; sourceTree = "<group>"; };
+		B19B65E319A5866300EDEFFA /* SIPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPopoverBackgroundView.h; sourceTree = "<group>"; };
+		B19B65E419A5866300EDEFFA /* SIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPopoverBackgroundView.m; sourceTree = "<group>"; };
+		B19B65E519A5866300EDEFFA /* UIWindow+SIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+SIUtils.h"; sourceTree = "<group>"; };
+		B19B65E619A5866300EDEFFA /* UIWindow+SIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+SIUtils.m"; sourceTree = "<group>"; };
 		B1ED5BAF19941EFA001FF3E4 /* Reeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1ED5BB219941EFA001FF3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -482,6 +493,20 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		B19B65DF19A5866300EDEFFA /* SIActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				B19B65E019A5866300EDEFFA /* SIActionSheet.bundle */,
+				B19B65E119A5866300EDEFFA /* SIActionSheet.h */,
+				B19B65E219A5866300EDEFFA /* SIActionSheet.m */,
+				B19B65E319A5866300EDEFFA /* SIPopoverBackgroundView.h */,
+				B19B65E419A5866300EDEFFA /* SIPopoverBackgroundView.m */,
+				B19B65E519A5866300EDEFFA /* UIWindow+SIUtils.h */,
+				B19B65E619A5866300EDEFFA /* UIWindow+SIUtils.m */,
+			);
+			path = SIActionSheet;
+			sourceTree = "<group>";
+		};
 		B1ED5BA619941EFA001FF3E4 = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				B19B657819A53B0C00EDEFFA /* MagicalRecord */,
+				B19B65DF19A5866300EDEFFA /* SIActionSheet */,
 				B1ED5BBA19941EFA001FF3E4 /* Reeder-Info.plist */,
 				B1ED5BBB19941EFA001FF3E4 /* InfoPlist.strings */,
 				B1ED5BBE19941EFA001FF3E4 /* main.m */,
@@ -659,6 +685,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19B65E719A5866300EDEFFA /* SIActionSheet.bundle in Resources */,
 				B1ED5BC919941EFA001FF3E4 /* Main_iPad.storyboard in Resources */,
 				B1ED5BCE19941EFA001FF3E4 /* Images.xcassets in Resources */,
 				B1ED5BC619941EFA001FF3E4 /* Main_iPhone.storyboard in Resources */,
@@ -750,6 +777,7 @@
 				B19B65BF19A53B0C00EDEFFA /* NSManagedObject+MagicalFinders.m in Sources */,
 				B19B656A19A535B700EDEFFA /* _AuthorTag.m in Sources */,
 				B19B655519A535AA00EDEFFA /* AuthorTag.m in Sources */,
+				B19B65E819A5866300EDEFFA /* SIActionSheet.m in Sources */,
 				B19B65C919A53B0C00EDEFFA /* MagicalRecord+Actions.m in Sources */,
 				B19B655919A535AA00EDEFFA /* EBookChapter.m in Sources */,
 				B19B655719A535AA00EDEFFA /* BookLog.m in Sources */,
@@ -759,6 +787,7 @@
 				B19B65C119A53B0C00EDEFFA /* NSManagedObject+MagicalRequests.m in Sources */,
 				B19B65CD19A53B0C00EDEFFA /* MagicalRecord+Setup.m in Sources */,
 				B19B656E19A535B700EDEFFA /* _EBookChapter.m in Sources */,
+				B19B65E919A5866300EDEFFA /* SIPopoverBackgroundView.m in Sources */,
 				B19B65C519A53B0C00EDEFFA /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				B1ED5BC319941EFA001FF3E4 /* ReederAppDelegate.m in Sources */,
 				B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */,
@@ -784,6 +813,7 @@
 				B19B656919A535B700EDEFFA /* _Author.m in Sources */,
 				B19B65CF19A53B0C00EDEFFA /* MagicalRecord.m in Sources */,
 				B19B65CA19A53B0C00EDEFFA /* MagicalRecord+ErrorHandling.m in Sources */,
+				B19B65EA19A5866300EDEFFA /* UIWindow+SIUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
