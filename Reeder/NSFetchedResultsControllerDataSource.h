@@ -8,17 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSString *(^FetchedResultsCellIdentifierBlock)(id item);
 typedef void (^FetchedResultsCellConfigureBlock)(id cell, id item);
 typedef void (^FetchedResultsCellDeleteBlock)(id item);
 
 @interface NSFetchedResultsControllerDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
-                                  cellIdentifier:(NSString *)cellIdentifier
+                                  cellIdentifierBlock:(FetchedResultsCellIdentifierBlock)cellIdentifierBlock
                               configureCellBlock:(FetchedResultsCellConfigureBlock)configureCellBlock;
 
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
-                                  cellIdentifier:(NSString *)cellIdentifier
+                                  cellIdentifierBlock:(FetchedResultsCellIdentifierBlock)cellIdentifierBlock
                               configureCellBlock:(FetchedResultsCellConfigureBlock)configureCellBlock
                                  deleteCellBlock:(FetchedResultsCellDeleteBlock)deleteCellBlock;
 

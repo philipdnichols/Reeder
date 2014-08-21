@@ -49,7 +49,7 @@
         
         self.fetchedResultsControllerDataSource = [[NSFetchedResultsControllerDataSource alloc]
                                                    initWithFetchedResultsController:_fetchedResultsController
-                                                   cellIdentifier:self.cellIdentifier
+                                                   cellIdentifierBlock:self.fetchedResultsIdentifierBlock
                                                    configureCellBlock:self.fetchedResultsConfigureBlock
                                                    deleteCellBlock:self.fetchedResultsDeleteBlock];
         self.tableView.dataSource = self.fetchedResultsControllerDataSource;

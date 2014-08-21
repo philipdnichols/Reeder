@@ -8,14 +8,17 @@
 
 #import "CollectionTableViewController.h"
 #import "ReadingCollectionItem.h"
+#import "Book.h"
+#import "EBook.h"
 
 @interface CollectionTableViewController ()
 
 @property (strong, nonatomic) NSFetchRequest *request;
 @property (strong, nonatomic) NSString *groupKeyPath;
 
-@property (nonatomic, copy) FetchedResultsCellConfigureBlock collectionItemCellConfigureBlock;
-@property (nonatomic, copy) FetchedResultsCellDeleteBlock collectionItemCellDeleteBlock;
+@property (nonatomic, copy) FetchedResultsCellIdentifierBlock readingCollectionItemCellIdentifierBlock;
+@property (nonatomic, copy) FetchedResultsCellConfigureBlock readingCollectionItemCellConfigureBlock;
+@property (nonatomic, copy) FetchedResultsCellDeleteBlock readingCollectionItemCellDeleteBlock;
 
 @end
 
@@ -65,26 +68,41 @@
     self.fetchedGroupKeyPath = _groupKeyPath;
 }
 
-- (NSString *)cellIdentifier
+- (FetchedResultsCellIdentifierBlock)fetchedResultsIdentifierBlock
 {
-    // TODO hardcode this
-    return @"ReadingCollectionItemCell";
+    return self.readingCollectionItemCellIdentifierBlock;
 }
 
 - (FetchedResultsCellConfigureBlock)fetchedResultsConfigureBlock
 {
-    return self.collectionItemCellConfigureBlock;
+    return self.readingCollectionItemCellConfigureBlock;
 }
 
 - (FetchedResultsCellDeleteBlock)fetchedResultsDeleteBlock
 {
-    return self.collectionItemCellDeleteBlock;
+    return self.readingCollectionItemCellDeleteBlock;
 }
 
-- (FetchedResultsCellConfigureBlock)collectionItemCellConfigureBlock
+- (FetchedResultsCellIdentifierBlock)readingCollectionItemCellIdentifierBlock
 {
-    if (!_collectionItemCellConfigureBlock) {
-        _collectionItemCellConfigureBlock = ^(UITableViewCell *collectionItemCell, ReadingCollectionItem *collectionItem) {
+    if (!_readingCollectionItemCellIdentifierBlock) {
+        _readingCollectionItemCellIdentifierBlock = ^NSString *(ReadingCollectionItem *readingCollectionItem) {
+            // TODO: Get rid of the hardcodes
+            if ([readingCollectionItem isKindOfClass:[Book class]]) {
+                return @"BookCell";
+            } else if ([readingCollectionItem isKindOfClass:[EBook class]]) {
+                return @"EBookCell";
+            }
+            return nil;
+        };
+    }
+    return _readingCollectionItemCellIdentifierBlock;
+}
+
+- (FetchedResultsCellConfigureBlock)readingCollectionItemCellConfigureBlock
+{
+    if (!_readingCollectionItemCellConfigureBlock) {
+        _readingCollectionItemCellConfigureBlock = ^(UITableViewCell *collectionItemCell, ReadingCollectionItem *collectionItem) {
             // TODO: Custom cell and category
             // TODO: Different types of items
             collectionItemCell.textLabel.text = collectionItem.title;
@@ -92,14 +110,14 @@
             collectionItemCell.imageView.image = [UIImage imageWithContentsOfFile:collectionItem.thumbnailImageFileURL];
         };
     }
-    return _collectionItemCellConfigureBlock;
+    return _readingCollectionItemCellConfigureBlock;
 }
 
-- (FetchedResultsCellDeleteBlock)collectionItemCellDeleteBlock
+- (FetchedResultsCellDeleteBlock)readingCollectionItemCellDeleteBlock
 {
-    if (!_collectionItemCellDeleteBlock) {
+    if (!_readingCollectionItemCellDeleteBlock) {
         __weak typeof(self) weakSelf = self;
-        _collectionItemCellDeleteBlock = ^(ReadingCollectionItem *collectionItem) {
+        _readingCollectionItemCellDeleteBlock = ^(ReadingCollectionItem *collectionItem) {
             [collectionItem deleteWithSuccess:^{
                 // All is well.
             } failure:^(NSError *error) {
@@ -112,16 +130,20 @@
             }];
         };
     }
-    return _collectionItemCellDeleteBlock;
+    return _readingCollectionItemCellDeleteBlock;
 }
 
 #pragma mark - IBActions
 
 - (IBAction)addButtonTapped {
-    ReadingCollectionItem *item = [ReadingCollectionItem MR_createEntity];
+    Book *book = [Book MR_createEntity];
     
-    item.title = @"Testing";
-    item.detail = @"Testing Detail";
+    book.title = @"Book Test";
+    book.detail = @"Book Test";
+    
+    EBook *ebook = [EBook MR_createEntity];
+    ebook.title = @"EBook Test";
+    ebook.detail = @"EBook Test";
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
 }

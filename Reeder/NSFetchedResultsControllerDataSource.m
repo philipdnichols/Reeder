@@ -11,7 +11,7 @@
 @interface NSFetchedResultsControllerDataSource ()
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSString *cellIdentifier;
+@property (nonatomic, copy) FetchedResultsCellIdentifierBlock cellIdentifierBlock;
 @property (nonatomic, copy) FetchedResultsCellConfigureBlock configureCellBlock;
 @property (nonatomic, copy) FetchedResultsCellDeleteBlock deleteCellBlock;
 
@@ -30,13 +30,13 @@
 }
 
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
-                                  cellIdentifier:(NSString *)cellIdentifier
+                             cellIdentifierBlock:(FetchedResultsCellIdentifierBlock)cellIdentifierBlock
                               configureCellBlock:(FetchedResultsCellConfigureBlock)configureCellBlock
 {
     self = [super init];
     if (self) {
         self.fetchedResultsController = fetchedResultsController;
-        self.cellIdentifier = cellIdentifier;
+        self.cellIdentifierBlock = cellIdentifierBlock;
         self.configureCellBlock = configureCellBlock;
         self.allowsDeletion = NO;
         self.deleteCellBlock = nil;
@@ -45,12 +45,12 @@
 }
 
 - (instancetype)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
-                                  cellIdentifier:(NSString *)cellIdentifier
+                             cellIdentifierBlock:(FetchedResultsCellIdentifierBlock)cellIdentifierBlock
                               configureCellBlock:(FetchedResultsCellConfigureBlock)configureCellBlock
                                  deleteCellBlock:(FetchedResultsCellDeleteBlock)deleteCellBlock
 {
     self = [self initWithFetchedResultsController:fetchedResultsController
-                                   cellIdentifier:cellIdentifier
+                              cellIdentifierBlock:cellIdentifierBlock
                                configureCellBlock:configureCellBlock];
     if (self) {
         self.allowsDeletion = YES;
@@ -101,10 +101,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
+    id item = [self itemAtIndexPath:indexPath];
+    NSString *cellIdentifier = self.cellIdentifierBlock(item);
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier
                                                             forIndexPath:indexPath];
     
-    id item = [self itemAtIndexPath:indexPath];
     self.configureCellBlock(cell, item);
     
     return cell;

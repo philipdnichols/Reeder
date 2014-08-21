@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic, readonly) NSFetchedResultsControllerDataSource *fetchedResultsControllerDataSource;
 @property (strong, nonatomic) NSString *cellIdentifier;
+@property (nonatomic, copy) FetchedResultsCellIdentifierBlock fetchedResultsIdentifierBlock;
 @property (nonatomic, copy) FetchedResultsCellConfigureBlock fetchedResultsConfigureBlock;
 @property (nonatomic, copy) FetchedResultsCellDeleteBlock fetchedResultsDeleteBlock;
 
