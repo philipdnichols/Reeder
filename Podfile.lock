@@ -9,7 +9,6 @@ PODS:
   - CocoaLumberjack/Extensions (2.0.0-beta):
     - CocoaLumberjack/Core
   - HexColors (2.2.1)
-  - JGProgressHUD (1.1.1)
   - REFormattedNumberField (1.1.4)
   - RETableViewManager (1.5.11):
     - REFormattedNumberField (~> 1.1.2)
@@ -21,7 +20,6 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack
-  - JGProgressHUD
   - RETableViewManager
   - SIAlertView
   - TSMessages
@@ -29,7 +27,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CocoaLumberjack: aadc76d7bd6c839ca84b38ed50cbf89d7cf8c693
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
-  JGProgressHUD: 647c5d4d37bf0929efef3b61902a36269f502cc1
   REFormattedNumberField: 73fc04771520498a30889a975ec9c1b293059b0e
   RETableViewManager: 10bd6eaddd36ac587e037983619273192a1500e1
   REValidation: a0033a582415848854e875dfcbe69c107de19f81
