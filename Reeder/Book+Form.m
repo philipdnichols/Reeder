@@ -48,15 +48,23 @@
     
     book.dateAddedToCollection = [NSDate date];
     
-    NSURL *imageFileURL = [form.customImageItem.customImage saveToDiskWithName:@"bookImage"];
-    if (imageFileURL) {
-        book.imageFileURL = [imageFileURL path];
-    }
+    [form.customImageItem.customImage saveToDiskAsyncWithName:@"bookImage"
+                                                      success:^(NSURL *url) {
+                                                          book.imageFileURL = [url path];
+                                                          [book saveWithSuccess:nil failure:nil];
+                                                      }
+                                                      failure:^(NSError *error) {
+                                                          DDLogError(@"There was an error saving the Book Image: %@", [error localizedDescription]);
+                                                      }];
     
-    NSURL *thumbnailImageFileURL = [form.customImageItem.customImage saveToDiskWithName:@"bookImageThumbnail"];
-    if (thumbnailImageFileURL) {
-        book.thumbnailImageFileURL = [thumbnailImageFileURL path]; // TODO: this should be improved eventually by scaling the image down
-    }
+    [form.customImageItem.customImage saveToDiskAsyncWithName:@"bookImageThumbnail"
+                                                      success:^(NSURL *url) {
+                                                          book.thumbnailImageFileURL = [url path]; // TODO: this should be improved eventually by scaling the image down
+                                                          [book saveWithSuccess:nil failure:nil];
+                                                      }
+                                                      failure:^(NSError *error) {
+                                                          DDLogError(@"There was an error saving the Book Image Thumbnail: %@", [error localizedDescription]);
+                                                      }];
     
     return book;
 }

@@ -8,6 +8,13 @@
 
 #import "UIImage+IO.h"
 
+static NSString * const UIImageDomain = @"UIImageDomain";
+
+typedef NS_ENUM(NSInteger, UIImageIOError) {
+    UIImageIOErrorSave,
+    UIImageIOErrorDelete
+};
+
 @implementation UIImage (IO)
 
 - (NSURL *)saveToDiskWithName:(NSString *)name
@@ -45,6 +52,52 @@
     }
     
     return YES;
+}
+
+- (void)saveToDiskAsyncWithName:(NSString *)name success:(void(^)(NSURL *url))success failure:(void(^)(NSError *error))failure
+{
+    NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
+    [backgroundQueue addOperationWithBlock:^{
+        NSURL *url = [self saveToDiskWithName:name];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (url) {
+                if (success) {
+                    success(url);
+                }
+            } else {
+                if (failure) {
+                    NSString *localizedDescription = [NSString stringWithFormat:@"There was an error saving the image with name \"%@\"", name];
+                    NSError *error = [NSError errorWithDomain:UIImageDomain
+                                                         code:UIImageIOErrorSave
+                                                     userInfo:@{ NSLocalizedDescriptionKey : localizedDescription }];
+                    failure(error);
+                }
+            }
+        }];
+    }];
+}
+
++ (void)deleteFromDiskAsyncWithFilePathURL:(NSURL *)filePathURL withSuccess:(void(^)())success failure:(void(^)(NSError *error))failure
+{
+    NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
+    [backgroundQueue addOperationWithBlock:^{
+        BOOL succ = [self deleteFromDiskWithFilePathURL:filePathURL];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (succ) {
+                if (success) {
+                    success();
+                }
+            } else {
+                if (failure) {
+                    NSString *localizedDescription = [NSString stringWithFormat:@"There was an error removing the image from the path \"%@\"", [filePathURL path]];
+                    NSError *error = [NSError errorWithDomain:UIImageDomain
+                                                         code:UIImageIOErrorDelete
+                                                     userInfo:@{ NSLocalizedDescriptionKey : localizedDescription }];
+                    failure(error);
+                }
+            }
+        }];
+    }];
 }
 
 @end

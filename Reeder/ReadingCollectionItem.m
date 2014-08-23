@@ -80,8 +80,12 @@
 
 - (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure
 {
-    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.thumbnailImageFileURL]];
-    [UIImage deleteFromDiskWithFilePathURL:[NSURL fileURLWithPath:self.imageFileURL]];
+    if (self.imageFileURL) {
+        [UIImage deleteFromDiskAsyncWithFilePathURL:[NSURL fileURLWithPath:self.imageFileURL] withSuccess:nil failure:nil];
+    }
+    if (self.thumbnailImageFileURL) {
+        [UIImage deleteFromDiskAsyncWithFilePathURL:[NSURL fileURLWithPath:self.thumbnailImageFileURL] withSuccess:nil failure:nil];
+    }
     
     for (Author *author in self.authors) {
         [author removeCollectionItemsObject:self];

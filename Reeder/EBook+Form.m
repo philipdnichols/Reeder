@@ -47,15 +47,23 @@
     
     ebook.dateAddedToCollection = [NSDate date];
     
-    NSURL *imageFileURL = [form.customImageItem.customImage saveToDiskWithName:@"bookImage"];
-    if (imageFileURL) {
-        ebook.imageFileURL = [imageFileURL path];
-    }
+    [form.customImageItem.customImage saveToDiskAsyncWithName:@"ebookImage"
+                                                      success:^(NSURL *url) {
+                                                          ebook.imageFileURL = [url path];
+                                                          [ebook saveWithSuccess:nil failure:nil];
+                                                      }
+                                                      failure:^(NSError *error) {
+                                                          DDLogError(@"There was an error saving the EBook Image: %@", [error localizedDescription]);
+                                                      }];
     
-    NSURL *thumbnailImageFileURL = [form.customImageItem.customImage saveToDiskWithName:@"bookImageThumbnail"];
-    if (thumbnailImageFileURL) {
-        ebook.thumbnailImageFileURL = [thumbnailImageFileURL path]; // TODO: this should be improved eventually by scaling the image down
-    }
+    [form.customImageItem.customImage saveToDiskAsyncWithName:@"ebookImageThumbnail"
+                                                      success:^(NSURL *url) {
+                                                          ebook.thumbnailImageFileURL = [url path]; // TODO: this should be improved eventually by scaling the image down
+                                                          [ebook saveWithSuccess:nil failure:nil];
+                                                      }
+                                                      failure:^(NSError *error) {
+                                                          DDLogError(@"There was an error saving the EBook Image Thumbnail: %@", [error localizedDescription]);
+                                                      }];
     
     return ebook;
 }

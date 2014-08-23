@@ -120,9 +120,10 @@
 {
     if ([segue.identifier isEqualToString:ReadingCollectionItemAddedSegueIdentifier]) {
         switch (self.type) {
-            case ReadingCollectionItemTypeBook:
+            case ReadingCollectionItemTypeBook: {
                 self.addedReadingCollectionItem = [Book createWithForm:(BookForm *)self.form];
                 break;
+            }
                 
             case ReadingCollectionItemTypeEBook:
                 self.addedReadingCollectionItem = [EBook createWithForm:(EBookForm *)self.form];
