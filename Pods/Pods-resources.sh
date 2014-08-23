@@ -41,6 +41,7 @@ install_resource()
       ;;
   esac
 }
+install_resource "JGProgressHUD/JGProgressHUD/JGProgressHUD/JGProgressHUD Resources.bundle"
 install_resource "RETableViewManager/RETableViewManager/RETableViewManager.bundle"
 install_resource "SIAlertView/SIAlertView/SIAlertView.bundle"
 install_resource "TSMessages/TSMessages/Resources/Images/NotificationBackgroundError.png"
