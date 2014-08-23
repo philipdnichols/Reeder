@@ -28,7 +28,7 @@
     self.titleLabel.text = book.title;
     self.authorsLabel.text = [book formattedAuthors];
     self.publishedDateLabel.text = [[self dateFormatter] stringFromDate:book.publishedDate];
-    self.pageCountLabel.text = [book.pageCount stringValue];
+    self.pageCountLabel.text = [NSString stringWithFormat:@"%@ pages", book.pageCount];
 }
 
 @end

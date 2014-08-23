@@ -94,14 +94,14 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
     
     if ([viewController isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
         if (![segueIdentifier length] || [segueIdentifier isEqualToString:AddReadingCollectionItemSegueIdentifier]) {
-            NSString *type = [self.readingCollectionItemTypeArrayDataSource itemAtIndexPath:indexPath];
+            NSNumber *type = [self.readingCollectionItemTypeArrayDataSource itemAtIndexPath:indexPath];
             
-            [self prepareAddReadingCollectionItemFormViewController:viewController withType:type];
+            [self prepareAddReadingCollectionItemFormViewController:viewController withType:(ReadingCollectionItemType)[type unsignedIntegerValue]];
         }
     }
 }
 
-- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(NSString *)type
+- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type
 {
     viewController.type = type;
 }
