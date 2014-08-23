@@ -1,15 +1,19 @@
 #import "Book.h"
-
+#import "BookChapter.h"
 
 @interface Book ()
 
-// Private interface goes here.
-
 @end
-
 
 @implementation Book
 
-// Custom logic goes here.
+- (void)deleteWithSuccess:(void (^)())success failure:(void (^)(NSError *))failure
+{
+    for (BookChapter *bookChapter in self.chapters) {
+        [bookChapter deleteWithSuccess:nil failure:nil];
+    }
+    
+    [super deleteWithSuccess:success failure:failure];
+}
 
 @end

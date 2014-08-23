@@ -1,5 +1,7 @@
 #import "_ReadingLogTag.h"
 
-@interface ReadingLogTag : _ReadingLogTag {}
-// Custom logic goes here.
+@interface ReadingLogTag : _ReadingLogTag
+
+- (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure;
+
 @end

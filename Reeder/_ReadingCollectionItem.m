@@ -5,11 +5,11 @@
 
 const struct ReadingCollectionItemAttributes ReadingCollectionItemAttributes = {
 	.dateAddedToCollection = @"dateAddedToCollection",
-	.details = @"details",
 	.imageFileURL = @"imageFileURL",
 	.notes = @"notes",
 	.publishedDate = @"publishedDate",
 	.rating = @"rating",
+	.summary = @"summary",
 	.thumbnailImageFileURL = @"thumbnailImageFileURL",
 	.title = @"title",
 };
@@ -68,13 +68,6 @@ const struct ReadingCollectionItemFetchedProperties ReadingCollectionItemFetched
 
 
 
-@dynamic details;
-
-
-
-
-
-
 @dynamic imageFileURL;
 
 
@@ -117,6 +110,13 @@ const struct ReadingCollectionItemFetchedProperties ReadingCollectionItemFetched
 - (void)setPrimitiveRatingValue:(int16_t)value_ {
 	[self setPrimitiveRating:[NSNumber numberWithShort:value_]];
 }
+
+
+
+
+
+@dynamic summary;
+
 
 
 

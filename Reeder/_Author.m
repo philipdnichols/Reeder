@@ -58,6 +58,15 @@ const struct AuthorFetchedProperties AuthorFetchedProperties = {
 @dynamic collectionItems;
 
 	
+- (NSMutableSet*)collectionItemsSet {
+	[self willAccessValueForKey:@"collectionItems"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"collectionItems"];
+  
+	[self didAccessValueForKey:@"collectionItems"];
+	return result;
+}
+	
 
 @dynamic tags;
 

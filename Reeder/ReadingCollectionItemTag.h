@@ -1,5 +1,7 @@
 #import "_ReadingCollectionItemTag.h"
 
 @interface ReadingCollectionItemTag : _ReadingCollectionItemTag {}
-// Custom logic goes here.
+
+- (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure;
+
 @end

@@ -1,5 +1,7 @@
 #import "_Author.h"
 
 @interface Author : _Author {}
-// Custom logic goes here.
+
+- (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure;
+
 @end

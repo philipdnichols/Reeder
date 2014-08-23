@@ -19,7 +19,44 @@
 
 #pragma mark - Properties
 
-// TODO add in some NO asserts to ensure that the correct things are overriden
+@synthesize fetchedRequest = _fetchedRequest;
+@synthesize fetchedGroupKeyPath = _fetchedGroupKeyPath;
+
+- (NSFetchRequest *)fetchedRequest
+{
+    NSAssert(NO, @"Subclasses of NSFetchedResultsTableViewController must implement 'fetchedRequest'");
+    return nil;
+}
+
+- (NSString *)fetchedGroupKeyPath
+{
+    NSAssert(NO, @"Subclasses of NSFetchedResultsTableViewController must implement 'fetchedGroupKeyPath'");
+    return nil;
+}
+
+- (FetchedResultsCellIdentifierBlock)fetchedResultsCellIdentifierBlock
+{
+    NSAssert(NO, @"Subclasses of NSFetchedResultsTableViewController must implement 'fetchedResultsCellIdentifierBlock'");
+    return nil;
+}
+
+- (FetchedResultsCellHeightBlock)fetchedResultsCellHeightBlock
+{
+    NSAssert(NO, @"Subclasses of NSFetchedResultsTableViewController must implement 'fetchedResultsCellHeightBlock'");
+    return nil;
+}
+
+- (FetchedResultsCellConfigureBlock)fetchedResultsCellConfigureBlock
+{
+    NSAssert(NO, @"Subclasses of NSFetchedResultsTableViewController must implement 'fetchedResultsCellConfigureBlock'");
+    return nil;
+}
+
+- (FetchedResultsCellDeleteBlock)fetchedResultsCellDeleteBlock
+{
+    NSAssert(NO, @"Subclasses of NSFetchedResultsTableViewController must implement 'fetchedResultsCellDeleteBlock'");
+    return nil;
+}
 
 - (void)setFetchedRequest:(NSFetchRequest *)fetchedRequest
 {
@@ -49,9 +86,9 @@
         
         self.fetchedResultsControllerDataSource = [[NSFetchedResultsControllerDataSource alloc]
                                                    initWithFetchedResultsController:_fetchedResultsController
-                                                   cellIdentifierBlock:self.fetchedResultsIdentifierBlock
-                                                   configureCellBlock:self.fetchedResultsConfigureBlock
-                                                   deleteCellBlock:self.fetchedResultsDeleteBlock];
+                                                   cellIdentifierBlock:self.fetchedResultsCellIdentifierBlock
+                                                   configureCellBlock:self.fetchedResultsCellConfigureBlock
+                                                   deleteCellBlock:self.fetchedResultsCellDeleteBlock];
         self.tableView.dataSource = self.fetchedResultsControllerDataSource;
         
         [self reloadFetchedResultsController];
@@ -129,6 +166,11 @@
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.fetchedResultsCellHeightBlock(indexPath);
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller

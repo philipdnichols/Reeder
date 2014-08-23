@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReadingCollectionItem.h"
 
 @class ReadingCollectionItem;
 
@@ -15,7 +16,7 @@ static NSString * const ReadingCollectionItemAddedSegueIdentifier = @"Reading Co
 @interface AddReadingCollectionItemFormViewController : UITableViewController
 
 // In
-@property (strong, nonatomic) NSString *type;
+@property (nonatomic) ReadingCollectionItemType type;
 
 // Out
 @property (strong, nonatomic, readonly) ReadingCollectionItem *addedReadingCollectionItem;

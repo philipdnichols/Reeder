@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Author" representedClassName="Author" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="collectionItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReadingCollectionItem" inverseName="authors" inverseEntity="ReadingCollectionItem" syncable="YES"/>
+        <relationship name="collectionItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReadingCollectionItem" inverseName="authors" inverseEntity="ReadingCollectionItem" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AuthorTag" inverseName="authors" inverseEntity="AuthorTag" syncable="YES"/>
     </entity>
     <entity name="AuthorTag" representedClassName="AuthorTag" syncable="YES">
@@ -48,11 +48,11 @@
     </entity>
     <entity name="ReadingCollectionItem" representedClassName="ReadingCollectionItem" isAbstract="YES" syncable="YES">
         <attribute name="dateAddedToCollection" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageFileURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publishedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailImageFileURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="authors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Author" inverseName="collectionItems" inverseEntity="Author" syncable="YES"/>
@@ -73,7 +73,7 @@
     </entity>
     <entity name="ReadingLogTag" representedClassName="ReadingLogTag" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="logs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReadingLog" inverseName="tags" inverseEntity="ReadingLog" syncable="YES"/>
+        <relationship name="logs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReadingLog" inverseName="tags" inverseEntity="ReadingLog" syncable="YES"/>
     </entity>
     <elements>
         <element name="Author" positionX="45" positionY="-72" width="128" height="88"/>
@@ -87,6 +87,6 @@
         <element name="ReadingCollectionItem" positionX="153" positionY="-277" width="128" height="208"/>
         <element name="ReadingCollectionItemTag" positionX="378" positionY="-252" width="128" height="73"/>
         <element name="ReadingLog" positionX="-189" positionY="-106" width="128" height="133"/>
-        <element name="ReadingLogTag" positionX="34" positionY="62" width="128" height="73"/>
+        <element name="ReadingLogTag" positionX="34" positionY="62" width="128" height="75"/>
     </elements>
 </model>

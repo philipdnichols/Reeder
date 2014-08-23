@@ -1,5 +1,7 @@
 #import "_AuthorTag.h"
 
 @interface AuthorTag : _AuthorTag {}
-// Custom logic goes here.
+
+- (void)deleteWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure;
+
 @end

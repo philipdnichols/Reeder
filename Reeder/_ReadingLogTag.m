@@ -57,6 +57,15 @@ const struct ReadingLogTagFetchedProperties ReadingLogTagFetchedProperties = {
 @dynamic logs;
 
 	
+- (NSMutableSet*)logsSet {
+	[self willAccessValueForKey:@"logs"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"logs"];
+  
+	[self didAccessValueForKey:@"logs"];
+	return result;
+}
+	
 
 
 

@@ -1,5 +1,5 @@
 #import "_EBook.h"
 
-@interface EBook : _EBook {}
-// Custom logic goes here.
+@interface EBook : _EBook
+
 @end

@@ -9,20 +9,26 @@
 #import "AddReadingCollectionItemFormViewController.h"
 #import "Book.h"
 #import "EBook.h"
+#import "Author.h"
+#import "ReadingCollectionItemTag.h"
+#import "UIImage+IO.h"
+#import "ReadingCollectionItemForm.h"
+#import "RECustomImageItem.h"
+#import "SIActionSheet+Convenience.h"
+#import "UIImagePickerController+ActionSheet.h"
+#import "BookForm.h"
+#import "EBookForm.h"
+#import "Book+Form.h"
+#import "EBook+Form.h"
 
-@interface AddReadingCollectionItemFormViewController () <RETableViewManagerDelegate>
+@interface AddReadingCollectionItemFormViewController () <RETableViewManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic, readwrite) ReadingCollectionItem *addedReadingCollectionItem;
 
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
+
 @property (strong, nonatomic) RETableViewManager *manager;
-
-@property (strong, nonatomic) RETextItem *titleItem;
-@property (strong, nonatomic) REDateTimeItem *publishedDateItem;
-@property (strong, nonatomic) REPickerItem *ratingItem;
-
-@property (strong, nonatomic) RELongTextItem *detailsItem;
-
-@property (strong, nonatomic) RELongTextItem *notesItem;
+@property (strong, nonatomic) ReadingCollectionItemForm *form;
 
 @end
 
@@ -30,7 +36,17 @@
 
 #pragma mark - Properties
 
-- (void)setType:(NSString *)type
+- (UIImagePickerController *)imagePickerController
+{
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
+        _imagePickerController.navigationController.navigationBar.translucent = NO;
+    }
+    return _imagePickerController;
+}
+
+- (void)setType:(ReadingCollectionItemType)type
 {
     _type = type;
     
@@ -59,47 +75,27 @@
 
 - (void)updateUI
 {
-    self.title = [NSString stringWithFormat:@"Add %@", self.type];
+    self.title = [NSString stringWithFormat:@"Add %@", [ReadingCollectionItem stringFromType:self.type]];
     
-    [self.manager removeAllSections];
+    switch (self.type) {
+        case ReadingCollectionItemTypeBook:
+            self.form = [[BookForm alloc] init];
+            break;
+            
+        case ReadingCollectionItemTypeEBook:
+            self.form = [[EBookForm alloc] init];
+            break;
+    }
     
-    RETableViewSection *section = [RETableViewSection section];
-    RETableViewSection *detailsSection = [RETableViewSection sectionWithHeaderTitle:@"Details"];
-    RETableViewSection *notesSection = [RETableViewSection sectionWithHeaderTitle:@"Notes"];
+    [self.form configureWithManager:self.manager];
     
-    self.titleItem = [RETextItem itemWithTitle:@"Title" value:nil];
-    self.publishedDateItem = [REDateTimeItem itemWithTitle:@"Published Date"
-                                                     value:[NSDate date]
-                                               placeholder:nil
-                                                    format:@"MM/dd/yyyy"
-                                            datePickerMode:UIDatePickerModeDate];
-//    self.ratingItem = [REPickerItem itemWithTitle:@"Rating"
-//                                            value:nil
-//                                      placeholder:nil
-//                                          options:@[@"1"]];
+    __weak typeof(self) weakSelf = self;
     
-    self.ratingItem = [REPickerItem itemWithTitle:@"Rating"
-                                            value:nil
-                                      placeholder:nil options:@[@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"]]];
-
-    
-    self.detailsItem = [RELongTextItem item];
-    self.detailsItem.cellHeight = 88;
-    
-    self.notesItem = [RELongTextItem item];
-    self.notesItem.cellHeight = 88;
-    
-    [section addItem:self.titleItem];
-    [section addItem:self.publishedDateItem];
-    [section addItem:self.ratingItem];
-    
-    [detailsSection addItem:self.detailsItem];
-    
-    [notesSection addItem:self.notesItem];
-    
-    [self.manager addSection:section];
-    [self.manager addSection:detailsSection];
-    [self.manager addSection:notesSection];
+    self.form.customImageItem.selectionHandler = ^(RECustomImageItem *item) {
+        [weakSelf.imagePickerController presentWithActionSheetWithViewController:weakSelf];
+        
+        [item deselectRowAnimated:YES];
+    };
 }
 
 #pragma mark - IBActions
@@ -123,31 +119,40 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:ReadingCollectionItemAddedSegueIdentifier]) {
-        // TODO: this
-        // TODO: no hardcoded
-        if ([self.type isEqualToString:@"Book"]) {
-            Book *book = [Book MR_createEntity];
-            book.title = self.titleItem.value;
-            book.publishedDate = self.publishedDateItem.value;
-            book.rating = @([(NSString *)[self.ratingItem.value firstObject] integerValue]);
-            
-            book.details = self.detailsItem.value;
-            
-            book.notes = self.notesItem.value;
-            
-            self.addedReadingCollectionItem = book;
-        } else if ([self.type isEqualToString:@"E-Book"]) {
-            EBook *ebook = [EBook MR_createEntity];
-            ebook.title = self.titleItem.value;
-            ebook.publishedDate = self.publishedDateItem.value;
-            ebook.rating = @([(NSString *)[self.ratingItem.value firstObject] integerValue]);
-            
-            ebook.details = self.detailsItem.value;
-            
-            ebook.notes = self.notesItem.value;
-            
-            self.addedReadingCollectionItem = ebook;
+        switch (self.type) {
+            case ReadingCollectionItemTypeBook:
+                self.addedReadingCollectionItem = [Book createWithForm:(BookForm *)self.form];
+                break;
+                
+            case ReadingCollectionItemTypeEBook:
+                self.addedReadingCollectionItem = [EBook createWithForm:(EBookForm *)self.form];
+                break;
         }
+    }
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.form.customImageItem.customImage = info[UIImagePickerControllerOriginalImage];
+    [self.form.customImageItem reloadRowWithAnimation:UITableViewRowAnimationNone];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated
+{
+    // Hack to fix the UIImagePickerController messing up the status bar style
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
+    if ([navigationController isKindOfClass:[UIImagePickerController class]]) {
+        viewController.navigationController.navigationBar.translucent = NO;
+        viewController.edgesForExtendedLayout = UIRectEdgeNone;
     }
 }
 

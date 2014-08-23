@@ -12,6 +12,11 @@
 #import "EBook.h"
 #import "AddReadingCollectionItemFormViewController.h"
 #import "ReadingCollectionItemTypesTableViewController.h"
+#import "SIActionSheet+Convenience.h"
+#import "BookCell.h"
+#import "BookCell+Configure.h"
+#import "EBookCell.h"
+#import "EBookCell+Configure.h"
 
 @interface ReadingCollectionItemsTableViewController ()
 
@@ -19,6 +24,7 @@
 @property (strong, nonatomic) NSString *groupKeyPath;
 
 @property (nonatomic, copy) FetchedResultsCellIdentifierBlock readingCollectionItemCellIdentifierBlock;
+@property (nonatomic, copy) FetchedResultsCellHeightBlock readingCollectionItemCellHeightBlock;
 @property (nonatomic, copy) FetchedResultsCellConfigureBlock readingCollectionItemCellConfigureBlock;
 @property (nonatomic, copy) FetchedResultsCellDeleteBlock readingCollectionItemCellDeleteBlock;
 
@@ -53,7 +59,7 @@
 - (NSString *)groupKeyPath
 {
 //    if (!_groupKeyPath) {
-//
+//        _groupKeyPath = @"";
 //    }
     return _groupKeyPath;
 }
@@ -70,17 +76,22 @@
     self.fetchedGroupKeyPath = _groupKeyPath;
 }
 
-- (FetchedResultsCellIdentifierBlock)fetchedResultsIdentifierBlock
+- (FetchedResultsCellIdentifierBlock)fetchedResultsCellIdentifierBlock
 {
     return self.readingCollectionItemCellIdentifierBlock;
 }
 
-- (FetchedResultsCellConfigureBlock)fetchedResultsConfigureBlock
+- (FetchedResultsCellHeightBlock)fetchedResultsCellHeightBlock
+{
+    return self.readingCollectionItemCellHeightBlock;
+}
+
+- (FetchedResultsCellConfigureBlock)fetchedResultsCellConfigureBlock
 {
     return self.readingCollectionItemCellConfigureBlock;
 }
 
-- (FetchedResultsCellDeleteBlock)fetchedResultsDeleteBlock
+- (FetchedResultsCellDeleteBlock)fetchedResultsCellDeleteBlock
 {
     return self.readingCollectionItemCellDeleteBlock;
 }
@@ -89,11 +100,10 @@
 {
     if (!_readingCollectionItemCellIdentifierBlock) {
         _readingCollectionItemCellIdentifierBlock = ^NSString *(ReadingCollectionItem *readingCollectionItem) {
-            // TODO: Get rid of the hardcodes
             if ([readingCollectionItem isKindOfClass:[Book class]]) {
-                return @"BookCell";
+                return [BookCell identifier];
             } else if ([readingCollectionItem isKindOfClass:[EBook class]]) {
-                return @"EBookCell";
+                return [EBookCell identifier];
             }
             return nil;
         };
@@ -101,15 +111,39 @@
     return _readingCollectionItemCellIdentifierBlock;
 }
 
+- (FetchedResultsCellHeightBlock)readingCollectionItemCellHeightBlock
+{
+    if (!_readingCollectionItemCellHeightBlock) {
+        __weak typeof(self) weakSelf = self;
+        _readingCollectionItemCellHeightBlock = ^CGFloat(NSIndexPath *indexPath) {
+            ReadingCollectionItem *readingCollectionItem = [weakSelf.fetchedResultsControllerDataSource itemAtIndexPath:indexPath];
+            if ([readingCollectionItem isKindOfClass:[Book class]]) {
+                return [BookCell height];
+            } else if ([readingCollectionItem isKindOfClass:[EBook class]]) {
+                return [EBookCell height];
+            } else {
+                return 44;
+            }
+        };
+    }
+    return _readingCollectionItemCellHeightBlock;
+}
+
 - (FetchedResultsCellConfigureBlock)readingCollectionItemCellConfigureBlock
 {
     if (!_readingCollectionItemCellConfigureBlock) {
-        _readingCollectionItemCellConfigureBlock = ^(UITableViewCell *collectionItemCell, ReadingCollectionItem *collectionItem) {
-            // TODO: Custom cell and category
-            // TODO: Different types of items
-            collectionItemCell.textLabel.text = collectionItem.title;
-            collectionItemCell.detailTextLabel.text = collectionItem.details;
-            collectionItemCell.imageView.image = [UIImage imageWithContentsOfFile:collectionItem.thumbnailImageFileURL];
+        _readingCollectionItemCellConfigureBlock = ^(UITableViewCell *readingCollectionItemCell, ReadingCollectionItem *collectionItem) {
+            if ([readingCollectionItemCell isKindOfClass:[BookCell class]]) {
+                BookCell *bookCell = (BookCell *)readingCollectionItemCell;
+                [bookCell configureWithBook:(Book *)collectionItem];
+            } else if ([readingCollectionItemCell isKindOfClass:[EBookCell class]]) {
+                EBookCell *ebookCell = (EBookCell *)readingCollectionItemCell;
+                [ebookCell configureWithEBook:(EBook *)collectionItem];
+            } else {
+                readingCollectionItemCell.textLabel.text = collectionItem.title;
+                readingCollectionItemCell.detailTextLabel.text = [collectionItem formattedAuthors];
+                readingCollectionItemCell.imageView.image = [UIImage imageWithContentsOfFile:collectionItem.thumbnailImageFileURL];
+            }
         };
     }
     return _readingCollectionItemCellConfigureBlock;
@@ -120,135 +154,91 @@
     if (!_readingCollectionItemCellDeleteBlock) {
         __weak typeof(self) weakSelf = self;
         _readingCollectionItemCellDeleteBlock = ^(ReadingCollectionItem *collectionItem) {
-            SIAlertView *alert = [[SIAlertView alloc] initWithTitle:@"Delete"
-                                                         andMessage:@"Are you sure?"];
-            [alert addButtonWithTitle:@"Cancel"
-                                 type:SIAlertViewButtonTypeCancel
-                              handler:^(SIAlertView *alertView) {
-                                  [weakSelf.tableView setEditing:NO animated:YES];
-                              }];
-            
-            [alert addButtonWithTitle:@"Yes"
-                                 type:SIAlertViewButtonTypeDestructive
-                              handler:^(SIAlertView *alertView) {
-                                  [collectionItem deleteWithSuccess:^{
-                                      // All is well.
-                                  } failure:^(NSError *error) {
-                                      [TSMessage showNotificationInViewController:weakSelf
-                                                                            title:@"Error"
-                                                                         subtitle:[error localizedDescription]
-                                                                             type:TSMessageNotificationTypeError];
-                                      
-                                      DDLogError(@"There was an error deleting the item: %@", [error localizedDescription]);
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Delete"
+                                                             andMessage:@"Are you sure?"];
+            [alertView addButtonWithTitle:@"Cancel"
+                                     type:SIAlertViewButtonTypeCancel
+                                  handler:^(SIAlertView *alertView) {
+                                      [weakSelf.tableView setEditing:NO animated:YES];
                                   }];
-                              }];
             
-            alert.transitionStyle = SIAlertViewTransitionStyleFade;
-            alert.buttonsListStyle = SIAlertViewButtonsListStyleNormal;
-            alert.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+            [alertView addButtonWithTitle:@"Yes"
+                                     type:SIAlertViewButtonTypeDestructive
+                                  handler:^(SIAlertView *alertView) {
+                                      [collectionItem deleteWithSuccess:^{
+                                          // All is well.
+                                      } failure:^(NSError *error) {
+                                          [TSMessage showNotificationInViewController:weakSelf
+                                                                                title:@"Error"
+                                                                             subtitle:[error localizedDescription]
+                                                                                 type:TSMessageNotificationTypeError];
+                                      
+                                          DDLogError(@"There was an error deleting the item: %@", [error localizedDescription]);
+                                      }];
+                                  }];
             
-            [alert show];
+            alertView.transitionStyle = SIAlertViewTransitionStyleFade;
+            alertView.buttonsListStyle = SIAlertViewButtonsListStyleNormal;
+            alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
+            
+            [alertView show];
         };
     }
     return _readingCollectionItemCellDeleteBlock;
 }
 
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self setupTableView];
+}
+
+- (void)setupTableView
+{
+    [self.tableView registerNib:[BookCell nib] forCellReuseIdentifier:[BookCell identifier]];
+    [self.tableView registerNib:[EBookCell nib] forCellReuseIdentifier:[EBookCell identifier]];
+}
+
 #pragma mark - IBActions
 
 - (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
-//    SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:nil];
-//    [actionSheet addButtonWithTitle:@"Add"
-//                               type:SIActionSheetButtonTypeDefault
-//                            handler:^(SIActionSheet *actionSheet) {
-//                                [self performSegueWithIdentifier:SelectReadingCollectionItemTypeSegueIdentifier sender:self];
-//                            }];
-//    
-//    [actionSheet addButtonWithTitle:@"Search"
-//                               type:SIActionSheetButtonTypeDefault
-//                            handler:^(SIActionSheet *actionSheet) {
-//                                // TODO:
-//                            }];
-//    
-//    [actionSheet addButtonWithTitle:@"Scan Barcode"
-//                               type:SIActionSheetButtonTypeDefault
-//                            handler:^(SIActionSheet *actionSheet) {
-//                                // TODO:
-//                            }];
-//     
-//     [actionSheet addButtonWithTitle:@"Cancel"
-//                                type:SIActionSheetButtonTypeCancel
-//                             handler:nil];
-//    
-//    [actionSheet show];
+    NSMutableDictionary *typesButtonHandlers = [NSMutableDictionary dictionary];
+    for (NSNumber *type in [ReadingCollectionItem typesAsTypes]) {
+        SIActionSheetHandlerBlock handler = ^(SIActionSheet *actionSheet) {
+            SIActionSheetHandlerBlock addHandler = ^(SIActionSheet *actionSheet) {
+                [self performSegueWithIdentifier:AddReadingCollectionItemSegueIdentifier sender:type];
+            };
+            
+            SIActionSheetHandlerBlock searchHandler = ^(SIActionSheet *actionSheet) {
+                // TODO:
+            };
+            
+            SIActionSheetHandlerBlock scanBarcodeHandler = ^(SIActionSheet *actionSheet) {
+                // TODO:
+            };
+            
+            NSDictionary *addActionButtonHandlers = @{
+                                                      @"Add" : addHandler,
+                                                      @"Search" : searchHandler,
+                                                      @"Scan Barcode" : scanBarcodeHandler
+                                                      };
+            
+            [[SIActionSheet actionSheetWithTitle:nil
+                                    buttonTitles:@[@"Add", @"Search", @"Scan Barcode"]
+                                  buttonHandlers:addActionButtonHandlers
+                                   cancelHandler:nil] show];
+        };
+        
+        [typesButtonHandlers setObject:handler forKey:[ReadingCollectionItem stringFromType:(ReadingCollectionItemType)[type unsignedIntegerValue]]];
+    }
     
-    SIActionSheet *actionSheet = [[SIActionSheet alloc] initWithTitle:nil];
-    [actionSheet addButtonWithTitle:@"Book"
-                               type:SIActionSheetButtonTypeDefault
-                            handler:^(SIActionSheet *actionSheet) {
-                                // TODO: Make this reusable
-                                SIActionSheet *bookActionSheet = [[SIActionSheet alloc] initWithTitle:nil];
-                                [bookActionSheet addButtonWithTitle:@"Add"
-                                                               type:SIActionSheetButtonTypeDefault
-                                                            handler:^(SIActionSheet *actionSheet) {
-                                                                // TODO: no hardcoded
-                                                                [self performSegueWithIdentifier:AddReadingCollectionItemSegueIdentifier sender:@"Book"];
-                                                            }];
-                                
-                                [bookActionSheet addButtonWithTitle:@"Search"
-                                                               type:SIActionSheetButtonTypeDefault
-                                                            handler:^(SIActionSheet *actionSheet) {
-                                                                // TODO:
-                                                            }];
-                                
-                                [bookActionSheet addButtonWithTitle:@"Scan Barcode"
-                                                               type:SIActionSheetButtonTypeDefault
-                                                            handler:^(SIActionSheet *actionSheet) {
-                                                                // TODO:
-                                                            }];
-                                
-                                [bookActionSheet addButtonWithTitle:@"Cancel"
-                                                               type:SIActionSheetButtonTypeCancel
-                                                            handler:nil];
-                                
-                                [bookActionSheet show];
-                            }];
-    
-    [actionSheet addButtonWithTitle:@"E-Book"
-                               type:SIActionSheetButtonTypeDefault
-                            handler:^(SIActionSheet *actionSheet) {
-                                SIActionSheet *bookActionSheet = [[SIActionSheet alloc] initWithTitle:nil];
-                                [bookActionSheet addButtonWithTitle:@"Add"
-                                                               type:SIActionSheetButtonTypeDefault
-                                                            handler:^(SIActionSheet *actionSheet) {
-                                                                // TODO: no hardcoded
-                                                                [self performSegueWithIdentifier:AddReadingCollectionItemSegueIdentifier sender:@"E-Book"];
-                                                            }];
-                                
-                                [bookActionSheet addButtonWithTitle:@"Search"
-                                                               type:SIActionSheetButtonTypeDefault
-                                                            handler:^(SIActionSheet *actionSheet) {
-                                                                // TODO:
-                                                            }];
-                                
-                                [bookActionSheet addButtonWithTitle:@"Scan Barcode"
-                                                               type:SIActionSheetButtonTypeDefault
-                                                            handler:^(SIActionSheet *actionSheet) {
-                                                                // TODO:
-                                                            }];
-                                
-                                [bookActionSheet addButtonWithTitle:@"Cancel"
-                                                               type:SIActionSheetButtonTypeCancel
-                                                            handler:nil];
-                                
-                                [bookActionSheet show];
-                            }];
-    
-    [actionSheet addButtonWithTitle:@"Cancel"
-                               type:SIActionSheetButtonTypeCancel
-                            handler:nil];
-    
-    [actionSheet show];
-
+    [[SIActionSheet actionSheetWithTitle:nil
+                            buttonTitles:[ReadingCollectionItem typesAsStrings]
+                          buttonHandlers:typesButtonHandlers
+                           cancelHandler:nil] show];
 }
 
 #pragma mark - Navigation
@@ -275,8 +265,8 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
         UIViewController *firstVC = [uiNavigationController.viewControllers firstObject];
         if ([firstVC isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
             if (![segueIdentifier length] || [segueIdentifier isEqualToString:AddReadingCollectionItemSegueIdentifier]) {
-                if ([sender isKindOfClass:[NSString class]]) {
-                    NSString *type = (NSString *)sender;
+                if ([sender isKindOfClass:[NSNumber class]]) {
+                    ReadingCollectionItemType type = (ReadingCollectionItemType)[(NSNumber *)sender unsignedIntegerValue];
                     [self prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)firstVC withType:type];
                 }
             }
@@ -286,10 +276,10 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
 
 - (void)prepareReadingCollectionItemTypesTableViewController:(ReadingCollectionItemTypesTableViewController *)viewController
 {
-    viewController.readingCollectionItemTypes = @[@"Book", @"E-Book"];
+    viewController.readingCollectionItemTypes = [ReadingCollectionItem typesAsStrings];
 }
 
-- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(NSString *)type
+- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type
 {
     viewController.type = type;
 }

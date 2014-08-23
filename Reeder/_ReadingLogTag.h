@@ -42,9 +42,9 @@ extern const struct ReadingLogTagFetchedProperties {
 
 
 
-@property (nonatomic, strong) ReadingLog *logs;
+@property (nonatomic, strong) NSSet *logs;
 
-//- (BOOL)validateLogs:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)logsSet;
 
 
 
@@ -53,6 +53,11 @@ extern const struct ReadingLogTagFetchedProperties {
 @end
 
 @interface _ReadingLogTag (CoreDataGeneratedAccessors)
+
+- (void)addLogs:(NSSet*)value_;
+- (void)removeLogs:(NSSet*)value_;
+- (void)addLogsObject:(ReadingLog*)value_;
+- (void)removeLogsObject:(ReadingLog*)value_;
 
 @end
 
@@ -66,8 +71,8 @@ extern const struct ReadingLogTagFetchedProperties {
 
 
 
-- (ReadingLog*)primitiveLogs;
-- (void)setPrimitiveLogs:(ReadingLog*)value;
+- (NSMutableSet*)primitiveLogs;
+- (void)setPrimitiveLogs:(NSMutableSet*)value;
 
 
 @end

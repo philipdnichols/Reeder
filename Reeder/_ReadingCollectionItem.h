@@ -6,11 +6,11 @@
 
 extern const struct ReadingCollectionItemAttributes {
 	__unsafe_unretained NSString *dateAddedToCollection;
-	__unsafe_unretained NSString *details;
 	__unsafe_unretained NSString *imageFileURL;
 	__unsafe_unretained NSString *notes;
 	__unsafe_unretained NSString *publishedDate;
 	__unsafe_unretained NSString *rating;
+	__unsafe_unretained NSString *summary;
 	__unsafe_unretained NSString *thumbnailImageFileURL;
 	__unsafe_unretained NSString *title;
 } ReadingCollectionItemAttributes;
@@ -60,16 +60,6 @@ extern const struct ReadingCollectionItemFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* details;
-
-
-
-//- (BOOL)validateDetails:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
 @property (nonatomic, strong) NSString* imageFileURL;
 
 
@@ -109,6 +99,16 @@ extern const struct ReadingCollectionItemFetchedProperties {
 - (void)setRatingValue:(int16_t)value_;
 
 //- (BOOL)validateRating:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* summary;
+
+
+
+//- (BOOL)validateSummary:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -186,12 +186,6 @@ extern const struct ReadingCollectionItemFetchedProperties {
 
 
 
-- (NSString*)primitiveDetails;
-- (void)setPrimitiveDetails:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveImageFileURL;
 - (void)setPrimitiveImageFileURL:(NSString*)value;
 
@@ -215,6 +209,12 @@ extern const struct ReadingCollectionItemFetchedProperties {
 
 - (int16_t)primitiveRatingValue;
 - (void)setPrimitiveRatingValue:(int16_t)value_;
+
+
+
+
+- (NSString*)primitiveSummary;
+- (void)setPrimitiveSummary:(NSString*)value;
 
 
 

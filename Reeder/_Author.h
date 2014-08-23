@@ -44,9 +44,9 @@ extern const struct AuthorFetchedProperties {
 
 
 
-@property (nonatomic, strong) ReadingCollectionItem *collectionItems;
+@property (nonatomic, strong) NSSet *collectionItems;
 
-//- (BOOL)validateCollectionItems:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)collectionItemsSet;
 
 
 
@@ -62,6 +62,11 @@ extern const struct AuthorFetchedProperties {
 @end
 
 @interface _Author (CoreDataGeneratedAccessors)
+
+- (void)addCollectionItems:(NSSet*)value_;
+- (void)removeCollectionItems:(NSSet*)value_;
+- (void)addCollectionItemsObject:(ReadingCollectionItem*)value_;
+- (void)removeCollectionItemsObject:(ReadingCollectionItem*)value_;
 
 - (void)addTags:(NSSet*)value_;
 - (void)removeTags:(NSSet*)value_;
@@ -80,8 +85,8 @@ extern const struct AuthorFetchedProperties {
 
 
 
-- (ReadingCollectionItem*)primitiveCollectionItems;
-- (void)setPrimitiveCollectionItems:(ReadingCollectionItem*)value;
+- (NSMutableSet*)primitiveCollectionItems;
+- (void)setPrimitiveCollectionItems:(NSMutableSet*)value;
 
 
 

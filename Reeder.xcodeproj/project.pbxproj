@@ -52,6 +52,25 @@
 		B13844F519A6A1A000BD9721 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = B13844D519A6A1A000BD9721 /* MagicalRecord+Setup.m */; };
 		B13844F619A6A1A000BD9721 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = B13844D719A6A1A000BD9721 /* MagicalRecord+ShorthandSupport.m */; };
 		B13844F719A6A1A000BD9721 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B13844D919A6A1A000BD9721 /* MagicalRecord.m */; };
+		B185DFDC19A794FD005E0A5F /* RECustomImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFDA19A794FD005E0A5F /* RECustomImageCell.m */; };
+		B185DFDD19A794FD005E0A5F /* RECustomImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185DFDB19A794FD005E0A5F /* RECustomImageCell.xib */; };
+		B185DFE219A79560005E0A5F /* RECustomImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFE119A79560005E0A5F /* RECustomImageItem.m */; };
+		B185DFE619A7EBD5005E0A5F /* ReadingCollectionItemForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFE519A7EBD5005E0A5F /* ReadingCollectionItemForm.m */; };
+		B185DFF919A8361B005E0A5F /* SIActionSheet+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFF819A8361B005E0A5F /* SIActionSheet+Convenience.m */; };
+		B185DFFD19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFFC19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m */; };
+		B185E00019A83F30005E0A5F /* BookForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFFF19A83F30005E0A5F /* BookForm.m */; };
+		B185E00319A841E6005E0A5F /* EBookForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00219A841E6005E0A5F /* EBookForm.m */; };
+		B185E00719A842A6005E0A5F /* Book+Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00619A842A6005E0A5F /* Book+Form.m */; };
+		B185E00A19A843A5005E0A5F /* EBook+Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00919A843A5005E0A5F /* EBook+Form.m */; };
+		B185E00D19A8DC8F005E0A5F /* CustomUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00C19A8DC8F005E0A5F /* CustomUITableViewCell.m */; };
+		B185E01619A8DCDC005E0A5F /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E01419A8DCDC005E0A5F /* BookCell.m */; };
+		B185E01719A8DCDC005E0A5F /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185E01519A8DCDC005E0A5F /* BookCell.xib */; };
+		B185E01E19A8E38D005E0A5F /* BookCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E01D19A8E38D005E0A5F /* BookCell+Configure.m */; };
+		B185E02219A8E823005E0A5F /* EBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02019A8E823005E0A5F /* EBookCell.m */; };
+		B185E02319A8E823005E0A5F /* EBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185E02119A8E823005E0A5F /* EBookCell.xib */; };
+		B185E02619A8E943005E0A5F /* EBookCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02519A8E943005E0A5F /* EBookCell+Configure.m */; };
+		B185E02B19A8F402005E0A5F /* _BookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02819A8F402005E0A5F /* _BookChapter.m */; };
+		B185E02C19A8F402005E0A5F /* BookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02A19A8F402005E0A5F /* BookChapter.m */; };
 		B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */; };
 		B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */; };
 		B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */; };
@@ -175,6 +194,41 @@
 		B13844DB19A6A1A000BD9721 /* MagicalRecordLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordLogging.h; sourceTree = "<group>"; };
 		B13844DC19A6A1A000BD9721 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		B13844DD19A6A1A000BD9721 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
+		B185DFD919A794FD005E0A5F /* RECustomImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECustomImageCell.h; sourceTree = "<group>"; };
+		B185DFDA19A794FD005E0A5F /* RECustomImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECustomImageCell.m; sourceTree = "<group>"; };
+		B185DFDB19A794FD005E0A5F /* RECustomImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RECustomImageCell.xib; sourceTree = "<group>"; };
+		B185DFE019A79560005E0A5F /* RECustomImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECustomImageItem.h; sourceTree = "<group>"; };
+		B185DFE119A79560005E0A5F /* RECustomImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECustomImageItem.m; sourceTree = "<group>"; };
+		B185DFE419A7EBD5005E0A5F /* ReadingCollectionItemForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemForm.h; sourceTree = "<group>"; };
+		B185DFE519A7EBD5005E0A5F /* ReadingCollectionItemForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemForm.m; sourceTree = "<group>"; };
+		B185DFF719A8361B005E0A5F /* SIActionSheet+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SIActionSheet+Convenience.h"; sourceTree = "<group>"; };
+		B185DFF819A8361B005E0A5F /* SIActionSheet+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SIActionSheet+Convenience.m"; sourceTree = "<group>"; };
+		B185DFFB19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+ActionSheet.h"; sourceTree = "<group>"; };
+		B185DFFC19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+ActionSheet.m"; sourceTree = "<group>"; };
+		B185DFFE19A83F30005E0A5F /* BookForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookForm.h; sourceTree = "<group>"; };
+		B185DFFF19A83F30005E0A5F /* BookForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookForm.m; sourceTree = "<group>"; };
+		B185E00119A841E6005E0A5F /* EBookForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBookForm.h; sourceTree = "<group>"; };
+		B185E00219A841E6005E0A5F /* EBookForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBookForm.m; sourceTree = "<group>"; };
+		B185E00519A842A6005E0A5F /* Book+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Form.h"; sourceTree = "<group>"; };
+		B185E00619A842A6005E0A5F /* Book+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Form.m"; sourceTree = "<group>"; };
+		B185E00819A843A5005E0A5F /* EBook+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBook+Form.h"; sourceTree = "<group>"; };
+		B185E00919A843A5005E0A5F /* EBook+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBook+Form.m"; sourceTree = "<group>"; };
+		B185E00B19A8DC8F005E0A5F /* CustomUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomUITableViewCell.h; sourceTree = "<group>"; };
+		B185E00C19A8DC8F005E0A5F /* CustomUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUITableViewCell.m; sourceTree = "<group>"; };
+		B185E01319A8DCDC005E0A5F /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
+		B185E01419A8DCDC005E0A5F /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
+		B185E01519A8DCDC005E0A5F /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
+		B185E01C19A8E38D005E0A5F /* BookCell+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookCell+Configure.h"; sourceTree = "<group>"; };
+		B185E01D19A8E38D005E0A5F /* BookCell+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BookCell+Configure.m"; sourceTree = "<group>"; };
+		B185E01F19A8E823005E0A5F /* EBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBookCell.h; sourceTree = "<group>"; };
+		B185E02019A8E823005E0A5F /* EBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBookCell.m; sourceTree = "<group>"; };
+		B185E02119A8E823005E0A5F /* EBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBookCell.xib; sourceTree = "<group>"; };
+		B185E02419A8E943005E0A5F /* EBookCell+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBookCell+Configure.h"; sourceTree = "<group>"; };
+		B185E02519A8E943005E0A5F /* EBookCell+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBookCell+Configure.m"; sourceTree = "<group>"; };
+		B185E02719A8F402005E0A5F /* _BookChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _BookChapter.h; sourceTree = "<group>"; };
+		B185E02819A8F402005E0A5F /* _BookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _BookChapter.m; sourceTree = "<group>"; };
+		B185E02919A8F402005E0A5F /* BookChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookChapter.h; sourceTree = "<group>"; };
+		B185E02A19A8F402005E0A5F /* BookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookChapter.m; sourceTree = "<group>"; };
 		B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reeder.xcdatamodel; sourceTree = "<group>"; };
 		B19B652C19A52F5E00EDEFFA /* _ReadingCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingCollectionItem.h; sourceTree = "<group>"; };
 		B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingCollectionItem.m; sourceTree = "<group>"; };
@@ -398,6 +452,110 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		B185DFD819A79307005E0A5F /* RETableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				B185DFD919A794FD005E0A5F /* RECustomImageCell.h */,
+				B185DFDA19A794FD005E0A5F /* RECustomImageCell.m */,
+				B185DFDB19A794FD005E0A5F /* RECustomImageCell.xib */,
+			);
+			name = RETableViewManager;
+			sourceTree = "<group>";
+		};
+		B185DFDE19A79528005E0A5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B185DFDF19A79532005E0A5F /* RETableViewManager */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B185DFDF19A79532005E0A5F /* RETableViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				B185DFE019A79560005E0A5F /* RECustomImageItem.h */,
+				B185DFE119A79560005E0A5F /* RECustomImageItem.m */,
+			);
+			name = RETableViewManager;
+			sourceTree = "<group>";
+		};
+		B185DFE319A7EB91005E0A5F /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				B185E00419A8427A005E0A5F /* Categories */,
+				B185DFE419A7EBD5005E0A5F /* ReadingCollectionItemForm.h */,
+				B185DFE519A7EBD5005E0A5F /* ReadingCollectionItemForm.m */,
+				B185DFFE19A83F30005E0A5F /* BookForm.h */,
+				B185DFFF19A83F30005E0A5F /* BookForm.m */,
+				B185E00119A841E6005E0A5F /* EBookForm.h */,
+				B185E00219A841E6005E0A5F /* EBookForm.m */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
+		B185DFE719A82F43005E0A5F /* ActionSheets */ = {
+			isa = PBXGroup;
+			children = (
+				B185DFF719A8361B005E0A5F /* SIActionSheet+Convenience.h */,
+				B185DFF819A8361B005E0A5F /* SIActionSheet+Convenience.m */,
+			);
+			name = ActionSheets;
+			sourceTree = "<group>";
+		};
+		B185DFFA19A83C8B005E0A5F /* UIImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				B185DFFB19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.h */,
+				B185DFFC19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m */,
+			);
+			name = UIImagePickerController;
+			sourceTree = "<group>";
+		};
+		B185E00419A8427A005E0A5F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B185E00519A842A6005E0A5F /* Book+Form.h */,
+				B185E00619A842A6005E0A5F /* Book+Form.m */,
+				B185E00819A843A5005E0A5F /* EBook+Form.h */,
+				B185E00919A843A5005E0A5F /* EBook+Form.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		B185E00E19A8DC9A005E0A5F /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B185E00F19A8DCA3005E0A5F /* Abstract */,
+				B185E01319A8DCDC005E0A5F /* BookCell.h */,
+				B185E01419A8DCDC005E0A5F /* BookCell.m */,
+				B185E01519A8DCDC005E0A5F /* BookCell.xib */,
+				B185E01F19A8E823005E0A5F /* EBookCell.h */,
+				B185E02019A8E823005E0A5F /* EBookCell.m */,
+				B185E02119A8E823005E0A5F /* EBookCell.xib */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		B185E00F19A8DCA3005E0A5F /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				B185E00B19A8DC8F005E0A5F /* CustomUITableViewCell.h */,
+				B185E00C19A8DC8F005E0A5F /* CustomUITableViewCell.m */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		B185E01819A8E351005E0A5F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B185E01C19A8E38D005E0A5F /* BookCell+Configure.h */,
+				B185E01D19A8E38D005E0A5F /* BookCell+Configure.m */,
+				B185E02419A8E943005E0A5F /* EBookCell+Configure.h */,
+				B185E02519A8E943005E0A5F /* EBookCell+Configure.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		B19B651F19A52D8000EDEFFA /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,12 +569,15 @@
 			isa = PBXGroup;
 			children = (
 				B19B653F19A52F7000EDEFFA /* Generated */,
+				B185E01819A8E351005E0A5F /* Categories */,
 				B19B654619A535AA00EDEFFA /* Author.h */,
 				B19B654719A535AA00EDEFFA /* Author.m */,
 				B19B654819A535AA00EDEFFA /* AuthorTag.h */,
 				B19B654919A535AA00EDEFFA /* AuthorTag.m */,
 				B19B654A19A535AA00EDEFFA /* Book.h */,
 				B19B654B19A535AA00EDEFFA /* Book.m */,
+				B185E02919A8F402005E0A5F /* BookChapter.h */,
+				B185E02A19A8F402005E0A5F /* BookChapter.m */,
 				B19B654C19A535AA00EDEFFA /* BookLog.h */,
 				B19B654D19A535AA00EDEFFA /* BookLog.m */,
 				B19B654E19A535AA00EDEFFA /* EBook.h */,
@@ -440,6 +601,8 @@
 		B19B653F19A52F7000EDEFFA /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				B185E02719A8F402005E0A5F /* _BookChapter.h */,
+				B185E02819A8F402005E0A5F /* _BookChapter.m */,
 				B19B655B19A535B700EDEFFA /* _Author.h */,
 				B19B655C19A535B700EDEFFA /* _Author.m */,
 				B19B655D19A535B700EDEFFA /* _AuthorTag.h */,
@@ -478,6 +641,7 @@
 		B19B657419A538C300EDEFFA /* Reading Collection */ = {
 			isa = PBXGroup;
 			children = (
+				B185DFE319A7EB91005E0A5F /* Forms */,
 				B19B657519A538D500EDEFFA /* ReadingCollectionItemsTableViewController.h */,
 				B19B657619A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m */,
 				B19B65EB19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.h */,
@@ -556,6 +720,7 @@
 				B1ED5BC219941EFA001FF3E4 /* ReederAppDelegate.m */,
 				B19B65DE19A563BA00EDEFFA /* Categories */,
 				B19B651F19A52D8000EDEFFA /* Core Data */,
+				B185DFDE19A79528005E0A5F /* Model */,
 				B1ED5BEA19941F05001FF3E4 /* View */,
 				B1ED5BEB19941F0D001FF3E4 /* Controller */,
 				B1ED5BCD19941EFA001FF3E4 /* Images.xcassets */,
@@ -598,6 +763,10 @@
 		B1ED5BEA19941F05001FF3E4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B185E00E19A8DC9A005E0A5F /* Custom Cells */,
+				B185DFFA19A83C8B005E0A5F /* UIImagePickerController */,
+				B185DFE719A82F43005E0A5F /* ActionSheets */,
+				B185DFD819A79307005E0A5F /* RETableViewManager */,
 				B1ED5BC419941EFA001FF3E4 /* Main_iPhone.storyboard */,
 				B1ED5BC719941EFA001FF3E4 /* Main_iPad.storyboard */,
 			);
@@ -700,6 +869,9 @@
 				B1ED5BCE19941EFA001FF3E4 /* Images.xcassets in Resources */,
 				B1ED5BC619941EFA001FF3E4 /* Main_iPhone.storyboard in Resources */,
 				B1ED5BBD19941EFA001FF3E4 /* InfoPlist.strings in Resources */,
+				B185E01719A8DCDC005E0A5F /* BookCell.xib in Resources */,
+				B185E02319A8E823005E0A5F /* EBookCell.xib in Resources */,
+				B185DFDD19A794FD005E0A5F /* RECustomImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,26 +937,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				B13844F619A6A1A000BD9721 /* MagicalRecord+ShorthandSupport.m in Sources */,
+				B185E01619A8DCDC005E0A5F /* BookCell.m in Sources */,
+				B185DFF919A8361B005E0A5F /* SIActionSheet+Convenience.m in Sources */,
 				B19B653B19A52F5E00EDEFFA /* ReadingCollectionItem.m in Sources */,
+				B185E00319A841E6005E0A5F /* EBookForm.m in Sources */,
+				B185E00719A842A6005E0A5F /* Book+Form.m in Sources */,
 				B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */,
+				B185E00D19A8DC8F005E0A5F /* CustomUITableViewCell.m in Sources */,
+				B185DFE619A7EBD5005E0A5F /* ReadingCollectionItemForm.m in Sources */,
 				B19B655819A535AA00EDEFFA /* EBook.m in Sources */,
 				B13844F119A6A1A000BD9721 /* MagicalRecord+Actions.m in Sources */,
 				B19B655419A535AA00EDEFFA /* Author.m in Sources */,
 				B19B654519A530BE00EDEFFA /* ReadingCollectionItemTag.m in Sources */,
 				B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */,
 				B19B65ED19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m in Sources */,
+				B185E02219A8E823005E0A5F /* EBookCell.m in Sources */,
 				B13844EE19A6A1A000BD9721 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
+				B185E00A19A843A5005E0A5F /* EBook+Form.m in Sources */,
 				B13844F519A6A1A000BD9721 /* MagicalRecord+Setup.m in Sources */,
 				B13844E119A6A1A000BD9721 /* NSNumber+MagicalDataImport.m in Sources */,
 				B13844E819A6A1A000BD9721 /* NSManagedObject+MagicalRecord.m in Sources */,
 				B19B656B19A535B700EDEFFA /* _Book.m in Sources */,
+				B185E00019A83F30005E0A5F /* BookForm.m in Sources */,
 				B13844EF19A6A1A000BD9721 /* NSPersistentStore+MagicalRecord.m in Sources */,
+				B185E01E19A8E38D005E0A5F /* BookCell+Configure.m in Sources */,
 				B19B657219A5368D00EDEFFA /* ReadingLogTableViewController.m in Sources */,
 				B19B656C19A535B700EDEFFA /* _BookLog.m in Sources */,
 				B13844EC19A6A1A000BD9721 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				B19B653C19A52F5E00EDEFFA /* ReadingLog.m in Sources */,
+				B185E02619A8E943005E0A5F /* EBookCell+Configure.m in Sources */,
 				B13844EB19A6A1A000BD9721 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				B138449F19A6A19500BD9721 /* UIWindow+SIUtils.m in Sources */,
+				B185DFDC19A794FD005E0A5F /* RECustomImageCell.m in Sources */,
 				B13844F719A6A1A000BD9721 /* MagicalRecord.m in Sources */,
 				B19B65D519A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m in Sources */,
 				B19B654419A530BE00EDEFFA /* _ReadingCollectionItemTag.m in Sources */,
@@ -806,14 +990,18 @@
 				B1ED5BC319941EFA001FF3E4 /* ReederAppDelegate.m in Sources */,
 				B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */,
 				B19B65D819A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m in Sources */,
+				B185E02C19A8F402005E0A5F /* BookChapter.m in Sources */,
 				B13844E719A6A1A000BD9721 /* NSManagedObject+MagicalFinders.m in Sources */,
 				B13844DE19A6A1A000BD9721 /* MagicalImportFunctions.m in Sources */,
 				B13844EA19A6A1A000BD9721 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				B19B655A19A535AA00EDEFFA /* EBookLog.m in Sources */,
+				B185DFFD19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m in Sources */,
 				B13844ED19A6A1A000BD9721 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				B13844E919A6A1A000BD9721 /* NSManagedObject+MagicalRequests.m in Sources */,
 				B19B657719A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m in Sources */,
+				B185DFE219A79560005E0A5F /* RECustomImageItem.m in Sources */,
 				B13844F219A6A1A000BD9721 /* MagicalRecord+ErrorHandling.m in Sources */,
+				B185E02B19A8F402005E0A5F /* _BookChapter.m in Sources */,
 				B13844E619A6A1A000BD9721 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				B19B65DD19A563B500EDEFFA /* UIImage+IO.m in Sources */,
 				B13844E319A6A1A000BD9721 /* NSRelationshipDescription+MagicalDataImport.m in Sources */,

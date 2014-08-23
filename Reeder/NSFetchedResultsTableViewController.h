@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "NSFetchedResultsControllerDataSource.h"
 
+typedef CGFloat(^FetchedResultsCellHeightBlock)(NSIndexPath *indexPath);
+
 @interface NSFetchedResultsTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchRequest *fetchedRequest;
 @property (strong, nonatomic) NSString *fetchedGroupKeyPath;
 
 @property (strong, nonatomic, readonly) NSFetchedResultsControllerDataSource *fetchedResultsControllerDataSource;
-@property (strong, nonatomic) NSString *cellIdentifier;
-@property (nonatomic, copy) FetchedResultsCellIdentifierBlock fetchedResultsIdentifierBlock;
-@property (nonatomic, copy) FetchedResultsCellConfigureBlock fetchedResultsConfigureBlock;
-@property (nonatomic, copy) FetchedResultsCellDeleteBlock fetchedResultsDeleteBlock;
+@property (nonatomic, copy) FetchedResultsCellIdentifierBlock fetchedResultsCellIdentifierBlock;
+@property (nonatomic, copy) FetchedResultsCellHeightBlock fetchedResultsCellHeightBlock;
+@property (nonatomic, copy) FetchedResultsCellConfigureBlock fetchedResultsCellConfigureBlock;
+@property (nonatomic, copy) FetchedResultsCellDeleteBlock fetchedResultsCellDeleteBlock;
 
 @end
