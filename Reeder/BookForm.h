@@ -8,9 +8,13 @@
 
 #import "ReadingCollectionItemForm.h"
 
+@class Book;
+
 @interface BookForm : ReadingCollectionItemForm
 
 @property (strong, nonatomic, readonly) RETextItem *publisherItem;
 @property (strong, nonatomic, readonly) RENumberItem *pageCountItem;
+
+- (instancetype)initWithBook:(Book *)book;
 
 @end

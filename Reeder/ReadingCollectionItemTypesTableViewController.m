@@ -8,7 +8,7 @@
 
 #import "ReadingCollectionItemTypesTableViewController.h"
 #import "ArrayDataSource.h"
-#import "AddReadingCollectionItemFormViewController.h"
+#import "ReadingCollectionItemFormViewController.h"
 
 static NSString * const ReadingCollectionItemTypeCellIdentifier = @"ReadingCollectionItemTypeCell";
 
@@ -92,7 +92,7 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
         indexPath = [self.tableView indexPathForCell:sender];
     }
     
-    if ([viewController isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
+    if ([viewController isKindOfClass:[ReadingCollectionItemFormViewController class]]) {
         if (![segueIdentifier length] || [segueIdentifier isEqualToString:AddReadingCollectionItemSegueIdentifier]) {
             NSNumber *type = [self.readingCollectionItemTypeArrayDataSource itemAtIndexPath:indexPath];
             
@@ -101,7 +101,7 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
     }
 }
 
-- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type
+- (void)prepareAddReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type
 {
     viewController.type = type;
 }

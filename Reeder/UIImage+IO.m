@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, UIImageIOError) {
 
 @implementation UIImage (IO)
 
-- (NSURL *)saveToDiskWithName:(NSString *)name
+- (NSURL *)saveToDiskWithName:(NSString *)name error:(NSError **)error
 {
     // Make sure each image is unique:
     NSString *guid = [[NSProcessInfo processInfo] globallyUniqueString] ;
@@ -30,21 +30,29 @@ typedef NS_ENUM(NSInteger, UIImageIOError) {
     NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", uniqueName]];
     
     if (![fileManager createFileAtPath:fullPath contents:data attributes:nil]) {
-        DDLogError(@"There was an error saving the image to the path \"%@\"", fullPath);
+        NSString *localizedDescription = [NSString stringWithFormat:@"There was an error saving the image to the path \"%@\"", fullPath];
+        *error = [NSError errorWithDomain:UIImageDomain
+                                     code:UIImageIOErrorSave
+                                 userInfo:@{ NSLocalizedDescriptionKey : localizedDescription }];
         return nil;
     }
     
     return [NSURL fileURLWithPath:fullPath];
 }
 
-+ (BOOL)deleteFromDiskWithFilePathURL:(NSURL *)filePathURL
++ (BOOL)deleteFromDiskWithFilePathURL:(NSURL *)filePathURL error:(NSError **)error
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     if ([fileManager fileExistsAtPath:[filePathURL path]]) {
-        NSError *error = nil;
-        if (![fileManager removeItemAtURL:filePathURL error:&error]) {
-            DDLogError(@"There was an error removing the image from the path \"%@\": %@", [filePathURL path], [error localizedDescription]);
+        BOOL success = [fileManager removeItemAtURL:filePathURL error:&*error];
+        if (!success && !*error) {
+            NSString *localizedDescription = [NSString stringWithFormat:@"There was an error removing the image from the path \"%@\"", [filePathURL path]];
+            *error = [NSError errorWithDomain:UIImageDomain
+                                         code:UIImageIOErrorSave
+                                     userInfo:@{ NSLocalizedDescriptionKey : localizedDescription }];
+            return NO;
+        } else if (*error) {
             return NO;
         }
     } else {
@@ -58,11 +66,16 @@ typedef NS_ENUM(NSInteger, UIImageIOError) {
 {
     NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
     [backgroundQueue addOperationWithBlock:^{
-        NSURL *url = [self saveToDiskWithName:name];
+        NSError *error = nil;
+        NSURL *url = [self saveToDiskWithName:name error:&error];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (url) {
                 if (success) {
                     success(url);
+                }
+            } else if (error) {
+                if (failure) {
+                    failure(error);
                 }
             } else {
                 if (failure) {
@@ -81,11 +94,16 @@ typedef NS_ENUM(NSInteger, UIImageIOError) {
 {
     NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
     [backgroundQueue addOperationWithBlock:^{
-        BOOL succ = [self deleteFromDiskWithFilePathURL:filePathURL];
+        NSError *error = nil;
+        BOOL succ = [self deleteFromDiskWithFilePathURL:filePathURL error:&error];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (succ) {
                 if (success) {
                     success();
+                }
+            } else if (error) {
+                if (failure) {
+                    failure(error);
                 }
             } else {
                 if (failure) {

@@ -7,6 +7,7 @@
 //
 
 #import "BookForm.h"
+#import "BookForm+Configure.h"
 
 @interface BookForm ()
 
@@ -54,6 +55,17 @@
         _pageCountItem = [RENumberItem itemWithTitle:@"Page Count"];
     }
     return _pageCountItem;
+}
+
+#pragma mark - Initialization
+
+- (instancetype)initWithBook:(Book *)book
+{
+    self = [super init];
+    if (self && book) {
+        [self configureWithBook:book];
+    }
+    return self;
 }
 
 @end

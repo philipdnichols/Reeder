@@ -8,8 +8,12 @@
 
 #import "ReadingCollectionItemForm.h"
 
+@class EBook;
+
 @interface EBookForm : ReadingCollectionItemForm
 
 @property (strong, nonatomic, readonly) RETextItem *publisherItem;
+
+- (instancetype)initWithEBook:(EBook *)ebook;
 
 @end

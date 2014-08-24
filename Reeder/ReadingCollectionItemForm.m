@@ -26,6 +26,7 @@
 @property (strong, nonatomic, readwrite) RELongTextItem *notesItem;
 @property (strong, nonatomic, readwrite) RETableViewItem *addAuthorButton;
 @property (strong, nonatomic, readwrite) RETableViewItem *addTagButton;
+
 @property (strong, nonatomic, readwrite) NSMutableArray *authors; // of RETextItem
 @property (strong, nonatomic, readwrite) NSMutableArray *tags; // of RETextItem
 
@@ -59,7 +60,7 @@
 {
     if (!_authorsSection) {
         _authorsSection = [RETableViewSection sectionWithHeaderTitle:@"Authors"];
-        [self addAuthorTextItemToSection:_authorsSection];
+        [self addAuthorTextItem:nil toSection:_authorsSection];
         [_authorsSection addItem:self.addAuthorButton];
     }
     return _authorsSection;
@@ -160,7 +161,7 @@
                                             accessoryType:UITableViewCellAccessoryNone
                                          selectionHandler:^(RETableViewItem *item) {
                                              [self.authorsSection removeLastItem];
-                                             [self addAuthorTextItemToSection:self.authorsSection];
+                                             [self addAuthorTextItem:nil toSection:self.authorsSection];
                                              [self.authorsSection addItem:item];
                                              [self.authorsSection reloadSectionWithAnimation:UITableViewRowAnimationFade];
                                          }];
@@ -176,7 +177,7 @@
                                          accessoryType:UITableViewCellAccessoryNone
                                       selectionHandler:^(RETableViewItem *item) {
                                           [self.tagsSection removeLastItem];
-                                          [self addTagTextItemToSection:self.tagsSection];
+                                          [self addTagTextItem:nil toSection:self.tagsSection];
                                           [self.tagsSection addItem:item];
                                           [self.tagsSection reloadSectionWithAnimation:UITableViewRowAnimationFade];
                                       }];
@@ -217,10 +218,10 @@
 
 #pragma mark - Public
 
-- (void)addAuthorTextItemToSection:(RETableViewSection *)section
+- (void)addAuthorTextItem:(NSString *)value toSection:(RETableViewSection *)section
 {
     RETextItem *authorItem = [RETextItem itemWithTitle:nil
-                                                 value:nil
+                                                 value:value
                                            placeholder:@"Name"];
     authorItem.editingStyle = UITableViewCellEditingStyleDelete;
     authorItem.autocapitalizationType = UITextAutocapitalizationTypeWords;
@@ -233,10 +234,10 @@
     [section addItem:authorItem];
 }
 
-- (void)addTagTextItemToSection:(RETableViewSection *)section
+- (void)addTagTextItem:(NSString *)value toSection:(RETableViewSection *)section
 {
     RETextItem *tagItem = [RETextItem itemWithTitle:nil
-                                              value:nil
+                                              value:value
                                         placeholder:@"Name"];
     tagItem.editingStyle = UITableViewCellEditingStyleDelete;
     tagItem.deletionHandler = ^(RETextItem *item) {

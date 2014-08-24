@@ -73,6 +73,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="dSt-Id-Dqf" kind="modal" identifier="Add Reading Collection Item" id="buu-5B-zOu"/>
+                        <segue destination="Neh-gc-zrj" kind="push" identifier="View Reading Collection Item" id="gMg-y2-145"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2r-rd-4e2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,6 +145,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dSt-Id-Dqf" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gIx-lf-wHA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="oP9-SZ-aIi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -158,12 +160,12 @@
             </objects>
             <point key="canvasLocation" x="2165" y="1308"/>
         </scene>
-        <!--Add Reading Collection Item Form View Controller - Add-->
+        <!--Reading Collection Item Form View Controller-->
         <scene sceneID="5lZ-4h-LkE">
             <objects>
-                <tableViewController id="Neh-gc-zrj" customClass="AddReadingCollectionItemFormViewController" sceneMemberID="viewController">
+                <tableViewController id="Neh-gc-zrj" customClass="ReadingCollectionItemFormViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Qge-cq-qqE">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections/>
@@ -172,7 +174,7 @@
                             <outlet property="delegate" destination="Neh-gc-zrj" id="mFh-cV-dgs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add" id="8iK-tU-mYP">
+                    <navigationItem key="navigationItem" id="8iK-tU-mYP">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Bbd-LF-z5d">
                             <connections>
                                 <action selector="cancelButtonTapped" destination="Neh-gc-zrj" id="KXr-40-qNh"/>
@@ -180,7 +182,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="dFf-Za-LxO">
                             <connections>
-                                <segue destination="dN4-27-XJW" kind="unwind" identifier="Reading Collection Item Added" unwindAction="addedReadingCollectionItem:" id="egF-5a-jCg"/>
+                                <segue destination="dN4-27-XJW" kind="unwind" identifier="Reading Collection Item Saved" unwindAction="addedReadingCollectionItem:" id="egF-5a-jCg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -200,4 +202,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="gMg-y2-145"/>
+    </inferredMetricsTieBreakers>
 </document>

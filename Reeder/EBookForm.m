@@ -7,6 +7,7 @@
 //
 
 #import "EBookForm.h"
+#import "EBookForm+Configure.h"
 
 @interface EBookForm ()
 
@@ -44,6 +45,17 @@
         _publisherItem.autocapitalizationType = UITextAutocapitalizationTypeWords;
     }
     return _publisherItem;
+}
+
+#pragma mark - Initialization
+
+- (instancetype)initWithEBook:(EBook *)ebook
+{
+    self = [super init];
+    if (self && ebook) {
+        [self configureWithEBook:ebook];
+    }
+    return self;
 }
 
 @end

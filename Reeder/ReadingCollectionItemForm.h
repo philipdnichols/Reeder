@@ -31,9 +31,11 @@
 @property (strong, nonatomic, readonly) NSMutableArray *authors; // of RETextItem
 @property (strong, nonatomic, readonly) NSMutableArray *tags; // of RETextItem
 
+@property (nonatomic) BOOL changedImage;
+
 - (void)configureWithManager:(RETableViewManager *)manager;
 
-- (void)addAuthorTextItemToSection:(RETableViewSection *)section;
-- (void)addTagTextItemToSection:(RETableViewSection *)section;
+- (void)addAuthorTextItem:(NSString *)value toSection:(RETableViewSection *)section;
+- (void)addTagTextItem:(NSString *)value toSection:(RETableViewSection *)section;
 
 @end

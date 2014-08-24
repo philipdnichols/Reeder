@@ -10,10 +10,10 @@
 
 @interface UIImage (IO)
 
-- (NSURL *)saveToDiskWithName:(NSString *)name;
+- (NSURL *)saveToDiskWithName:(NSString *)name error:(NSError **)error;
 
 // TODO: I guess it's kind of weird having this here. We probably need a general purpose file manager for saving and deleting, but this will suffice for now
-+ (BOOL)deleteFromDiskWithFilePathURL:(NSURL *)filePathURL;
++ (BOOL)deleteFromDiskWithFilePathURL:(NSURL *)filePathURL error:(NSError **)error;
 
 - (void)saveToDiskAsyncWithName:(NSString *)name success:(void(^)(NSURL *url))success failure:(void(^)(NSError *error))failure;
 + (void)deleteFromDiskAsyncWithFilePathURL:(NSURL *)filePathURL withSuccess:(void(^)())success failure:(void(^)(NSError *error))failure;

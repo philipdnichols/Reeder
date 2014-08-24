@@ -60,8 +60,6 @@
 		B185DFFD19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFFC19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m */; };
 		B185E00019A83F30005E0A5F /* BookForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B185DFFF19A83F30005E0A5F /* BookForm.m */; };
 		B185E00319A841E6005E0A5F /* EBookForm.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00219A841E6005E0A5F /* EBookForm.m */; };
-		B185E00719A842A6005E0A5F /* Book+Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00619A842A6005E0A5F /* Book+Form.m */; };
-		B185E00A19A843A5005E0A5F /* EBook+Form.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00919A843A5005E0A5F /* EBook+Form.m */; };
 		B185E00D19A8DC8F005E0A5F /* CustomUITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E00C19A8DC8F005E0A5F /* CustomUITableViewCell.m */; };
 		B185E01619A8DCDC005E0A5F /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E01419A8DCDC005E0A5F /* BookCell.m */; };
 		B185E01719A8DCDC005E0A5F /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185E01519A8DCDC005E0A5F /* BookCell.xib */; };
@@ -71,6 +69,10 @@
 		B185E02619A8E943005E0A5F /* EBookCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02519A8E943005E0A5F /* EBookCell+Configure.m */; };
 		B185E02B19A8F402005E0A5F /* _BookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02819A8F402005E0A5F /* _BookChapter.m */; };
 		B185E02C19A8F402005E0A5F /* BookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02A19A8F402005E0A5F /* BookChapter.m */; };
+		B185E02F19A924E5005E0A5F /* BookForm+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E02E19A924E5005E0A5F /* BookForm+Configure.m */; };
+		B185E03219A92515005E0A5F /* EBookForm+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03119A92515005E0A5F /* EBookForm+Configure.m */; };
+		B185E03519A92CD1005E0A5F /* Book+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03419A92CD1005E0A5F /* Book+Configure.m */; };
+		B185E03819A92D69005E0A5F /* EBook+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03719A92D69005E0A5F /* EBook+Configure.m */; };
 		B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */; };
 		B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */; };
 		B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */; };
@@ -101,7 +103,7 @@
 		B19B65D819A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65D719A53B9F00EDEFFA /* NSFetchedResultsTableViewController.m */; };
 		B19B65DD19A563B500EDEFFA /* UIImage+IO.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65DC19A563B500EDEFFA /* UIImage+IO.m */; };
 		B19B65ED19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */; };
-		B19B65F019A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65EF19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m */; };
+		B19B65F019A59BC700EDEFFA /* ReadingCollectionItemFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B65EF19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.m */; };
 		B1ED5BB319941EFA001FF3E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB219941EFA001FF3E4 /* Foundation.framework */; };
 		B1ED5BB519941EFA001FF3E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */; };
 		B1ED5BB719941EFA001FF3E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1ED5BB619941EFA001FF3E4 /* UIKit.framework */; };
@@ -209,10 +211,6 @@
 		B185DFFF19A83F30005E0A5F /* BookForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookForm.m; sourceTree = "<group>"; };
 		B185E00119A841E6005E0A5F /* EBookForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBookForm.h; sourceTree = "<group>"; };
 		B185E00219A841E6005E0A5F /* EBookForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBookForm.m; sourceTree = "<group>"; };
-		B185E00519A842A6005E0A5F /* Book+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Form.h"; sourceTree = "<group>"; };
-		B185E00619A842A6005E0A5F /* Book+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Form.m"; sourceTree = "<group>"; };
-		B185E00819A843A5005E0A5F /* EBook+Form.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBook+Form.h"; sourceTree = "<group>"; };
-		B185E00919A843A5005E0A5F /* EBook+Form.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBook+Form.m"; sourceTree = "<group>"; };
 		B185E00B19A8DC8F005E0A5F /* CustomUITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomUITableViewCell.h; sourceTree = "<group>"; };
 		B185E00C19A8DC8F005E0A5F /* CustomUITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUITableViewCell.m; sourceTree = "<group>"; };
 		B185E01319A8DCDC005E0A5F /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
@@ -229,6 +227,14 @@
 		B185E02819A8F402005E0A5F /* _BookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _BookChapter.m; sourceTree = "<group>"; };
 		B185E02919A8F402005E0A5F /* BookChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookChapter.h; sourceTree = "<group>"; };
 		B185E02A19A8F402005E0A5F /* BookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookChapter.m; sourceTree = "<group>"; };
+		B185E02D19A924E5005E0A5F /* BookForm+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookForm+Configure.h"; sourceTree = "<group>"; };
+		B185E02E19A924E5005E0A5F /* BookForm+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BookForm+Configure.m"; sourceTree = "<group>"; };
+		B185E03019A92515005E0A5F /* EBookForm+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBookForm+Configure.h"; sourceTree = "<group>"; };
+		B185E03119A92515005E0A5F /* EBookForm+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBookForm+Configure.m"; sourceTree = "<group>"; };
+		B185E03319A92CD1005E0A5F /* Book+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Configure.h"; sourceTree = "<group>"; };
+		B185E03419A92CD1005E0A5F /* Book+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Configure.m"; sourceTree = "<group>"; };
+		B185E03619A92D69005E0A5F /* EBook+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBook+Configure.h"; sourceTree = "<group>"; };
+		B185E03719A92D69005E0A5F /* EBook+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBook+Configure.m"; sourceTree = "<group>"; };
 		B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reeder.xcdatamodel; sourceTree = "<group>"; };
 		B19B652C19A52F5E00EDEFFA /* _ReadingCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingCollectionItem.h; sourceTree = "<group>"; };
 		B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingCollectionItem.m; sourceTree = "<group>"; };
@@ -288,8 +294,8 @@
 		B19B65DC19A563B500EDEFFA /* UIImage+IO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IO.m"; sourceTree = "<group>"; };
 		B19B65EB19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemTypesTableViewController.h; sourceTree = "<group>"; };
 		B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemTypesTableViewController.m; sourceTree = "<group>"; };
-		B19B65EE19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReadingCollectionItemFormViewController.h; sourceTree = "<group>"; };
-		B19B65EF19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReadingCollectionItemFormViewController.m; sourceTree = "<group>"; };
+		B19B65EE19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemFormViewController.h; sourceTree = "<group>"; };
+		B19B65EF19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemFormViewController.m; sourceTree = "<group>"; };
 		B1ED5BAF19941EFA001FF3E4 /* Reeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1ED5BB219941EFA001FF3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1ED5BB419941EFA001FF3E4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -465,6 +471,7 @@
 		B185DFDE19A79528005E0A5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B19B651F19A52D8000EDEFFA /* Core Data */,
 				B185DFDF19A79532005E0A5F /* RETableViewManager */,
 			);
 			name = Model;
@@ -514,10 +521,10 @@
 		B185E00419A8427A005E0A5F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				B185E00519A842A6005E0A5F /* Book+Form.h */,
-				B185E00619A842A6005E0A5F /* Book+Form.m */,
-				B185E00819A843A5005E0A5F /* EBook+Form.h */,
-				B185E00919A843A5005E0A5F /* EBook+Form.m */,
+				B185E03319A92CD1005E0A5F /* Book+Configure.h */,
+				B185E03419A92CD1005E0A5F /* Book+Configure.m */,
+				B185E03619A92D69005E0A5F /* EBook+Configure.h */,
+				B185E03719A92D69005E0A5F /* EBook+Configure.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -552,6 +559,10 @@
 				B185E01D19A8E38D005E0A5F /* BookCell+Configure.m */,
 				B185E02419A8E943005E0A5F /* EBookCell+Configure.h */,
 				B185E02519A8E943005E0A5F /* EBookCell+Configure.m */,
+				B185E02D19A924E5005E0A5F /* BookForm+Configure.h */,
+				B185E02E19A924E5005E0A5F /* BookForm+Configure.m */,
+				B185E03019A92515005E0A5F /* EBookForm+Configure.h */,
+				B185E03119A92515005E0A5F /* EBookForm+Configure.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -646,8 +657,8 @@
 				B19B657619A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m */,
 				B19B65EB19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.h */,
 				B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */,
-				B19B65EE19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.h */,
-				B19B65EF19A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m */,
+				B19B65EE19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.h */,
+				B19B65EF19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.m */,
 			);
 			name = "Reading Collection";
 			sourceTree = "<group>";
@@ -719,7 +730,6 @@
 				B1ED5BC119941EFA001FF3E4 /* ReederAppDelegate.h */,
 				B1ED5BC219941EFA001FF3E4 /* ReederAppDelegate.m */,
 				B19B65DE19A563BA00EDEFFA /* Categories */,
-				B19B651F19A52D8000EDEFFA /* Core Data */,
 				B185DFDE19A79528005E0A5F /* Model */,
 				B1ED5BEA19941F05001FF3E4 /* View */,
 				B1ED5BEB19941F0D001FF3E4 /* Controller */,
@@ -941,19 +951,20 @@
 				B185DFF919A8361B005E0A5F /* SIActionSheet+Convenience.m in Sources */,
 				B19B653B19A52F5E00EDEFFA /* ReadingCollectionItem.m in Sources */,
 				B185E00319A841E6005E0A5F /* EBookForm.m in Sources */,
-				B185E00719A842A6005E0A5F /* Book+Form.m in Sources */,
 				B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */,
 				B185E00D19A8DC8F005E0A5F /* CustomUITableViewCell.m in Sources */,
+				B185E02F19A924E5005E0A5F /* BookForm+Configure.m in Sources */,
 				B185DFE619A7EBD5005E0A5F /* ReadingCollectionItemForm.m in Sources */,
 				B19B655819A535AA00EDEFFA /* EBook.m in Sources */,
 				B13844F119A6A1A000BD9721 /* MagicalRecord+Actions.m in Sources */,
+				B185E03519A92CD1005E0A5F /* Book+Configure.m in Sources */,
 				B19B655419A535AA00EDEFFA /* Author.m in Sources */,
 				B19B654519A530BE00EDEFFA /* ReadingCollectionItemTag.m in Sources */,
 				B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */,
 				B19B65ED19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m in Sources */,
 				B185E02219A8E823005E0A5F /* EBookCell.m in Sources */,
+				B185E03219A92515005E0A5F /* EBookForm+Configure.m in Sources */,
 				B13844EE19A6A1A000BD9721 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
-				B185E00A19A843A5005E0A5F /* EBook+Form.m in Sources */,
 				B13844F519A6A1A000BD9721 /* MagicalRecord+Setup.m in Sources */,
 				B13844E119A6A1A000BD9721 /* NSNumber+MagicalDataImport.m in Sources */,
 				B13844E819A6A1A000BD9721 /* NSManagedObject+MagicalRecord.m in Sources */,
@@ -999,6 +1010,7 @@
 				B13844ED19A6A1A000BD9721 /* NSManagedObjectContext+MagicalThreading.m in Sources */,
 				B13844E919A6A1A000BD9721 /* NSManagedObject+MagicalRequests.m in Sources */,
 				B19B657719A538D500EDEFFA /* ReadingCollectionItemsTableViewController.m in Sources */,
+				B185E03819A92D69005E0A5F /* EBook+Configure.m in Sources */,
 				B185DFE219A79560005E0A5F /* RECustomImageItem.m in Sources */,
 				B13844F219A6A1A000BD9721 /* MagicalRecord+ErrorHandling.m in Sources */,
 				B185E02B19A8F402005E0A5F /* _BookChapter.m in Sources */,
@@ -1009,7 +1021,7 @@
 				B13844DF19A6A1A000BD9721 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				B19B656D19A535B700EDEFFA /* _EBook.m in Sources */,
 				B19B656F19A535B700EDEFFA /* _EBookLog.m in Sources */,
-				B19B65F019A59BC700EDEFFA /* AddReadingCollectionItemFormViewController.m in Sources */,
+				B19B65F019A59BC700EDEFFA /* ReadingCollectionItemFormViewController.m in Sources */,
 				B13844E219A6A1A000BD9721 /* NSObject+MagicalDataImport.m in Sources */,
 				B13844E519A6A1A000BD9721 /* NSManagedObject+MagicalAggregation.m in Sources */,
 				B19B653D19A52F5E00EDEFFA /* ReadingLogTag.m in Sources */,

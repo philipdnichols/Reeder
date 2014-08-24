@@ -10,13 +10,18 @@
 #import "ReadingCollectionItem.h"
 #import "Book.h"
 #import "EBook.h"
-#import "AddReadingCollectionItemFormViewController.h"
+#import "ReadingCollectionItemFormViewController.h"
 #import "ReadingCollectionItemTypesTableViewController.h"
 #import "SIActionSheet+Convenience.h"
 #import "BookCell.h"
 #import "BookCell+Configure.h"
 #import "EBookCell.h"
 #import "EBookCell+Configure.h"
+#import "ReadingCollectionItemForm.h"
+#import "BookForm.h"
+#import "EBookForm.h"
+#import "Book+Configure.h"
+#import "EBook+Configure.h"
 
 @interface ReadingCollectionItemsTableViewController ()
 
@@ -241,10 +246,19 @@
                            cancelHandler:nil] show];
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:ViewReadingCollectionItemSegueIdentifier sender:cell];
+}
+
 #pragma mark - Navigation
 
 static NSString * const SelectReadingCollectionItemTypeSegueIdentifier = @"Select Reading Collection Item Type";
 static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading Collection Item";
+static NSString * const ViewReadingCollectionItemSegueIdentifier = @"View Reading Collection Item";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -263,12 +277,20 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *uiNavigationController = (UINavigationController *)viewController;
         UIViewController *firstVC = [uiNavigationController.viewControllers firstObject];
-        if ([firstVC isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
+        if ([firstVC isKindOfClass:[ReadingCollectionItemFormViewController class]]) {
             if (![segueIdentifier length] || [segueIdentifier isEqualToString:AddReadingCollectionItemSegueIdentifier]) {
                 if ([sender isKindOfClass:[NSNumber class]]) {
                     ReadingCollectionItemType type = (ReadingCollectionItemType)[(NSNumber *)sender unsignedIntegerValue];
-                    [self prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)firstVC withType:type];
+                    [self prepareAddReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)firstVC withType:type];
                 }
+            }
+        }
+    } else if ([viewController isKindOfClass:[ReadingCollectionItemFormViewController class]]) {
+        if (![segueIdentifier length] || [segueIdentifier isEqualToString:ViewReadingCollectionItemSegueIdentifier]) {
+            if (indexPath) {
+                ReadingCollectionItem *readingCollectionItem = [self.fetchedResultsControllerDataSource itemAtIndexPath:indexPath];
+                [self prepareViewReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)viewController
+                                               withReadingCollectionItem:readingCollectionItem];
             }
         }
     }
@@ -279,35 +301,86 @@ static NSString * const AddReadingCollectionItemSegueIdentifier = @"Add Reading 
     viewController.readingCollectionItemTypes = [ReadingCollectionItem typesAsStrings];
 }
 
-- (void)prepareAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type
+- (void)prepareAddReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type
 {
     viewController.type = type;
+}
+
+- (void)prepareViewReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)viewController
+                                 withReadingCollectionItem:(ReadingCollectionItem *)readingCollectionItem
+{
+    viewController.readingCollectionItem = readingCollectionItem;
 }
 
 #pragma mark - Unwinding
 
 - (IBAction)addedReadingCollectionItem:(UIStoryboardSegue *)segue
 {
-    if ([segue.identifier isEqualToString:ReadingCollectionItemAddedSegueIdentifier]) {
-        if ([segue.sourceViewController isKindOfClass:[AddReadingCollectionItemFormViewController class]]) {
-            [self unwindAddReadingCollectionItemFormViewController:segue.sourceViewController];
+    if ([segue.identifier isEqualToString:ReadingCollectionItemSavedSegueIdentifier]) {
+        if ([segue.sourceViewController isKindOfClass:[ReadingCollectionItemFormViewController class]]) {
+            [self unwindReadingCollectionItemFormViewController:segue.sourceViewController];
         }
     }
 }
 
-- (void)unwindAddReadingCollectionItemFormViewController:(AddReadingCollectionItemFormViewController *)viewController
+- (void)unwindReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)viewController
 {
-    ReadingCollectionItem *addedReadingCollectionItem = viewController.addedReadingCollectionItem;
-    [addedReadingCollectionItem saveWithSuccess:^{
-        // All is well.
-    } failure:^(NSError *error) {
-        [TSMessage showNotificationInViewController:self
-                                              title:@"Error"
-                                           subtitle:[error localizedDescription]
-                                               type:TSMessageNotificationTypeError];
-        
-        DDLogError(@"There was an error adding a new Reading Collection Item: %@", [error localizedDescription]);
-    }];
+    ReadingCollectionItemForm *readingCollectionItemForm = viewController.readingCollectionItemForm;
+    
+    ReadingCollectionItem *readingCollectionItem = viewController.readingCollectionItem;
+    if (!readingCollectionItem) {
+        switch (viewController.type) {
+            case ReadingCollectionItemTypeBook:
+                readingCollectionItem = [Book MR_createEntity];
+                break;
+                
+            case ReadingCollectionItemTypeEBook:
+                readingCollectionItem = [EBook MR_createEntity];
+                break;
+        }
+    }
+    
+    if ([readingCollectionItemForm isKindOfClass:[BookForm class]]) {
+        [(Book *)readingCollectionItem configureWithForm:(BookForm *)readingCollectionItemForm success:^{
+            [readingCollectionItem saveWithSuccess:^{
+                // All is well.
+            } failure:^(NSError *error) {
+                [TSMessage showNotificationInViewController:self
+                                                      title:@"Error"
+                                                   subtitle:[error localizedDescription]
+                                                       type:TSMessageNotificationTypeError];
+                
+                DDLogError(@"There was an error saving a new Book: %@", [error localizedDescription]);
+            }];
+        } failure:^(NSError *error) {
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Error"
+                                               subtitle:[error localizedDescription]
+                                                   type:TSMessageNotificationTypeError];
+            
+            DDLogError(@"There was an error adding a new Book: %@", [error localizedDescription]);
+        }];
+    } else if ([readingCollectionItemForm isKindOfClass:[EBookForm class]]) {
+        [(EBook *)readingCollectionItem configureWithForm:(EBookForm *)readingCollectionItemForm success:^{
+            [readingCollectionItem saveWithSuccess:^{
+                // All is well.
+            } failure:^(NSError *error) {
+                [TSMessage showNotificationInViewController:self
+                                                      title:@"Error"
+                                                   subtitle:[error localizedDescription]
+                                                       type:TSMessageNotificationTypeError];
+                
+                DDLogError(@"There was an error saving a new E-Book: %@", [error localizedDescription]);
+            }];
+        } failure:^(NSError *error) {
+            [TSMessage showNotificationInViewController:self
+                                                  title:@"Error"
+                                               subtitle:[error localizedDescription]
+                                                   type:TSMessageNotificationTypeError];
+            
+            DDLogError(@"There was an error adding a new E-Book: %@", [error localizedDescription]);
+        }];
+    }
 }
 
 @end

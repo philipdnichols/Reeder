@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Phil Nichols. All rights reserved.
 //
 
-#import "AddReadingCollectionItemFormViewController.h"
+#import "ReadingCollectionItemFormViewController.h"
 #import "Book.h"
 #import "EBook.h"
 #import "Author.h"
@@ -18,21 +18,19 @@
 #import "UIImagePickerController+ActionSheet.h"
 #import "BookForm.h"
 #import "EBookForm.h"
-#import "Book+Form.h"
-#import "EBook+Form.h"
 
-@interface AddReadingCollectionItemFormViewController () <RETableViewManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ReadingCollectionItemFormViewController () <RETableViewManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic, readwrite) ReadingCollectionItem *addedReadingCollectionItem;
 
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 @property (strong, nonatomic) RETableViewManager *manager;
-@property (strong, nonatomic) ReadingCollectionItemForm *form;
+@property (strong, nonatomic, readwrite) ReadingCollectionItemForm *readingCollectionItemForm;
 
 @end
 
-@implementation AddReadingCollectionItemFormViewController
+@implementation ReadingCollectionItemFormViewController
 
 #pragma mark - Properties
 
@@ -49,6 +47,15 @@
 - (void)setType:(ReadingCollectionItemType)type
 {
     _type = type;
+    
+    if (self.view.window) {
+        [self updateUI];
+    }
+}
+
+- (void)setReadingCollectionItem:(ReadingCollectionItem *)readingCollectionItem
+{
+    _readingCollectionItem = readingCollectionItem;
     
     if (self.view.window) {
         [self updateUI];
@@ -75,23 +82,31 @@
 
 - (void)updateUI
 {
-    self.title = [NSString stringWithFormat:@"Add %@", [ReadingCollectionItem stringFromType:self.type]];
+    if (self.readingCollectionItem) {
+        if ([self.readingCollectionItem isKindOfClass:[Book class]]) {
+            self.type = ReadingCollectionItemTypeBook;
+        } else if ([self.readingCollectionItem isKindOfClass:[EBook class]]) {
+            self.type = ReadingCollectionItemTypeEBook;
+        }
+    } else {
+        self.title = [NSString stringWithFormat:@"Add %@", [ReadingCollectionItem stringFromType:self.type]];
+    }
     
     switch (self.type) {
         case ReadingCollectionItemTypeBook:
-            self.form = [[BookForm alloc] init];
+            self.readingCollectionItemForm = [[BookForm alloc] initWithBook:(Book *)self.readingCollectionItem];
             break;
             
         case ReadingCollectionItemTypeEBook:
-            self.form = [[EBookForm alloc] init];
+            self.readingCollectionItemForm = [[EBookForm alloc] initWithEBook:(EBook *)self.readingCollectionItem];
             break;
     }
     
-    [self.form configureWithManager:self.manager];
+    [self.readingCollectionItemForm configureWithManager:self.manager];
     
     __weak typeof(self) weakSelf = self;
     
-    self.form.customImageItem.selectionHandler = ^(RECustomImageItem *item) {
+    self.readingCollectionItemForm.customImageItem.selectionHandler = ^(RECustomImageItem *item) {
         [weakSelf.imagePickerController presentWithActionSheetWithViewController:weakSelf];
         
         [item deselectRowAnimated:YES];
@@ -109,35 +124,20 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if ([identifier isEqualToString:ReadingCollectionItemAddedSegueIdentifier]) {
+    if ([identifier isEqualToString:ReadingCollectionItemSavedSegueIdentifier]) {
         // TODO: Add validation
     }
     
     return [super shouldPerformSegueWithIdentifier:identifier sender:sender];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:ReadingCollectionItemAddedSegueIdentifier]) {
-        switch (self.type) {
-            case ReadingCollectionItemTypeBook: {
-                self.addedReadingCollectionItem = [Book createWithForm:(BookForm *)self.form];
-                break;
-            }
-                
-            case ReadingCollectionItemTypeEBook:
-                self.addedReadingCollectionItem = [EBook createWithForm:(EBookForm *)self.form];
-                break;
-        }
-    }
-}
-
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.form.customImageItem.customImage = info[UIImagePickerControllerOriginalImage];
-    [self.form.customImageItem reloadRowWithAnimation:UITableViewRowAnimationNone];
+    self.readingCollectionItemForm.customImageItem.customImage = info[UIImagePickerControllerOriginalImage];
+    self.readingCollectionItemForm.changedImage = YES;
+    [self.readingCollectionItemForm.customImageItem reloadRowWithAnimation:UITableViewRowAnimationNone];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
