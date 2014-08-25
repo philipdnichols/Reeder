@@ -79,6 +79,7 @@
 		B185E04219AA5272005E0A5F /* EBookLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185E04019AA5272005E0A5F /* EBookLogCell.xib */; };
 		B185E04519AAD67A005E0A5F /* BookLogCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E04419AAD67A005E0A5F /* BookLogCell+Configure.m */; };
 		B185E04819AAD724005E0A5F /* EBookLogCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E04719AAD724005E0A5F /* EBookLogCell+Configure.m */; };
+		B185E04B19AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E04A19AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.m */; };
 		B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */; };
 		B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */; };
 		B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */; };
@@ -251,6 +252,8 @@
 		B185E04419AAD67A005E0A5F /* BookLogCell+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BookLogCell+Configure.m"; sourceTree = "<group>"; };
 		B185E04619AAD724005E0A5F /* EBookLogCell+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBookLogCell+Configure.h"; sourceTree = "<group>"; };
 		B185E04719AAD724005E0A5F /* EBookLogCell+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBookLogCell+Configure.m"; sourceTree = "<group>"; };
+		B185E04919AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingCollectionItemsByTypeTableViewController.h; sourceTree = "<group>"; };
+		B185E04A19AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingCollectionItemsByTypeTableViewController.m; sourceTree = "<group>"; };
 		B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reeder.xcdatamodel; sourceTree = "<group>"; };
 		B19B652C19A52F5E00EDEFFA /* _ReadingCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingCollectionItem.h; sourceTree = "<group>"; };
 		B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingCollectionItem.m; sourceTree = "<group>"; };
@@ -685,6 +688,8 @@
 				B19B65EC19A5963600EDEFFA /* ReadingCollectionItemTypesTableViewController.m */,
 				B19B65EE19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.h */,
 				B19B65EF19A59BC700EDEFFA /* ReadingCollectionItemFormViewController.m */,
+				B185E04919AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.h */,
+				B185E04A19AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.m */,
 			);
 			name = "Reading Collection";
 			sourceTree = "<group>";
@@ -1001,6 +1006,7 @@
 				B185E00019A83F30005E0A5F /* BookForm.m in Sources */,
 				B13844EF19A6A1A000BD9721 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				B185E01E19A8E38D005E0A5F /* BookCell+Configure.m in Sources */,
+				B185E04B19AADCA8005E0A5F /* ReadingCollectionItemsByTypeTableViewController.m in Sources */,
 				B19B657219A5368D00EDEFFA /* ReadingLogTableViewController.m in Sources */,
 				B19B656C19A535B700EDEFFA /* _BookLog.m in Sources */,
 				B13844EC19A6A1A000BD9721 /* NSManagedObjectContext+MagicalSaves.m in Sources */,

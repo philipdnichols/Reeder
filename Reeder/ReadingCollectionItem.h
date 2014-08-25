@@ -10,6 +10,7 @@ typedef NS_ENUM(NSUInteger, ReadingCollectionItemType) {
 + (NSArray *)typesAsTypes;
 + (NSArray *)typesAsStrings;
 + (NSString *)stringFromType:(ReadingCollectionItemType)type;
++ (NSString *)pluralStringFromType:(ReadingCollectionItemType)type;
 
 @property (strong, nonatomic, readonly) NSString *formattedAuthors;
 @property (strong, nonatomic, readonly) NSString *formattedTags;

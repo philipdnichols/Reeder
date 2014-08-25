@@ -209,7 +209,7 @@
 
 #pragma mark - IBActions
 
-- (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
+- (IBAction)addButtonTapped {
     NSMutableDictionary *typesButtonHandlers = [NSMutableDictionary dictionary];
     for (NSNumber *type in [ReadingCollectionItem typesAsTypes]) {
         SIActionSheetHandlerBlock handler = ^(SIActionSheet *actionSheet) {
@@ -298,7 +298,7 @@ static NSString * const ViewReadingCollectionItemSegueIdentifier = @"View Readin
 
 - (void)prepareReadingCollectionItemTypesTableViewController:(ReadingCollectionItemTypesTableViewController *)viewController
 {
-    viewController.readingCollectionItemTypes = [ReadingCollectionItem typesAsStrings];
+    viewController.readingCollectionItemTypes = [ReadingCollectionItem typesAsTypes];
 }
 
 - (void)prepareAddReadingCollectionItemFormViewController:(ReadingCollectionItemFormViewController *)viewController withType:(ReadingCollectionItemType)type

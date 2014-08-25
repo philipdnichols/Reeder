@@ -62,6 +62,20 @@
     return stringTypes[@(type)];
 }
 
++ (NSString *)pluralStringFromType:(ReadingCollectionItemType)type
+{
+    static NSDictionary *pluralStringTypes = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        pluralStringTypes = @{
+                              @(ReadingCollectionItemTypeBook) : @"Books",
+                              @(ReadingCollectionItemTypeEBook) : @"E-Books"
+                              };
+    });
+    
+    return pluralStringTypes[@(type)];
+}
+
 - (void)saveWithSuccess:(void(^)())success failure:(void(^)(NSError *error))failure
 {
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL succ, NSError *error) {

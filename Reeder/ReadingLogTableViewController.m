@@ -15,6 +15,8 @@
 #import "ReadingCollectionItem.h"
 #import "BookLogCell+Configure.h"
 #import "EBookLogCell+Configure.h"
+#import "SIActionSheet+Convenience.h"
+#import "ReadingCollectionItemsByTypeTableViewController.h"
 
 @interface ReadingLogTableViewController ()
 
@@ -195,6 +197,62 @@
 {
     [self.tableView registerNib:[BookLogCell nib] forCellReuseIdentifier:[BookLogCell identifier]];
     [self.tableView registerNib:[EBookLogCell nib] forCellReuseIdentifier:[EBookLogCell identifier]];
+}
+
+#pragma mark - IBActions
+
+// TODO: When tapping on Add, the user should be able to insta-create a new entry based on their last log
+- (IBAction)addButtonTapped {
+    NSMutableDictionary *typesButtonHandlers = [NSMutableDictionary dictionary];
+    for (NSNumber *type in [ReadingCollectionItem typesAsTypes]) {
+        SIActionSheetHandlerBlock handler = ^(SIActionSheet *actionSheet) {
+            [self performSegueWithIdentifier:ViewReadingCollectionItemsByTypeIdentifier sender:type];
+        };
+        
+        [typesButtonHandlers setObject:handler forKey:[ReadingCollectionItem stringFromType:(ReadingCollectionItemType)[type unsignedIntegerValue]]];
+    }
+    
+    [[SIActionSheet actionSheetWithTitle:nil
+                            buttonTitles:[ReadingCollectionItem typesAsStrings]
+                          buttonHandlers:typesButtonHandlers
+                           cancelHandler:nil] show];
+}
+
+#pragma mark - Navigation
+
+static NSString * const ViewReadingCollectionItemsByTypeIdentifier = @"View Reading Collection Items By Type";
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self prepareViewController:segue.destinationViewController
+                       forSegue:segue.identifier
+                     fromSender:sender];
+}
+
+- (void)prepareViewController:(id)viewController forSegue:(NSString *)segueIdentifier fromSender:(id)sender
+{
+    NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *uiNavigationController = (UINavigationController *)viewController;
+        UIViewController *firstVC = [uiNavigationController.viewControllers firstObject];
+        if ([firstVC isKindOfClass:[ReadingCollectionItemsByTypeTableViewController class]]) {
+            if (![segueIdentifier length] || [segueIdentifier isEqualToString:ViewReadingCollectionItemsByTypeIdentifier]) {
+                if ([sender isKindOfClass:[NSNumber class]]) {
+                    ReadingCollectionItemType type = (ReadingCollectionItemType)[(NSNumber *)sender unsignedIntegerValue];
+                    [self prepareReadingCollectionItemsByTypeViewController:(ReadingCollectionItemsByTypeTableViewController *)firstVC withType:type];
+                }
+            }
+        }
+    }
+}
+
+- (void)prepareReadingCollectionItemsByTypeViewController:(ReadingCollectionItemsByTypeTableViewController *)viewController withType:(ReadingCollectionItemType)type
+{
+    viewController.type = type;
 }
 
 @end

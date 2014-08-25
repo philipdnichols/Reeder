@@ -16,6 +16,7 @@ static NSString * const ReadingCollectionItemTypeCellIdentifier = @"ReadingColle
 
 @property (strong, nonatomic) ArrayDataSource *readingCollectionItemTypeArrayDataSource;
 
+@property (nonatomic, copy) TableViewCellIdentifierBlock readingCollectionItemTypeCellIdentifierBlock;
 @property (nonatomic, copy) TableViewCellConfigureBlock readingCollectionItemTypeCellConfigureBlock;
 
 @end
@@ -41,11 +42,21 @@ static NSString * const ReadingCollectionItemTypeCellIdentifier = @"ReadingColle
     [self.tableView reloadData];
 }
 
+- (TableViewCellIdentifierBlock)readingCollectionItemTypeCellIdentifierBlock
+{
+    if (!_readingCollectionItemTypeCellIdentifierBlock) {
+        _readingCollectionItemTypeCellIdentifierBlock = ^NSString *(NSNumber *type) {
+            return @"";
+        };
+    }
+    return _readingCollectionItemTypeCellIdentifierBlock;
+}
+
 - (TableViewCellConfigureBlock)readingCollectionItemTypeCellConfigureBlock
 {
     if (!_readingCollectionItemTypeCellConfigureBlock) {
-        _readingCollectionItemTypeCellConfigureBlock = ^(UITableViewCell *cell, NSString *type) {
-            cell.textLabel.text = type;
+        _readingCollectionItemTypeCellConfigureBlock = ^(UITableViewCell *cell, NSNumber *type) {
+            cell.textLabel.text = [ReadingCollectionItem stringFromType:(ReadingCollectionItemType)[type unsignedIntegerValue]];
         };
     }
     return _readingCollectionItemTypeCellConfigureBlock;
@@ -63,7 +74,7 @@ static NSString * const ReadingCollectionItemTypeCellIdentifier = @"ReadingColle
 - (void)updateUI
 {
     self.readingCollectionItemTypeArrayDataSource = [[ArrayDataSource alloc] initWithItems:self.readingCollectionItemTypes
-                                                                            cellIdentifier:ReadingCollectionItemTypeCellIdentifier
+                                                                            cellIdentifierBlock:self.readingCollectionItemTypeCellIdentifierBlock
                                                                         configureCellBlock:self.readingCollectionItemTypeCellConfigureBlock];
 }
 

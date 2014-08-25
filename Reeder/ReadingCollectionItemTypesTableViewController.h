@@ -11,6 +11,6 @@
 @interface ReadingCollectionItemTypesTableViewController : UITableViewController
 
 // In
-@property (strong, nonatomic) NSArray *readingCollectionItemTypes; // of NSString
+@property (strong, nonatomic) NSArray *readingCollectionItemTypes; // of NSNumber
 
 @end
