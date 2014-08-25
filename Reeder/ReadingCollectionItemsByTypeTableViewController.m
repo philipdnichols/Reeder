@@ -147,6 +147,7 @@
 
 #pragma mark - UITableViewDelegate
 
+// TODO: This is very simple to just put into here, but could be abstracted out I suppose
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return self.readingCollectionItemCellHeightBlock(indexPath);
