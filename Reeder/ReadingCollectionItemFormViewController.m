@@ -83,6 +83,7 @@
 - (void)updateUI
 {
     if (self.readingCollectionItem) {
+        self.navigationItem.leftBarButtonItem = nil;
         if ([self.readingCollectionItem isKindOfClass:[Book class]]) {
             self.type = ReadingCollectionItemTypeBook;
         } else if ([self.readingCollectionItem isKindOfClass:[EBook class]]) {

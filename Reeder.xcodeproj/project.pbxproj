@@ -73,6 +73,12 @@
 		B185E03219A92515005E0A5F /* EBookForm+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03119A92515005E0A5F /* EBookForm+Configure.m */; };
 		B185E03519A92CD1005E0A5F /* Book+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03419A92CD1005E0A5F /* Book+Configure.m */; };
 		B185E03819A92D69005E0A5F /* EBook+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03719A92D69005E0A5F /* EBook+Configure.m */; };
+		B185E03C19AA5123005E0A5F /* BookLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03A19AA5123005E0A5F /* BookLogCell.m */; };
+		B185E03D19AA5123005E0A5F /* BookLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185E03B19AA5123005E0A5F /* BookLogCell.xib */; };
+		B185E04119AA5272005E0A5F /* EBookLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E03F19AA5272005E0A5F /* EBookLogCell.m */; };
+		B185E04219AA5272005E0A5F /* EBookLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B185E04019AA5272005E0A5F /* EBookLogCell.xib */; };
+		B185E04519AAD67A005E0A5F /* BookLogCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E04419AAD67A005E0A5F /* BookLogCell+Configure.m */; };
+		B185E04819AAD724005E0A5F /* EBookLogCell+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = B185E04719AAD724005E0A5F /* EBookLogCell+Configure.m */; };
 		B19B652219A52D9700EDEFFA /* Reeder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B19B652019A52D9700EDEFFA /* Reeder.xcdatamodeld */; };
 		B19B653819A52F5E00EDEFFA /* _ReadingCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */; };
 		B19B653919A52F5E00EDEFFA /* _ReadingLog.m in Sources */ = {isa = PBXBuildFile; fileRef = B19B652F19A52F5E00EDEFFA /* _ReadingLog.m */; };
@@ -235,6 +241,16 @@
 		B185E03419A92CD1005E0A5F /* Book+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Configure.m"; sourceTree = "<group>"; };
 		B185E03619A92D69005E0A5F /* EBook+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBook+Configure.h"; sourceTree = "<group>"; };
 		B185E03719A92D69005E0A5F /* EBook+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBook+Configure.m"; sourceTree = "<group>"; };
+		B185E03919AA5123005E0A5F /* BookLogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookLogCell.h; sourceTree = "<group>"; };
+		B185E03A19AA5123005E0A5F /* BookLogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookLogCell.m; sourceTree = "<group>"; };
+		B185E03B19AA5123005E0A5F /* BookLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookLogCell.xib; sourceTree = "<group>"; };
+		B185E03E19AA5272005E0A5F /* EBookLogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBookLogCell.h; sourceTree = "<group>"; };
+		B185E03F19AA5272005E0A5F /* EBookLogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EBookLogCell.m; sourceTree = "<group>"; };
+		B185E04019AA5272005E0A5F /* EBookLogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EBookLogCell.xib; sourceTree = "<group>"; };
+		B185E04319AAD67A005E0A5F /* BookLogCell+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BookLogCell+Configure.h"; sourceTree = "<group>"; };
+		B185E04419AAD67A005E0A5F /* BookLogCell+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BookLogCell+Configure.m"; sourceTree = "<group>"; };
+		B185E04619AAD724005E0A5F /* EBookLogCell+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EBookLogCell+Configure.h"; sourceTree = "<group>"; };
+		B185E04719AAD724005E0A5F /* EBookLogCell+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EBookLogCell+Configure.m"; sourceTree = "<group>"; };
 		B19B652119A52D9700EDEFFA /* Reeder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reeder.xcdatamodel; sourceTree = "<group>"; };
 		B19B652C19A52F5E00EDEFFA /* _ReadingCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ReadingCollectionItem.h; sourceTree = "<group>"; };
 		B19B652D19A52F5E00EDEFFA /* _ReadingCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ReadingCollectionItem.m; sourceTree = "<group>"; };
@@ -539,6 +555,12 @@
 				B185E01F19A8E823005E0A5F /* EBookCell.h */,
 				B185E02019A8E823005E0A5F /* EBookCell.m */,
 				B185E02119A8E823005E0A5F /* EBookCell.xib */,
+				B185E03919AA5123005E0A5F /* BookLogCell.h */,
+				B185E03A19AA5123005E0A5F /* BookLogCell.m */,
+				B185E03B19AA5123005E0A5F /* BookLogCell.xib */,
+				B185E03E19AA5272005E0A5F /* EBookLogCell.h */,
+				B185E03F19AA5272005E0A5F /* EBookLogCell.m */,
+				B185E04019AA5272005E0A5F /* EBookLogCell.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -563,6 +585,10 @@
 				B185E02E19A924E5005E0A5F /* BookForm+Configure.m */,
 				B185E03019A92515005E0A5F /* EBookForm+Configure.h */,
 				B185E03119A92515005E0A5F /* EBookForm+Configure.m */,
+				B185E04319AAD67A005E0A5F /* BookLogCell+Configure.h */,
+				B185E04419AAD67A005E0A5F /* BookLogCell+Configure.m */,
+				B185E04619AAD724005E0A5F /* EBookLogCell+Configure.h */,
+				B185E04719AAD724005E0A5F /* EBookLogCell+Configure.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -877,8 +903,10 @@
 				B1ED5BC919941EFA001FF3E4 /* Main_iPad.storyboard in Resources */,
 				B138449C19A6A19500BD9721 /* SIActionSheet.bundle in Resources */,
 				B1ED5BCE19941EFA001FF3E4 /* Images.xcassets in Resources */,
+				B185E04219AA5272005E0A5F /* EBookLogCell.xib in Resources */,
 				B1ED5BC619941EFA001FF3E4 /* Main_iPhone.storyboard in Resources */,
 				B1ED5BBD19941EFA001FF3E4 /* InfoPlist.strings in Resources */,
+				B185E03D19AA5123005E0A5F /* BookLogCell.xib in Resources */,
 				B185E01719A8DCDC005E0A5F /* BookCell.xib in Resources */,
 				B185E02319A8E823005E0A5F /* EBookCell.xib in Resources */,
 				B185DFDD19A794FD005E0A5F /* RECustomImageCell.xib in Resources */,
@@ -968,6 +996,7 @@
 				B13844F519A6A1A000BD9721 /* MagicalRecord+Setup.m in Sources */,
 				B13844E119A6A1A000BD9721 /* NSNumber+MagicalDataImport.m in Sources */,
 				B13844E819A6A1A000BD9721 /* NSManagedObject+MagicalRecord.m in Sources */,
+				B185E04819AAD724005E0A5F /* EBookLogCell+Configure.m in Sources */,
 				B19B656B19A535B700EDEFFA /* _Book.m in Sources */,
 				B185E00019A83F30005E0A5F /* BookForm.m in Sources */,
 				B13844EF19A6A1A000BD9721 /* NSPersistentStore+MagicalRecord.m in Sources */,
@@ -980,10 +1009,12 @@
 				B13844EB19A6A1A000BD9721 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
 				B138449F19A6A19500BD9721 /* UIWindow+SIUtils.m in Sources */,
 				B185DFDC19A794FD005E0A5F /* RECustomImageCell.m in Sources */,
+				B185E03C19AA5123005E0A5F /* BookLogCell.m in Sources */,
 				B13844F719A6A1A000BD9721 /* MagicalRecord.m in Sources */,
 				B19B65D519A53B9100EDEFFA /* NSFetchedResultsControllerDataSource.m in Sources */,
 				B19B654419A530BE00EDEFFA /* _ReadingCollectionItemTag.m in Sources */,
 				B19B653A19A52F5E00EDEFFA /* _ReadingLogTag.m in Sources */,
+				B185E04519AAD67A005E0A5F /* BookLogCell+Configure.m in Sources */,
 				B19B65D419A53B9100EDEFFA /* ArrayDataSource.m in Sources */,
 				B19B656A19A535B700EDEFFA /* _AuthorTag.m in Sources */,
 				B19B655519A535AA00EDEFFA /* AuthorTag.m in Sources */,
@@ -1004,6 +1035,7 @@
 				B185E02C19A8F402005E0A5F /* BookChapter.m in Sources */,
 				B13844E719A6A1A000BD9721 /* NSManagedObject+MagicalFinders.m in Sources */,
 				B13844DE19A6A1A000BD9721 /* MagicalImportFunctions.m in Sources */,
+				B185E04119AA5272005E0A5F /* EBookLogCell.m in Sources */,
 				B13844EA19A6A1A000BD9721 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				B19B655A19A535AA00EDEFFA /* EBookLog.m in Sources */,
 				B185DFFD19A83CAC005E0A5F /* UIImagePickerController+ActionSheet.m in Sources */,

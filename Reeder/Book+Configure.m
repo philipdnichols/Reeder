@@ -98,6 +98,7 @@
         self.dateAddedToCollection = [NSDate date];
     }
     
+    // TODO: Thumbnail should be saved first, since it's displayed to the user first.
     NSOperationQueue *backgroundQueue = [[NSOperationQueue alloc] init];
     [backgroundQueue addOperationWithBlock:^{
         if (bookForm.changedImage) {

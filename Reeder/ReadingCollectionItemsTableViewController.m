@@ -137,17 +137,17 @@
 - (FetchedResultsCellConfigureBlock)readingCollectionItemCellConfigureBlock
 {
     if (!_readingCollectionItemCellConfigureBlock) {
-        _readingCollectionItemCellConfigureBlock = ^(UITableViewCell *readingCollectionItemCell, ReadingCollectionItem *collectionItem) {
+        _readingCollectionItemCellConfigureBlock = ^(UITableViewCell *readingCollectionItemCell, ReadingCollectionItem *readingCollectionItem) {
             if ([readingCollectionItemCell isKindOfClass:[BookCell class]]) {
                 BookCell *bookCell = (BookCell *)readingCollectionItemCell;
-                [bookCell configureWithBook:(Book *)collectionItem];
+                [bookCell configureWithBook:(Book *)readingCollectionItem];
             } else if ([readingCollectionItemCell isKindOfClass:[EBookCell class]]) {
                 EBookCell *ebookCell = (EBookCell *)readingCollectionItemCell;
-                [ebookCell configureWithEBook:(EBook *)collectionItem];
+                [ebookCell configureWithEBook:(EBook *)readingCollectionItem];
             } else {
-                readingCollectionItemCell.textLabel.text = collectionItem.title;
-                readingCollectionItemCell.detailTextLabel.text = [collectionItem formattedAuthors];
-                readingCollectionItemCell.imageView.image = [UIImage imageWithContentsOfFile:collectionItem.thumbnailImageFileURL];
+                readingCollectionItemCell.textLabel.text = readingCollectionItem.title;
+                readingCollectionItemCell.detailTextLabel.text = [readingCollectionItem formattedAuthors];
+                readingCollectionItemCell.imageView.image = [UIImage imageWithContentsOfFile:readingCollectionItem.thumbnailImageFileURL];
             }
         };
     }
@@ -178,7 +178,7 @@
                                                                              subtitle:[error localizedDescription]
                                                                                  type:TSMessageNotificationTypeError];
                                       
-                                          DDLogError(@"There was an error deleting the item: %@", [error localizedDescription]);
+                                          DDLogError(@"There was an error deleting the reading collection item: %@", [error localizedDescription]);
                                       }];
                                   }];
             
